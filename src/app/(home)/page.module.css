@@ -1,0 +1,26 @@
+.sections {
+  display: block;
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow: hidden scroll;
+}
+
+.sections section {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  scroll-snap-align: start;
+}
+
+.sections section .content {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+
+.sections > section:nth-child(1) > .content {
+  background-image: url(../assets/clothes.webp);
+  background-position: center;
+  background-size: cover;
+}
