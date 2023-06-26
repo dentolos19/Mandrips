@@ -19,7 +19,7 @@
   margin: auto;
 }
 
-.sections > section:nth-child(1) > .content {
+.sections > section:nth-child(2) > .content {
   background-image: url(../assets/clothes.webp);
   background-position: center;
   background-size: cover;

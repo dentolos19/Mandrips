@@ -61,8 +61,13 @@ export default function Page() {
               </div>
             </div>
             <div>
-              <input type={"submit"} value={"Filter"} />
-              <input type={"reset"} value={"Clear"} />
+              <input
+                className={"button"}
+                type={"submit"}
+                value={"Filter"}
+                style={{ marginRight: "8px" }}
+              />
+              <input className={"button"} type={"reset"} value={"Clear"} />
             </div>
           </div>
         </div>
@@ -75,6 +80,7 @@ export default function Page() {
             ></input>
           </div>
           <div className={styles.items}>
+            <div className={"glass-effect"}></div>
             <div className={"glass-effect"}></div>
             <div className={"glass-effect"}></div>
             <div className={"glass-effect"}></div>
