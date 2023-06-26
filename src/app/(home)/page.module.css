@@ -24,3 +24,15 @@
   background-position: center;
   background-size: cover;
 }
+
+.sections > section:nth-child(3) > .content {
+  background-image: url(../assets/clothes.webp);
+  background-position: center;
+  background-size: cover;
+}
+
+.sections > section:nth-child(4) > .content {
+  background-image: url(../assets/clothes.webp);
+  background-position: center;
+  background-size: cover;
+}

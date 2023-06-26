@@ -19,23 +19,48 @@ body {
 }
 
 .glass-effect {
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(2pt);
-  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .button {
   all: unset;
+  overflow: hidden;
   padding: 6px 12px;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(2pt);
-  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.15);
   transition: all 250ms;
 }
 
 .button:hover {
   cursor: pointer;
   scale: 1.1;
+}
+
+.button::before {
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.button::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  inset: 0 0 0 0;
+  background: hsl(200 100% 80%);
+  transition: transform 0.3s ease;
+  z-index: -1;
 }
