@@ -1,3 +1,5 @@
+@import "~lineicons/web-font/lineicons.css";
+
 .navigation-gutter {
   height: 100px;
 }
@@ -23,4 +25,8 @@
 
 .button:active {
   scale: 1;
+}
+
+i.lni {
+  font-size: 1.35rem;
 }
