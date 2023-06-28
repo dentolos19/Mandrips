@@ -1,5 +1,6 @@
 import styles from "./page.module.scss";
 
+import Link from "next/link";
 import { makeUseStyles } from "@/lib/utilities";
 
 export default function Page() {
@@ -59,16 +60,22 @@ export default function Page() {
             <input name={"search"} type={"search"} placeholder={"Search"} />
           </div>
           <div className={useStyles(["items"])}>
-            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
-            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
-            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
-            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
-            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
-            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
-            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
-            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
-            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
-            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
+            {[...Array(10)].map((_, index) => (
+              <Link
+                id={index.toString()}
+                href={"/details"}
+                style={{
+                  display: "grid",
+                  minWidth: "150px",
+                  minHeight: "150px",
+                  placeItems: "center",
+                  color: "inherit",
+                  textDecoration: "none",
+                }}
+              >
+                Item
+              </Link>
+            ))}
           </div>
         </div>
       </form>
