@@ -1,0 +1,25 @@
+.navigation-gutter {
+  height: 100px;
+}
+
+.surface {
+  border-radius: 8px;
+  box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.2);
+}
+
+.button {
+  @extend .surface;
+
+  padding: 0.5rem 1rem;
+  background: white;
+  border: none;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.button:active {
+  opacity: 0.8;
+}

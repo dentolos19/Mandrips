@@ -1,18 +1,20 @@
-import styles from "./navbar.module.css";
+import styles from "./navbar.module.scss";
 
 import Link from "next/link";
+import { makeUseStyles } from "@/lib/utilities";
 
 export default function Navbar() {
+  const useStyles = makeUseStyles(styles);
   return (
-    <div className={styles.navigation}>
-      <nav className={"glass-effect"}>
-        <h3>Mandrips</h3>
-        <span className={styles.items}>
-          <Link href={"/"}>Home</Link>
+    <div className={useStyles(["navigation-container"])}>
+      <nav className={useStyles(["navigation"])}>
+        <span className={useStyles(["title"])}>Mandrips</span>
+        <span className={useStyles(["items"])}>
+          <Link href={"/#start"}>Home</Link>
           <Link href={"/products"}>Products</Link>
-          <Link href={"/feedback"}>Feedback</Link>
-          <Link href={"/about"}>About</Link>
-          <Link href={"/cart"}>Cart</Link>
+          <Link href={"/#wip"}>Feedback</Link>
+          <Link href={"/#wip"}>About</Link>
+          <Link href={"/#wip"}>Cart</Link>
         </span>
       </nav>
     </div>

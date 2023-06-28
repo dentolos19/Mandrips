@@ -1,47 +1,31 @@
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
+
+import { makeUseStyles } from "@/lib/utilities";
 
 export default function Page() {
+  const useStyles = makeUseStyles(styles);
   return (
-    <form>
-      <div className={"navigation-gutter"}></div>
-      <div className={styles.container}>
-        <div className={styles.left}>
-          <div className={[styles.filters, "glass-effect"].join(" ")}>
-            <div>
+    <main>
+      <div className={useStyles(["navigation-gutter"])}></div>
+      <form className={useStyles(["container"])}>
+        <div className={useStyles(["left"])}>
+          <div className={useStyles(["filters"])}>
+            <section>
               <div>Categories</div>
-              <div>
-                <input name={"category"} type={"checkbox"} value={"hoodies"} />
-                <label>Hoodies</label>
-              </div>
               <div>
                 <input name={"category"} type={"checkbox"} value={"shirts"} />
                 <label>Shirts</label>
               </div>
               <div>
-                <input name={"category"} type={"checkbox"} value={"pants"} />
-                <label>Pants</label>
+                <input name={"category"} type={"checkbox"} value={"hoodies"} />
+                <label>Hoodies</label>
               </div>
               <div>
-                <input name={"category"} type={"checkbox"} value={"shorts"} />
-                <label>Shorts</label>
+                <input name={"category"} type={"checkbox"} value={"hats"} />
+                <label>Hats</label>
               </div>
-            </div>
-            <div>
-              <div>Sizes</div>
-              <div>
-                <input name={"size"} type={"checkbox"} value={"small"} />
-                <label>Small</label>
-              </div>
-              <div>
-                <input name={"size"} type={"checkbox"} value={"medium"} />
-                <label>Medium</label>
-              </div>
-              <div>
-                <input name={"size"} type={"checkbox"} value={"large"} />
-                <label>Large</label>
-              </div>
-            </div>
-            <div>
+            </section>
+            <section>
               <div>Price Ranges</div>
               <div>
                 <input name={"price"} type={"radio"} value={"all"} checked />
@@ -57,50 +41,37 @@ export default function Page() {
               </div>
               <div>
                 <input name={"price"} type={"radio"} value={"rich"} />
-                <label>$100 to beyond</label>
+                <label>$100 and beyond</label>
               </div>
-            </div>
-            <div>
-              <input
-                className={"button"}
-                type={"submit"}
-                value={"Filter"}
-                style={{ marginRight: "8px" }}
-              />
-              <input className={"button"} type={"reset"} value={"Clear"} />
+            </section>
+            <div className={useStyles(["buttons"])}>
+              <button className={useStyles(["button"])} type={"submit"}>
+                Filter
+              </button>
+              <button className={useStyles(["button"])} type={"reset"}>
+                Clear
+              </button>
             </div>
           </div>
         </div>
-        <div className={styles.right}>
-          <div className={[styles.search, "glass-effect"].join(" ")}>
-            <input
-              name={"search"}
-              type={"search"}
-              placeholder={"Search"}
-            ></input>
+        <div className={useStyles(["right"])}>
+          <div className={useStyles(["search"])}>
+            <input name={"search"} type={"search"} placeholder={"Search"} />
           </div>
-          <div className={styles.items}>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
-            <div className={"glass-effect"}></div>
+          <div className={useStyles(["items"])}>
+            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
+            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
+            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
+            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
+            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
+            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
+            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
+            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
+            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
+            <div style={{ minWidth: "150px", minHeight: "150px" }}></div>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </main>
   );
 }

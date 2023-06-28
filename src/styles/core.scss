@@ -1,0 +1,13 @@
+@import "./common.scss";
+
+* {
+  user-select: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+body {
+  margin: 0;
+}

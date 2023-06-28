@@ -1,41 +1,45 @@
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
+
+import { makeUseStyles } from "@/lib/utilities";
 
 export default function Page() {
+  const useStyles = makeUseStyles(styles);
   return (
-    <div className={styles.sections}>
-      <section>
-        <div className={"navigation-gutter"}></div>
-        <div
-          className={[styles.content, "glass-effect"].join(" ")}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <h1>Welcome to our online store!</h1>
-          <p>The world's oldest clothing provider!</p>
-          <p>
-            <button className={"button"} style={{ marginRight: "8px" }}>
-              Shop now!
-            </button>
-            <button className={"button"}>Learn more...</button>
-          </p>
+    <main className={useStyles(["sections"])}>
+      <section id="start">
+        <div className={useStyles(["navigation-gutter"])}></div>
+        <div className={useStyles(["content"])}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100%",
+            }}
+          >
+            <h1>Welcome to our online store!</h1>
+            <p>The world's oldest clothing provider!</p>
+          </div>
         </div>
       </section>
-      <section>
-        <div className={"navigation-gutter"}></div>
-        <div className={[styles.content, "glass-effect"].join(" ")}></div>
+      <section id="wip">
+        <div className={useStyles(["navigation-gutter"])}></div>
+        <div className={useStyles(["content"])}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100%",
+            }}
+          >
+            <h1>Work in progress</h1>
+            <p>This website is still under construction.</p>
+          </div>
+        </div>
       </section>
-      <section>
-        <div className={"navigation-gutter"}></div>
-        <div className={[styles.content, "glass-effect"].join(" ")}></div>
-      </section>
-      <section>
-        <div className={"navigation-gutter"}></div>
-        <div className={[styles.content, "glass-effect"].join(" ")}></div>
-      </section>
-    </div>
+    </main>
   );
 }
