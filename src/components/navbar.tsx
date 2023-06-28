@@ -10,7 +10,7 @@ export default function Navbar() {
       <nav className={useStyles(["navigation"])}>
         <span className={useStyles(["title"])}>Mandrips</span>
         <span className={useStyles(["items"])}>
-          <Link href={"/#start"}>Home</Link>
+          <Link href={"/"}>Home</Link>
           <Link href={"/products"}>Products</Link>
           <Link href={"/#wip"}>Feedback</Link>
           <Link href={"/#wip"}>About</Link>

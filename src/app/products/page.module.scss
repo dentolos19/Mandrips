@@ -47,11 +47,11 @@
 
 .search > input {
   width: 100%;
-  margin: 0.4rem;
+  margin: 0.6rem;
   border: none;
 }
 
-.search > input::-webkit-search-cancel-button {
+.search > input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 

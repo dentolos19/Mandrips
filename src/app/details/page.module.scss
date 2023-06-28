@@ -1,8 +1,22 @@
 @import "@/styles/common.scss";
+.sections {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow: hidden scroll;
 
-.container {
+  section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    scroll-snap-align: start;
+  }
+}
+
+.content-product {
   display: flex;
   width: 90%;
+  height: 80%;
   margin: {
     left: auto;
     right: auto;
@@ -16,6 +30,19 @@
   .right {
     max-width: 25%;
   }
+}
+
+.content-reviews {
+  @extend .surface;
+
+  display: grid;
+  width: 90%;
+  height: 80%;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  place-items: center;
 }
 
 .display {
@@ -43,14 +70,16 @@
     @extend .surface;
 
     margin-bottom: 0.5rem;
-    padding: 0 0.7rem;
+    background: white;
     overflow: hidden;
   }
 
   .setting > select {
     width: 100%;
-    margin: 0.4rem;
+    margin: 0.6rem;
+    padding: 0 0.7rem;
     border: none;
+    -webkit-appearance: none;
   }
 
   .buttons {
