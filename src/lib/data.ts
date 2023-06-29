@@ -1,7 +1,3 @@
-import useSWR from "swr";
-
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 export type Clothing = {
   id: number;
   type: string;
@@ -13,7 +9,3 @@ export type Clothing = {
     file: string;
   };
 };
-
-export function getClothings() {
-  const { data, error, isLoading } = useSWR("/clothes/data.json", fetcher);
-}
