@@ -10,7 +10,7 @@ export default function Page() {
       <div className={useStyles(["navigation-gutter"])}></div>
       <form className={useStyles(["container"])}>
         <div className={useStyles(["left"])}>
-          <div className={useStyles(["filters"])}>
+          <form className={useStyles(["filters"])}>
             <section>
               <div>Categories</div>
               <div>
@@ -53,7 +53,7 @@ export default function Page() {
                 Clear
               </button>
             </div>
-          </div>
+          </form>
         </div>
         <div className={useStyles(["right"])}>
           <div className={useStyles(["search"])}>

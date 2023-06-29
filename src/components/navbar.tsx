@@ -13,7 +13,7 @@ export default function Navbar() {
           <Link href={"/"}>Home</Link>
           <Link href={"/products"}>Products</Link>
           <Link href={"/#wip"}>Feedback</Link>
-          <Link href={"/#wip"}>About</Link>
+          <Link href={"/about"}>About</Link>
           <Link href={"/#wip"}>
             <i className={"lni lni-cart"}></i>
           </Link>

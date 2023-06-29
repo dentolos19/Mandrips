@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "type": "shirt",
+    "name": "Crew Neck Short Sleeve T-Shirt",
+    "price": 14.9,
+    "description": "Heavyweight fabric gains character the more you wear it. Flattering roomy fit.",
+    "colors": [
+      {
+        "name": "Black",
+        "file": "1/black.webp"
+      },
+      {
+        "name": "Gray",
+        "file": "1/gray.webp"
+      },
+      {
+        "name": "Natural",
+        "file": "1/natural.webp"
+      },
+      {
+        "name": "Red",
+        "file": "1/red.webp"
+      }
+    ]
+  }
+]

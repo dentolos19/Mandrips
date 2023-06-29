@@ -1,0 +1,89 @@
+@import "@/styles/common.scss";
+
+.sections {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow: hidden scroll;
+
+  section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    scroll-snap-align: start;
+
+    .content {
+      @extend .surface;
+
+      width: 90%;
+      height: 80%;
+      margin: {
+        left: auto;
+        right: auto;
+      }
+    }
+  }
+}
+
+.about {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .image {
+    width: 20%;
+    border-radius: 8px;
+  }
+
+  .text {
+    max-width: 70%;
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    h5 {
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+
+    span {
+      color: #f9004d;
+    }
+  }
+}
+
+.vision {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  h3 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  h3 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  video {
+    height: 75%;
+    margin: auto;
+    border-radius: 8px;
+  }
+}

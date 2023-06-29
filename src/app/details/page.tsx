@@ -10,10 +10,7 @@ export default function Page() {
         <div className={useStyles(["navigation-gutter"])}></div>
         <div className={useStyles(["content-product"])}>
           <div className={useStyles(["left"])}>
-            <div
-              className={useStyles(["display"])}
-              style={{ display: "grid", placeItems: "center", height: "80vh" }}
-            >
+            <div className={useStyles(["display"])} style={{ display: "grid", placeItems: "center", height: "80vh" }}>
               Image here.
             </div>
           </div>
@@ -22,10 +19,9 @@ export default function Page() {
               <div className={useStyles(["title"])}>Product Name</div>
               <div>Price</div>
               <div className={useStyles(["description"])}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.
               </div>
               <div className={useStyles(["setting"])}>
                 <select>
