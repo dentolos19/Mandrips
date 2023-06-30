@@ -3,7 +3,7 @@
     "id": 1,
     "type": "shirt",
     "name": "Crew Neck Short Sleeve T-Shirt",
-    "price": 14.9,
+    "price": "S$14.90",
     "description": "Heavyweight fabric gains character the more you wear it. Flattering roomy fit.",
     "colors": [
       {
@@ -21,6 +21,27 @@
       {
         "name": "Red",
         "file": "1/red.webp"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "hoodie",
+    "name": "Stretch Dry Sweat Long Sleeve Full-Zip Hoodie",
+    "price": "S$59.90",
+    "description": "Based on customer feedback, we updated these sweats to be wrinkle-resistant and have a natural look that is great for everyday wear.",
+    "colors": [
+      {
+        "name": "Black",
+        "file": "2/black.webp"
+      },
+      {
+        "name": "Blue",
+        "file": "2/blue.webp"
+      },
+      {
+        "name": "Gray",
+        "file": "2/gray.webp"
       }
     ]
   }

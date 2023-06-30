@@ -1,10 +1,15 @@
-import styles from "./page.module.scss";
+"use client";
 
+import styles from "./page.module.scss";
 import Link from "next/link";
+import Loading from "@/app/loading";
 import { makeUseStyles } from "@/lib/utilities";
+import { getClothings } from "@/lib/data";
 
 export default function Page() {
   const useStyles = makeUseStyles(styles);
+  const { data, isLoading } = getClothings();
+  if (isLoading) return <Loading />;
   return (
     <main>
       <div className={useStyles(["navigation-gutter"])}></div>
@@ -60,22 +65,17 @@ export default function Page() {
             <input name={"search"} type={"search"} placeholder={"Search"} />
           </div>
           <div className={useStyles(["items"])}>
-            {[...Array(10)].map((_, index) => (
-              <Link
-                key={index.toString()}
-                href={"/details"}
-                style={{
-                  display: "grid",
-                  minWidth: "150px",
-                  minHeight: "150px",
-                  placeItems: "center",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              >
-                Item
-              </Link>
-            ))}
+            {data.map((item) =>
+              item.colors.map((color) => (
+                <Link
+                  key={item.id}
+                  className={useStyles(["item"])}
+                  href={"/details/" + item.id + "?color=" + color.name}
+                >
+                  <img src={"clothes/" + color.file} />
+                </Link>
+              ))
+            )}
           </div>
         </div>
       </form>

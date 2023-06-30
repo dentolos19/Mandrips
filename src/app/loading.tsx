@@ -1,10 +1,9 @@
-export default function NotFound() {
+export default function Loading() {
   return (
     <main>
       <div className={"navigation-gutter"}></div>
       <div style={{ textAlign: "center" }}>
-        <h3>404</h3>
-        <p>The page that you're looking for does not exist.</p>
+        <h3>Loading...</h3>
       </div>
     </main>
   );

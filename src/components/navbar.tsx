@@ -1,5 +1,4 @@
 import styles from "./navbar.module.scss";
-
 import Link from "next/link";
 import { makeUseStyles } from "@/lib/utilities";
 

@@ -48,6 +48,15 @@
 
 .display {
   @extend .surface;
+
+  display: flex;
+  height: 100%;
+
+  img {
+    display: block;
+    height: 90%;
+    margin: auto;
+  }
 }
 
 .details {

@@ -1,5 +1,4 @@
 import styles from "./page.module.scss";
-
 import { makeUseStyles } from "@/lib/utilities";
 
 export default function Page() {

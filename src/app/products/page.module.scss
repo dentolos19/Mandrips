@@ -59,19 +59,27 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-}
 
-.items > * {
-  @extend .surface;
+  .item {
+    @extend .surface;
 
-  transition: all 250ms;
-}
+    width: 150px;
+    border: 1px solid black;
+    overflow: hidden;
+    transition: all 250ms;
 
-.items > *:hover {
-  cursor: pointer;
-  scale: 1.05;
-}
+    img {
+      display: block;
+      width: inherit;
+    }
 
-.items > *:active {
-  scale: 1;
+    &:hover {
+      cursor: pointer;
+      scale: 1.05;
+    }
+
+    &:active {
+      scale: 1;
+    }
+  }
 }

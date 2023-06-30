@@ -1,12 +1,11 @@
 import styles from "./page.module.scss";
-
 import { makeUseStyles } from "@/lib/utilities";
 
 export default function Page() {
   const useStyles = makeUseStyles(styles);
   return (
     <main className={useStyles(["sections"])}>
-      <section id="start">
+      <section>
         <div className={useStyles(["navigation-gutter"])}></div>
         <div className={useStyles(["content"])}>
           <div

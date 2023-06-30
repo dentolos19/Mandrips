@@ -1,8 +1,18 @@
+"use client";
+
 import styles from "./page.module.scss";
-
+import Loading from "@/app/loading";
+import { getClothing } from "@/lib/data";
 import { makeUseStyles } from "@/lib/utilities";
+import { useSearchParams } from "next/navigation";
 
-export default function Page() {
+export default function Page({ params }: { params: { id: string } }) {
+  const searchParams = useSearchParams();
+
+  const id = parseInt(params.id);
+  const { data, isLoading } = getClothing(id);
+  if (isLoading) return <Loading />;
+  const color = data.colors.find((color) => color.name === searchParams.get("color")) || data.colors[0];
   const useStyles = makeUseStyles(styles);
   return (
     <main className={useStyles(["sections"])}>
@@ -10,23 +20,20 @@ export default function Page() {
         <div className={useStyles(["navigation-gutter"])}></div>
         <div className={useStyles(["content-product"])}>
           <div className={useStyles(["left"])}>
-            <div className={useStyles(["display"])} style={{ display: "grid", placeItems: "center", height: "80vh" }}>
-              Image here.
+            <div className={useStyles(["display"])}>
+              <img src={`/clothes/${color.file}`} />
             </div>
           </div>
           <div className={useStyles(["right"])}>
             <div className={useStyles(["details"])}>
-              <div className={useStyles(["title"])}>Product Name</div>
-              <div>Price</div>
-              <div className={useStyles(["description"])}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.
-              </div>
+              <div className={useStyles(["title"])}>{data.name}</div>
+              <div>{data.price}</div>
+              <div className={useStyles(["description"])}>{data.description}</div>
               <div className={useStyles(["setting"])}>
                 <select>
-                  <option>White</option>
-                  <option>Black</option>
+                  {data.colors.map((color) => (
+                    <option key={color.name}>{color.name}</option>
+                  ))}
                 </select>
               </div>
               <div className={useStyles(["setting"])}>
@@ -37,7 +44,7 @@ export default function Page() {
                 </select>
               </div>
               <div className={useStyles(["setting"])}>
-                <input type={"number"} min={1} />
+                <input type={"number"} min={1} value={1} />
               </div>
               <div className={useStyles(["buttons"])}>
                 <button className={useStyles(["button"])} type={"submit"}>
