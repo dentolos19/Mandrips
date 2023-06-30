@@ -8,16 +8,18 @@ export default function Navbar() {
   return (
     <div className={useStyles(["navigation-container"])}>
       <nav className={useStyles(["navigation"])}>
-        <span className={useStyles(["title"])}>Mandrips</span>
-        <span className={useStyles(["items"])}>
+        <Link href={"/"} className={useStyles(["title"])}>
+          Mandrips
+        </Link>
+        <div className={useStyles(["items"])}>
           <Link href={"/"}>Home</Link>
           <Link href={"/products"}>Products</Link>
-          <Link href={"/#wip"}>Feedback</Link>
+          <Link href={"/feedback"}>Feedback</Link>
           <Link href={"/about"}>About</Link>
           <Link href={"/#wip"}>
             <i className={"lni lni-cart"}></i>
           </Link>
-        </span>
+        </div>
       </nav>
     </div>
   );
