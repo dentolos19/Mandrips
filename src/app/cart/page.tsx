@@ -8,7 +8,7 @@ export default function Page() {
     <main>
       <div className={useStyles(["navigation-gutter"])}></div>
       <div style={{ textAlign: "center" }}>
-        <h3>Feedback</h3>
+        <h3>Cart</h3>
       </div>
     </main>
   );

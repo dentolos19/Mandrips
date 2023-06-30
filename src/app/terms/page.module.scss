@@ -1,0 +1,12 @@
+@import "@/styles/common.scss";
+
+.text {
+  @extend .surface;
+
+  width: 90%;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  padding: 1rem 2rem;
+}

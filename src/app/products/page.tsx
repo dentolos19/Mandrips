@@ -62,7 +62,7 @@ export default function Page() {
           <div className={useStyles(["items"])}>
             {[...Array(10)].map((_, index) => (
               <Link
-                id={index.toString()}
+                key={index.toString()}
                 href={"/details"}
                 style={{
                   display: "grid",

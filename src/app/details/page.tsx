@@ -36,6 +36,9 @@ export default function Page() {
                   <option>Large</option>
                 </select>
               </div>
+              <div className={useStyles(["setting"])}>
+                <input type={"number"} min={1} />
+              </div>
               <div className={useStyles(["buttons"])}>
                 <button className={useStyles(["button"])} type={"submit"}>
                   Add to Cart

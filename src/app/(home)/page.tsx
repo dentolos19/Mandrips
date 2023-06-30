@@ -35,7 +35,7 @@ export default function Page() {
               height: "100%",
             }}
           >
-            <h1>Work in progress</h1>
+            <h1>Work-in-progress!</h1>
             <p>This website is still under construction.</p>
           </div>
         </div>
