@@ -2,17 +2,18 @@
 
 import styles from "./page.module.scss";
 import Loading from "@/app/loading";
-import { getClothing } from "@/lib/data";
+
+import NotFound from "@/app/not-found";
+import { getClothings } from "@/lib/data";
 import { makeUseStyles } from "@/lib/utilities";
-import { useSearchParams } from "next/navigation";
 
 export default function Page({ params }: { params: { id: string } }) {
-  const searchParams = useSearchParams();
-
   const id = parseInt(params.id);
-  const { data, isLoading } = getClothing(id);
-  if (isLoading) return <Loading />;
-  const color = data.colors.find((color) => color.name === searchParams.get("color")) || data.colors[0];
+  const { data: clothings } = getClothings();
+  if (!clothings) return <Loading />;
+  const clothing = clothings.find((clothing) => clothing.id === id);
+  if (!clothing) return <NotFound />;
+
   const useStyles = makeUseStyles(styles);
   return (
     <main className={useStyles(["sections"])}>
@@ -21,17 +22,17 @@ export default function Page({ params }: { params: { id: string } }) {
         <div className={useStyles(["content-product"])}>
           <div className={useStyles(["left"])}>
             <div className={useStyles(["display"])}>
-              <img src={`/clothes/${color.file}`} />
+              <img src={`/clothes/${clothing.colors[0].file}`} />
             </div>
           </div>
           <div className={useStyles(["right"])}>
             <div className={useStyles(["details"])}>
-              <div className={useStyles(["title"])}>{data.name}</div>
-              <div>{data.price}</div>
-              <div className={useStyles(["description"])}>{data.description}</div>
+              <div className={useStyles(["title"])}>{clothing.name}</div>
+              <div>{clothing.price}</div>
+              <div className={useStyles(["description"])}>{clothing.description}</div>
               <div className={useStyles(["setting"])}>
                 <select>
-                  {data.colors.map((color) => (
+                  {clothing.colors.map((color) => (
                     <option key={color.name}>{color.name}</option>
                   ))}
                 </select>

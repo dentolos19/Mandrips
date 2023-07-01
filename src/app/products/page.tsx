@@ -3,13 +3,14 @@
 import styles from "./page.module.scss";
 import Link from "next/link";
 import Loading from "@/app/loading";
-import { makeUseStyles } from "@/lib/utilities";
 import { getClothings } from "@/lib/data";
+import { makeUseStyles } from "@/lib/utilities";
 
 export default function Page() {
+  const { data: clothings } = getClothings();
+  if (!clothings) return <Loading />;
+
   const useStyles = makeUseStyles(styles);
-  const { data, isLoading } = getClothings();
-  if (isLoading) return <Loading />;
   return (
     <main>
       <div className={useStyles(["navigation-gutter"])}></div>
@@ -51,12 +52,14 @@ export default function Page() {
               </div>
             </section>
             <div className={useStyles(["buttons"])}>
-              <button className={useStyles(["button"])} type={"submit"}>
-                Filter
-              </button>
-              <button className={useStyles(["button"])} type={"reset"}>
-                Clear
-              </button>
+              <div className={useStyles(["buttons"])}>
+                <button className={useStyles(["button"])} type={"submit"}>
+                  Filter
+                </button>
+                <button className={useStyles(["button"])} type={"reset"}>
+                  Clear
+                </button>
+              </div>
             </div>
           </form>
         </div>
@@ -65,13 +68,9 @@ export default function Page() {
             <input name={"search"} type={"search"} placeholder={"Search"} />
           </div>
           <div className={useStyles(["items"])}>
-            {data.map((item) =>
+            {clothings.map((item) =>
               item.colors.map((color) => (
-                <Link
-                  key={item.id}
-                  className={useStyles(["item"])}
-                  href={"/details/" + item.id + "?color=" + color.name}
-                >
+                <Link key={item.id} className={useStyles(["item"])} href={`/products/${item.id}?color=${color.name}`}>
                   <img src={"clothes/" + color.file} />
                 </Link>
               ))
