@@ -6,13 +6,25 @@ import Loading from "@/app/loading";
 import NotFound from "@/app/not-found";
 import { getClothings } from "@/lib/data";
 import { makeUseStyles } from "@/lib/utilities";
+import { useSearchParams } from "next/navigation";
 
 export default function Page({ params }: { params: { id: string } }) {
+  const searchParams = useSearchParams();
+
   const id = parseInt(params.id);
+  if (isNaN(id)) return <NotFound />;
   const { data: clothings } = getClothings();
   if (!clothings) return <Loading />;
   const clothing = clothings.find((clothing) => clothing.id === id);
   if (!clothing) return <NotFound />;
+  let color = clothing.colors[0];
+  const colorName = searchParams.get("color");
+  if (colorName) {
+    const diffColor = clothing.colors.find((color) => color.name === colorName);
+    if (diffColor) {
+      color = diffColor;
+    }
+  }
 
   const useStyles = makeUseStyles(styles);
   return (
@@ -22,7 +34,7 @@ export default function Page({ params }: { params: { id: string } }) {
         <div className={useStyles(["content-product"])}>
           <div className={useStyles(["left"])}>
             <div className={useStyles(["display"])}>
-              <img src={`/clothes/${clothing.colors[0].file}`} />
+              <img src={`/clothes/${color.file}`} />
             </div>
           </div>
           <div className={useStyles(["right"])}>
