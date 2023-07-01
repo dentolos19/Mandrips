@@ -7,6 +7,7 @@ import NotFound from "@/app/not-found";
 import { getClothings } from "@/lib/data";
 import { makeUseStyles } from "@/lib/utilities";
 import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
@@ -23,6 +24,9 @@ export default function Page({ params }: { params: { id: string } }) {
     const diffColor = clothing.colors.find((color) => color.name === colorName);
     if (diffColor) {
       color = diffColor;
+      useEffect(() => {
+        document.querySelector(`#${colorName}`)?.scrollIntoView({ behavior: "smooth" });
+      }, []);
     }
   }
 
@@ -34,7 +38,11 @@ export default function Page({ params }: { params: { id: string } }) {
         <div className={useStyles(["content-product"])}>
           <div className={useStyles(["left"])}>
             <div className={useStyles(["display"])}>
-              <img src={`/clothes/${color.file}`} />
+              {clothing.colors.map((color) => (
+                <div key={color.name} id={color.name} className={useStyles(["slide"])}>
+                  <img src={`/clothes/${color.file}`} />
+                </div>
+              ))}
             </div>
           </div>
           <div className={useStyles(["right"])}>

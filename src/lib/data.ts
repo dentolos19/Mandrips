@@ -9,6 +9,11 @@ export type Clothing = {
   colors: Color[];
 };
 
+export type ColoredClothing = Omit<Clothing, "colors"> & {
+  colorName: string;
+  colorFile: string;
+};
+
 export type Color = {
   name: string;
   file: string;
@@ -18,4 +23,16 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export function getClothings() {
   return useSWR<Clothing[]>("/clothes/data.json", fetcher);
+}
+
+export function getColoredClothings(clothings: Clothing[]) {
+  return clothings.flatMap((clothing) => {
+    return clothing.colors.map((color) => {
+      return {
+        ...clothing,
+        colorName: color.name,
+        colorFile: color.file,
+      };
+    });
+  }) as ColoredClothing[];
 }

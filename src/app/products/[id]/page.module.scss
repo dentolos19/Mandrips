@@ -49,13 +49,21 @@
 .display {
   @extend .surface;
 
-  display: flex;
   height: 100%;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow: hidden scroll;
 
-  img {
-    display: block;
-    height: 90%;
-    margin: auto;
+  .slide {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+
+    img {
+      height: 80%;
+    }
   }
 }
 
