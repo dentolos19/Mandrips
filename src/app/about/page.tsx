@@ -12,7 +12,7 @@ export default function Page() {
           <div className={useStyles(["text"])}>
             <h1>About Us</h1>
             <h5>
-              <span>Best</span> Clothing Brand In The world!
+              The <span>Best</span> Clothing Brand In The world!
             </h5>
             <p>
               Founded by tailor <span>Mandrix the Great</span> in the 1500s, Mandrips quickly became renowned for its

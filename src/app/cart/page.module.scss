@@ -1,1 +1,66 @@
 @import "@/styles/common.scss";
+
+.container {
+  display: flex;
+  width: 90%;
+  height: 80%;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  gap: 0.5rem;
+
+  .left {
+    flex-grow: 1;
+  }
+
+  .right {
+    max-width: 25%;
+    min-width: 25%;
+  }
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .item {
+    @extend .surface;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .details {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .image {
+      width: 150px;
+      aspect-ratio: 1 / 1;
+    }
+
+    .text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+
+    .price {
+      padding-right: 1em;
+    }
+  }
+}
+
+.order {
+  @extend .surface;
+
+  padding: 1em;
+}
