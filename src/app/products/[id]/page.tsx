@@ -8,7 +8,7 @@ import { getClothings, getColoredClothing } from "@/lib/clothing-data";
 import { CartItem, addToCart } from "@/lib/user-data";
 import { makeUseStyles } from "@/lib/utilities";
 import { useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { ChangeEvent, SelectHTMLAttributes, useEffect, useState } from "react";
 
 export default function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
@@ -19,20 +19,44 @@ export default function Page({ params }: { params: { id: string } }) {
   if (!clothings) return <Loading />;
   const clothing = clothings.find((clothing) => clothing.id === id);
   if (!clothing) return <NotFound />;
-  let color = clothing.colors[0];
+  let clothingColor = clothing.colors[0];
   const colorName = searchParams.get("color");
   if (colorName) {
     const diffColor = clothing.colors.find((color) => color.name === colorName);
     if (diffColor) {
-      color = diffColor;
+      clothingColor = diffColor;
       useEffect(() => {
         document.querySelector(`#${colorName}`)?.scrollIntoView({ behavior: "smooth" });
       }, []);
     }
   }
 
+  const [color, setColor] = useState(clothing.colors.find((color) => color.name === colorName) || clothing.colors[0]);
+  const [size, setSize] = useState("Medium");
+  const [quantity, setQuantity] = useState(1);
+
+  const colorChangedHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    const diffColor = clothing.colors.find((color) => color.name === event.target.value);
+    if (diffColor) {
+      setColor(diffColor);
+      document.querySelector(`#${diffColor.name}`)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const sizeChangedHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    setSize(event.target.value);
+  };
+
+  const quantityChangedHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    setQuantity(parseInt(event.target.value));
+  };
+
   const addHandler = () => {
-    addToCart({ clothing: getColoredClothing(clothing, clothing.colors[0]), quantity: 1 } as CartItem);
+    addToCart({
+      clothing: getColoredClothing(clothing, color),
+      size: size,
+      quantity: quantity,
+    } as CartItem);
   };
 
   const useStyles = makeUseStyles(styles);
@@ -56,21 +80,21 @@ export default function Page({ params }: { params: { id: string } }) {
               <div>{clothing.price}</div>
               <div className={useStyles(["description"])}>{clothing.description}</div>
               <div className={useStyles(["setting"])}>
-                <select>
+                <select value={color.name} onChange={colorChangedHandler}>
                   {clothing.colors.map((color) => (
                     <option key={color.name}>{color.name}</option>
                   ))}
                 </select>
               </div>
               <div className={useStyles(["setting"])}>
-                <select>
+                <select value={size} onChange={sizeChangedHandler}>
                   <option>Small</option>
                   <option>Medium</option>
                   <option>Large</option>
                 </select>
               </div>
               <div className={useStyles(["setting"])}>
-                <input type={"number"} min={1} value={1} />
+                <input type={"number"} min={1} value={quantity} onChange={quantityChangedHandler} />
               </div>
               <div className={useStyles(["buttons"])}>
                 <button className={useStyles(["button"])} type={"submit"} onClick={addHandler}>

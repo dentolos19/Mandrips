@@ -2,6 +2,7 @@ import { ColoredClothing } from "./clothing-data";
 
 export type CartItem = {
   clothing: ColoredClothing;
+  size: string;
   quantity: number;
 };
 

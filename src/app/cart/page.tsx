@@ -26,7 +26,9 @@ export default function Page() {
                   <div className={useStyles(["text"])}>
                     <div className={useStyles(["title"])}>{item.clothing.name}</div>
                     <div>Product ID: {item.clothing.id}</div>
-                    <div>Color: {item.clothing.colorName} / Size: NA</div>
+                    <div>
+                      Color: {item.clothing.colorName} / Size: {item.size}
+                    </div>
                     <div>Quantity: {item.quantity}</div>
                   </div>
                 </div>
