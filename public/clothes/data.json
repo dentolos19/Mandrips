@@ -3,7 +3,7 @@
     "id": 1,
     "type": "shirt",
     "name": "Crew Neck Short Sleeve T-Shirt",
-    "price": "S$14.90",
+    "price": 14.9,
     "description": "Heavyweight fabric gains character the more you wear it. Flattering roomy fit.",
     "colors": [
       {
@@ -28,7 +28,7 @@
     "id": 2,
     "type": "hoodie",
     "name": "Stretch Dry Sweat Long Sleeve Full-Zip Hoodie",
-    "price": "S$59.90",
+    "price": 59.9,
     "description": "Based on customer feedback, we updated these sweats to be wrinkle-resistant and have a natural look that is great for everyday wear.",
     "colors": [
       {
@@ -49,7 +49,7 @@
     "id": 3,
     "type": "hat",
     "name": "UV Protection Hat",
-    "price": "S$29.90",
+    "price": 29.9,
     "description": "Perfect for the great outdoors. Light and foldable for easy carrying.",
     "colors": [
       {
@@ -66,7 +66,7 @@
     "id": 4,
     "type": "pants",
     "name": "Sweat Pants (Side Lined)",
-    "price": "S$39.90",
+    "price": 39.9,
     "description": "Soft and comfortable sweatpants. Side lines accentuate the silhouette for a sleek look.",
     "colors": [
       {

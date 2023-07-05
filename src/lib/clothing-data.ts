@@ -4,7 +4,7 @@ export type Clothing = {
   id: number;
   type: string;
   name: string;
-  price: string;
+  price: number;
   description: string;
   colors: Color[];
 };

@@ -32,7 +32,7 @@ export default function Page() {
                     <div>Quantity: {item.quantity}</div>
                   </div>
                 </div>
-                <div className={useStyles(["price"])}>{item.clothing.price}</div>
+                <div className={useStyles(["price"])}>{`S$${(item.clothing.price * item.quantity).toFixed(2)}`}</div>
               </div>
             ))}
           </div>

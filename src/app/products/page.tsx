@@ -72,7 +72,7 @@ export default function Page() {
               item.colors.map((color) => (
                 <Link key={item.id} className={useStyles(["item"])} href={`/products/${item.id}?color=${color.name}`}>
                   <img src={"clothes/" + color.file} />
-                  <div className={useStyles(["price"])}>{item.price}</div>
+                  <div className={useStyles(["price"])}>{`S$${item.price.toFixed(2)}`}</div>
                 </Link>
               ))
             )}

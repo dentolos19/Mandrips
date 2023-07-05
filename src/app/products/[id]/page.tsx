@@ -77,7 +77,7 @@ export default function Page({ params }: { params: { id: string } }) {
           <div className={useStyles(["right"])}>
             <div className={useStyles(["details"])}>
               <div className={useStyles(["title"])}>{clothing.name}</div>
-              <div>{clothing.price}</div>
+              <div>{`S$${clothing.price.toFixed(2)}`}</div>
               <div className={useStyles(["description"])}>{clothing.description}</div>
               <div className={useStyles(["setting"])}>
                 <select value={color.name} onChange={colorChangedHandler}>
