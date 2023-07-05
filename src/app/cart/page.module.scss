@@ -55,7 +55,7 @@
     }
 
     .price {
-      padding-right: 1em;
+      padding-right: 1rem;
     }
   }
 }
@@ -63,5 +63,14 @@
 .order {
   @extend .surface;
 
-  padding: 1em;
+  padding: 1rem;
+
+  .buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .buttons > * {
+    flex-grow: 1;
+  }
 }

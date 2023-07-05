@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./page.module.scss";
-import { CartItem, getCartItems } from "@/lib/user-data";
+import { CartItem, clearCart, getCartItems } from "@/lib/user-data";
 import { makeUseStyles } from "@/lib/utilities";
 import { useEffect, useState } from "react";
 
@@ -12,7 +12,25 @@ export default function Page() {
     setItems(getCartItems());
   }, []);
 
+  const clearHandler = () => {
+    clearCart();
+    setItems([]);
+  };
+
   const useStyles = makeUseStyles(styles);
+
+  if (items.length <= 0) {
+    return (
+      <main>
+        <div className={"navigation-gutter"}></div>
+        <div style={{ textAlign: "center" }}>
+          <h3>No items in your cart.</h3>
+          <p>Go check out our products!</p>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main>
       <div className={useStyles(["navigation-gutter"])}></div>
@@ -40,6 +58,12 @@ export default function Page() {
         <div className={useStyles(["right"])}>
           <div className={useStyles(["order"])}>
             <div>Order Summary</div>
+            <div className={useStyles(["buttons"])}>
+              <button className={useStyles(["button"])}>Checkout</button>
+              <button className={useStyles(["button"])} onClick={clearHandler}>
+                Clear Cart
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -24,3 +24,31 @@
     }
   }
 }
+
+.home {
+  .title {
+    font-size: 5rem;
+    font-weight: bold;
+  }
+
+  .socials {
+    display: flex;
+    margin-top: 3rem;
+    gap: 2rem;
+
+    a {
+      color: inherit;
+      scale: 1.4;
+      text-decoration: none;
+      transition: all 250ms;
+    }
+
+    a:hover {
+      scale: 2;
+    }
+
+    a:active {
+      scale: 1.4;
+    }
+  }
+}

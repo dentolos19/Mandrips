@@ -22,3 +22,7 @@ export function addToCart(item: CartItem) {
 export function getCartItems() {
   return JSON.parse(localStorage.getItem("cartItems") || "[]") as CartItem[];
 }
+
+export function clearCart() {
+  localStorage.removeItem("cartItems");
+}

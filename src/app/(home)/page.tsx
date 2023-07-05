@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./page.module.scss";
 import { makeUseStyles } from "@/lib/utilities";
 
@@ -7,7 +8,7 @@ export default function Page() {
     <main className={useStyles(["sections"])}>
       <section>
         <div className={useStyles(["navigation-gutter"])}></div>
-        <div className={useStyles(["content"])}>
+        <div className={useStyles(["content", "home"])}>
           <div
             style={{
               display: "flex",
@@ -17,8 +18,22 @@ export default function Page() {
               height: "100%",
             }}
           >
-            <h1>Welcome to our online store!</h1>
-            <p>The world's oldest clothing provider!</p>
+            <div className={useStyles(["title"])}>Mandrips</div>
+            <div>It fits, it drips.</div>
+            <div className={useStyles(["socials"])}>
+              <Link href={"https://github.com/dentolos19/Mandrips"}>
+                <i className="lni lni-github-original"></i>
+              </Link>
+              <Link href={"https://youtu.be/dQw4w9WgXcQ"}>
+                <i className="lni lni-instagram-original"></i>
+              </Link>
+              <Link href={"https://youtu.be/dQw4w9WgXcQ"}>
+                <i className="lni lni-twitter-original"></i>
+              </Link>
+              <Link href={"https://youtu.be/dQw4w9WgXcQ"}>
+                <i className="lni lni-facebook-original"></i>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
