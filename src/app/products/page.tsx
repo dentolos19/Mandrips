@@ -3,7 +3,7 @@
 import styles from "./page.module.scss";
 import Link from "next/link";
 import Loading from "@/app/loading";
-import { getClothings } from "@/lib/data";
+import { getClothings } from "@/lib/clothing-data";
 import { makeUseStyles } from "@/lib/utilities";
 
 export default function Page() {

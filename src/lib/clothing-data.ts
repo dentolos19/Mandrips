@@ -36,3 +36,11 @@ export function getColoredClothings(clothings: Clothing[]) {
     });
   }) as ColoredClothing[];
 }
+
+export function getColoredClothing(clothing: Clothing, color: Color) {
+  return {
+    ...clothing,
+    colorName: color.name,
+    colorFile: color.file,
+  } as ColoredClothing;
+}

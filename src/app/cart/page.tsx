@@ -1,7 +1,17 @@
+"use client";
+
 import styles from "./page.module.scss";
+import { CartItem, getCartItems } from "@/lib/user-data";
 import { makeUseStyles } from "@/lib/utilities";
+import { useEffect, useState } from "react";
 
 export default function Page() {
+  const [items, setItems] = useState<CartItem[]>([]);
+
+  useEffect(() => {
+    setItems(getCartItems());
+  }, []);
+
   const useStyles = makeUseStyles(styles);
   return (
     <main>
@@ -9,18 +19,18 @@ export default function Page() {
       <div className={useStyles(["container"])}>
         <div className={useStyles(["left"])}>
           <div className={useStyles(["items"])}>
-            {Array.from({ length: 3 }).map((_, index) => (
-              <div key={index} className={useStyles(["item"])}>
+            {items.map((item) => (
+              <div key={item.clothing.id} className={useStyles(["item"])}>
                 <div className={useStyles(["details"])}>
-                  <img className={useStyles(["image"])} />
+                  <img className={useStyles(["image"])} src={`/clothes/${item.clothing.colorFile}`} />
                   <div className={useStyles(["text"])}>
-                    <div className={useStyles(["title"])}>Product Name</div>
-                    <div>Product ID: 0</div>
-                    <div>Color: NaN / Size: NaN</div>
-                    <div>Quantity: 0</div>
+                    <div className={useStyles(["title"])}>{item.clothing.name}</div>
+                    <div>Product ID: {item.clothing.id}</div>
+                    <div>Color: {item.clothing.colorName} / Size: NA</div>
+                    <div>Quantity: {item.quantity}</div>
                   </div>
                 </div>
-                <div className={useStyles(["price"])}>PRICE</div>
+                <div className={useStyles(["price"])}>{item.clothing.price}</div>
               </div>
             ))}
           </div>

@@ -4,7 +4,8 @@ import styles from "./page.module.scss";
 import Loading from "@/app/loading";
 
 import NotFound from "@/app/not-found";
-import { getClothings } from "@/lib/data";
+import { getClothings, getColoredClothing } from "@/lib/clothing-data";
+import { CartItem, addToCart } from "@/lib/user-data";
 import { makeUseStyles } from "@/lib/utilities";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
@@ -29,6 +30,10 @@ export default function Page({ params }: { params: { id: string } }) {
       }, []);
     }
   }
+
+  const addHandler = () => {
+    addToCart({ clothing: getColoredClothing(clothing, clothing.colors[0]), quantity: 1 } as CartItem);
+  };
 
   const useStyles = makeUseStyles(styles);
   return (
@@ -68,7 +73,7 @@ export default function Page({ params }: { params: { id: string } }) {
                 <input type={"number"} min={1} value={1} />
               </div>
               <div className={useStyles(["buttons"])}>
-                <button className={useStyles(["button"])} type={"submit"}>
+                <button className={useStyles(["button"])} type={"submit"} onClick={addHandler}>
                   Add to Cart
                 </button>
                 <button className={useStyles(["button"])} type={"reset"}>
