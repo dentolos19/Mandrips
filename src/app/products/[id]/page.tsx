@@ -80,30 +80,32 @@ export default function Page({ params }: { params: { id: string } }) {
               <div>{`S$${clothing.price.toFixed(2)}`}</div>
               <div className={useStyles(["description"])}>{clothing.description}</div>
               <div className={useStyles(["setting"])}>
-                <select value={color.name} onChange={colorChangedHandler}>
+                <select className={useStyles(["select"])} value={color.name} onChange={colorChangedHandler}>
                   {clothing.colors.map((color) => (
                     <option key={color.name}>{color.name}</option>
                   ))}
                 </select>
               </div>
               <div className={useStyles(["setting"])}>
-                <select value={size} onChange={sizeChangedHandler}>
+                <select className={useStyles(["select"])} value={size} onChange={sizeChangedHandler}>
                   <option>Small</option>
                   <option>Medium</option>
                   <option>Large</option>
                 </select>
               </div>
               <div className={useStyles(["setting"])}>
-                <input type={"number"} min={1} value={quantity} onChange={quantityChangedHandler} />
+                <input
+                  className={useStyles(["input"])}
+                  style={{ textAlign: "center" }}
+                  type={"number"}
+                  min={1}
+                  value={quantity}
+                  onChange={quantityChangedHandler}
+                />
               </div>
-              <div className={useStyles(["buttons"])}>
-                <button className={useStyles(["button"])} type={"submit"} onClick={addHandler}>
-                  Add to Cart
-                </button>
-                <button className={useStyles(["button"])} type={"reset"}>
-                  Clear
-                </button>
-              </div>
+              <button className={useStyles(["button"])} type={"submit"} onClick={addHandler}>
+                Add to Cart
+              </button>
             </div>
           </div>
         </div>

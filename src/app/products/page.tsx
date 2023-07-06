@@ -65,7 +65,7 @@ export default function Page() {
         </div>
         <div className={useStyles(["right"])}>
           <div className={useStyles(["search"])}>
-            <input name={"search"} type={"search"} placeholder={"Search"} />
+            <input className={useStyles(["input"])} name={"search"} type={"search"} placeholder={"Search"} />
           </div>
           <div className={useStyles(["items"])}>
             {clothings.map((item) =>

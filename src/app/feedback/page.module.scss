@@ -1,1 +1,41 @@
 @import "@/styles/common.scss";
+
+.sections {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  overflow: hidden scroll;
+
+  section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    scroll-snap-align: start;
+
+    .content {
+      @extend .surface;
+
+      width: 90%;
+      height: 80%;
+      margin: {
+        left: auto;
+        right: auto;
+      }
+    }
+  }
+}
+
+.feedback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.buttons > * {
+  flex-grow: 1;
+}

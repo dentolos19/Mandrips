@@ -39,20 +39,7 @@
 }
 
 .search {
-  @extend .surface;
-
   margin-bottom: 0.5rem;
-  overflow: hidden;
-}
-
-.search > input {
-  width: 100%;
-  margin: 0.6rem;
-  border: none;
-}
-
-.search > input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
 }
 
 .items {

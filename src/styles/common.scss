@@ -12,6 +12,7 @@
 .button {
   @extend .surface;
 
+  width: 100%;
   padding: 0.5rem 1rem;
   background: white;
   border: none;
@@ -25,6 +26,43 @@
 
 .button:active {
   scale: 1;
+}
+
+.input {
+  @extend .surface;
+
+  width: 100%;
+  padding: 0.2rem 1rem;
+  line-height: 1.8rem;
+  border: none;
+}
+
+.select {
+  @extend .surface;
+
+  width: 100%;
+  height: 2rem;
+  padding: 0.4rem 0;
+  text-align: center;
+  appearance: none;
+  border: none;
+}
+
+.dialog[open] {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+
+  .content {
+    @extend .surface;
+
+    padding: 1em;
+    background: white;
+  }
 }
 
 i.lni {
