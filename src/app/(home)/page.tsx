@@ -33,34 +33,34 @@ export default function Page() {
         <section>
           <div className={useStyles(["navigation-gutter"])}></div>
           <div className={useStyles(["content", "home"])}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "100%",
-              }}
-            >
-              <div className={useStyles(["title"])}>Mandrips</div>
-              <div>It fits, it drips.</div>
-              <div className={useStyles(["socials"])}>
-                <Link href={"https://github.com/dentolos19/Mandrips"}>
-                  <i className="lni lni-github-original"></i>
-                </Link>
-                <Link href={"https://github.com/dentolos19/Mandrips"}>
-                  <i className="lni lni-linkedin-original"></i>
-                </Link>
-                <Link href={"https://youtu.be/dQw4w9WgXcQ"}>
-                  <i className="lni lni-instagram-original"></i>
-                </Link>
-                <Link href={"https://youtu.be/dQw4w9WgXcQ"}>
-                  <i className="lni lni-twitter-original"></i>
-                </Link>
-                <Link href={"https://youtu.be/dQw4w9WgXcQ"}>
-                  <i className="lni lni-facebook-original"></i>
-                </Link>
-              </div>
+            <div className={useStyles(["title"])}>Mandrips</div>
+            <div>It fits, it drips.</div>
+            <div className={useStyles(["socials"])}>
+              <Link href={"https://github.com/dentolos19/Mandrips"}>
+                <i className="lni lni-github-original"></i>
+              </Link>
+              <Link href={"https://github.com/dentolos19/Mandrips"}>
+                <i className="lni lni-linkedin-original"></i>
+              </Link>
+              <Link href={"https://youtu.be/dQw4w9WgXcQ"}>
+                <i className="lni lni-instagram-original"></i>
+              </Link>
+              <Link href={"https://youtu.be/dQw4w9WgXcQ"}>
+                <i className="lni lni-twitter-original"></i>
+              </Link>
+              <Link href={"https://youtu.be/dQw4w9WgXcQ"}>
+                <i className="lni lni-facebook-original"></i>
+              </Link>
+            </div>
+            <div className={useStyles(["images"])}>
+              <img src={"assets/dude-1.png"} style={{
+                height: "550px",
+                left: "96px",
+              }}/>
+              <img src={"assets/dude-2.png"} style={{
+                height: "600px",
+                right: "64px"
+              }}/>
             </div>
           </div>
         </section>
