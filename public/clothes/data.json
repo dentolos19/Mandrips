@@ -78,5 +78,26 @@
         "file": "4/navy.webp"
       }
     ]
+  },
+  {
+    "id": 5,
+    "type": "shirt",
+    "name": "Extra Fine Cotton Short Sleeve Shirt",
+    "price": 39.9,
+    "description": "100% premium cotton, prewashed for a casual look. Stunning colors and patterns.",
+    "colors": [
+      {
+        "name": "Navy",
+        "file": "5/navy.webp"
+      },
+      {
+        "name": "White",
+        "file": "5/white.webp"
+      },
+      {
+        "name": "Wine",
+        "file": "5/wine.webp"
+      }
+    ]
   }
 ]

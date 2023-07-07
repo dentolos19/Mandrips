@@ -1,12 +1,12 @@
 import styles from "./page.module.scss";
-import { makeUseStyles } from "@/lib/utilities";
+import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
-  const useStyles = makeUseStyles(styles);
+  const style = useStyles(styles);
   return (
     <main>
-      <div className={useStyles(["navigation-gutter"])}></div>
-      <div className={useStyles(["text"])}>
+      <div className={style(["navigation-gutter"])}></div>
+      <div className={style(["text"])}>
         <h2>
           <strong>Terms and Conditions</strong>
         </h2>

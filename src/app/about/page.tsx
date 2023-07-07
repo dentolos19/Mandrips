@@ -1,15 +1,15 @@
 import styles from "./page.module.scss";
-import { makeUseStyles } from "@/lib/utilities";
+import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
-  const useStyles = makeUseStyles(styles);
+  const style = useStyles(styles);
   return (
-    <main className={useStyles(["sections"])}>
+    <main className={style(["sections"])}>
       <section>
-        <div className={useStyles(["navigation-gutter"])}></div>
-        <div className={useStyles(["content", "about"])}>
-          <img className={useStyles(["image"])} src={"assets/linus.jpeg"} />
-          <div className={useStyles(["text"])}>
+        <div className={style(["navigation-gutter"])}></div>
+        <div className={style(["content", "about"])}>
+          <img className={style(["image"])} src={"assets/linus.jpeg"} />
+          <div className={style(["text"])}>
             <h1>About Us</h1>
             <h5>
               The <span>Best</span> Clothing Brand In The world!
@@ -39,15 +39,15 @@ export default function Page() {
         </div>
       </section>
       <section>
-        <div className={useStyles(["navigation-gutter"])}></div>
-        <div className={useStyles(["content", "vision"])}>
+        <div className={style(["navigation-gutter"])}></div>
+        <div className={style(["content", "vision"])}>
           <h3>Our Mission, Vision &amp; Goals</h3>
           <p>"Anyone can have drip" ~ Mandrix</p>
         </div>
       </section>
       <section>
-        <div className={useStyles(["navigation-gutter"])}></div>
-        <div className={useStyles(["content", "history"])}>
+        <div className={style(["navigation-gutter"])}></div>
+        <div className={style(["content", "history"])}>
           <h3>Our History</h3>
           <video controls muted src={"assets/advertisement.mp4"}></video>
         </div>

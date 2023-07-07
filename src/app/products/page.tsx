@@ -4,19 +4,19 @@ import styles from "./page.module.scss";
 import Link from "next/link";
 import Loading from "@/app/loading";
 import { getClothings } from "@/lib/clothing-data";
-import { makeUseStyles } from "@/lib/utilities";
+import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
   const { data: clothings } = getClothings();
   if (!clothings) return <Loading />;
 
-  const useStyles = makeUseStyles(styles);
+  const style = useStyles(styles);
   return (
     <main>
-      <div className={useStyles(["navigation-gutter"])}></div>
-      <form className={useStyles(["container"])}>
-        <div className={useStyles(["left"])}>
-          <form className={useStyles(["filters"])}>
+      <div className={style(["navigation-gutter"])}></div>
+      <form className={style(["container"])}>
+        <div className={style(["left"])}>
+          <form className={style(["filters"])}>
             <section>
               <div>Categories</div>
               <div>
@@ -51,28 +51,28 @@ export default function Page() {
                 <label>$100 and beyond</label>
               </div>
             </section>
-            <div className={useStyles(["buttons"])}>
-              <div className={useStyles(["buttons"])}>
-                <button className={useStyles(["button"])} type={"submit"}>
+            <div className={style(["buttons"])}>
+              <div className={style(["buttons"])}>
+                <button className={style(["button"])} type={"submit"}>
                   Filter
                 </button>
-                <button className={useStyles(["button"])} type={"reset"}>
+                <button className={style(["button"])} type={"reset"}>
                   Clear
                 </button>
               </div>
             </div>
           </form>
         </div>
-        <div className={useStyles(["right"])}>
-          <div className={useStyles(["search"])}>
-            <input className={useStyles(["input"])} name={"search"} type={"search"} placeholder={"Search"} />
+        <div className={style(["right"])}>
+          <div className={style(["search"])}>
+            <input className={style(["input"])} name={"search"} type={"search"} placeholder={"Search"} />
           </div>
-          <div className={useStyles(["items"])}>
+          <div className={style(["items"])}>
             {clothings.map((item) =>
               item.colors.map((color) => (
-                <Link key={item.id} className={useStyles(["item"])} href={`/products/${item.id}?color=${color.name}`}>
+                <Link key={item.id} className={style(["item"])} href={`/products/${item.id}?color=${color.name}`}>
                   <img src={"clothes/" + color.file} />
-                  <div className={useStyles(["price"])}>{`S$${item.price.toFixed(2)}`}</div>
+                  <div className={style(["price"])}>{`S$${item.price.toFixed(2)}`}</div>
                 </Link>
               ))
             )}

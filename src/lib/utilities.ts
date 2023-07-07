@@ -1,4 +1,4 @@
-export function makeUseStyles(styles: { [key: string]: string }) {
+export function useStyles(styles: { [key: string]: string }) {
   return function (styleNames: string[]) {
     return styleNames
       .map((styleName) => {

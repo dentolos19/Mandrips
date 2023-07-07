@@ -1,16 +1,16 @@
 import styles from "./navbar.module.scss";
 import Link from "next/link";
-import { makeUseStyles } from "@/lib/utilities";
+import { useStyles } from "@/lib/utilities";
 
 export default function Navbar() {
-  const useStyles = makeUseStyles(styles);
+  const style = useStyles(styles);
   return (
-    <div className={useStyles(["navigation-container"])}>
-      <nav className={useStyles(["navigation"])}>
-        <Link href={"/"} className={useStyles(["title"])}>
+    <div className={style(["navigation-container"])}>
+      <nav className={style(["navigation"])}>
+        <Link href={"/"} className={style(["title"])}>
           Mandrips
         </Link>
-        <div className={useStyles(["items"])}>
+        <div className={style(["items"])}>
           <Link href={"/"}>Home</Link>
           <Link href={"/products"}>Products</Link>
           <Link href={"/feedback"}>Feedback</Link>

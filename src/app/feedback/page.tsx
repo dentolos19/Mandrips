@@ -1,42 +1,42 @@
 import styles from "./page.module.scss";
-import { makeUseStyles } from "@/lib/utilities";
+import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
-  const useStyles = makeUseStyles(styles);
+  const style = useStyles(styles);
   return (
-    <main className={useStyles(["sections"])}>
+    <main className={style(["sections"])}>
       <section>
-        <div className={useStyles(["navigation-gutter"])}></div>
-        <div className={useStyles(["content", "feedback"])}>
+        <div className={style(["navigation-gutter"])}></div>
+        <div className={style(["content", "feedback"])}>
           <form>
-            <div className={useStyles(["table"])}>
+            <div className={style(["table"])}>
               <table>
                 <tr>
                   <td>
-                    <input className={useStyles(["input"])} type={"text"} placeholder={"John Doe"} />
+                    <input className={style(["input"])} type={"text"} placeholder={"John Doe"} />
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <input className={useStyles(["input"])} type={"email"} placeholder={"john.doe@gmail.com"} />
+                    <input className={style(["input"])} type={"email"} placeholder={"john.doe@gmail.com"} />
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <input className={useStyles(["input"])} type={"text"} placeholder={"Feedback Subject"} />
+                    <input className={style(["input"])} type={"text"} placeholder={"Feedback Subject"} />
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <textarea className={useStyles(["input"])} />
+                    <textarea className={style(["input"])} />
                   </td>
                 </tr>
                 <tr>
-                  <td className={useStyles(["buttons"])}>
-                    <button className={useStyles(["button"])} type="reset">
+                  <td className={style(["buttons"])}>
+                    <button className={style(["button"])} type="reset">
                       Clear
                     </button>
-                    <button className={useStyles(["button"])} type="submit">
+                    <button className={style(["button"])} type="submit">
                       Submit
                     </button>
                   </td>
@@ -47,8 +47,8 @@ export default function Page() {
         </div>
       </section>
       <section>
-        <div className={useStyles(["navigation-gutter"])}></div>
-        <div className={useStyles(["content"])}>
+        <div className={style(["navigation-gutter"])}></div>
+        <div className={style(["content"])}>
           <div
             style={{
               display: "flex",

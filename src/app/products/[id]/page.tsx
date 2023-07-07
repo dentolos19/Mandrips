@@ -2,13 +2,12 @@
 
 import styles from "./page.module.scss";
 import Loading from "@/app/loading";
-
 import NotFound from "@/app/not-found";
-import { getClothings, getColoredClothing } from "@/lib/clothing-data";
-import { CartItem, addToCart } from "@/lib/user-data";
-import { makeUseStyles } from "@/lib/utilities";
+import { useEffect, useState, ChangeEvent } from "react";
 import { useSearchParams } from "next/navigation";
-import { ChangeEvent, SelectHTMLAttributes, useEffect, useState } from "react";
+import { getClothings, getColoredClothing } from "@/lib/clothing-data";
+import { addToCart, CartItem } from "@/lib/user-data";
+import { useStyles } from "@/lib/utilities";
 
 export default function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
@@ -59,43 +58,43 @@ export default function Page({ params }: { params: { id: string } }) {
     } as CartItem);
   };
 
-  const useStyles = makeUseStyles(styles);
+  const style = useStyles(styles);
   return (
-    <main className={useStyles(["sections"])}>
+    <main className={style(["sections"])}>
       <section>
-        <div className={useStyles(["navigation-gutter"])}></div>
-        <div className={useStyles(["content-product"])}>
-          <div className={useStyles(["left"])}>
-            <div className={useStyles(["display"])}>
+        <div className={style(["navigation-gutter"])}></div>
+        <div className={style(["content-product"])}>
+          <div className={style(["left"])}>
+            <div className={style(["display"])}>
               {clothing.colors.map((color) => (
-                <div key={color.name} id={color.name} className={useStyles(["slide"])}>
+                <div key={color.name} id={color.name} className={style(["slide"])}>
                   <img src={`/clothes/${color.file}`} />
                 </div>
               ))}
             </div>
           </div>
-          <div className={useStyles(["right"])}>
-            <div className={useStyles(["details"])}>
-              <div className={useStyles(["title"])}>{clothing.name}</div>
+          <div className={style(["right"])}>
+            <div className={style(["details"])}>
+              <div className={style(["title"])}>{clothing.name}</div>
               <div>{`S$${clothing.price.toFixed(2)}`}</div>
-              <div className={useStyles(["description"])}>{clothing.description}</div>
-              <div className={useStyles(["setting"])}>
-                <select className={useStyles(["select"])} value={color.name} onChange={colorChangedHandler}>
+              <div className={style(["description"])}>{clothing.description}</div>
+              <div className={style(["setting"])}>
+                <select className={style(["select"])} value={color.name} onChange={colorChangedHandler}>
                   {clothing.colors.map((color) => (
                     <option key={color.name}>{color.name}</option>
                   ))}
                 </select>
               </div>
-              <div className={useStyles(["setting"])}>
-                <select className={useStyles(["select"])} value={size} onChange={sizeChangedHandler}>
+              <div className={style(["setting"])}>
+                <select className={style(["select"])} value={size} onChange={sizeChangedHandler}>
                   <option>Small</option>
                   <option>Medium</option>
                   <option>Large</option>
                 </select>
               </div>
-              <div className={useStyles(["setting"])}>
+              <div className={style(["setting"])}>
                 <input
-                  className={useStyles(["input"])}
+                  className={style(["input"])}
                   style={{ textAlign: "center" }}
                   type={"number"}
                   min={1}
@@ -103,7 +102,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   onChange={quantityChangedHandler}
                 />
               </div>
-              <button className={useStyles(["button"])} type={"submit"} onClick={addHandler}>
+              <button className={style(["button"])} type={"submit"} onClick={addHandler}>
                 Add to Cart
               </button>
             </div>
@@ -111,8 +110,8 @@ export default function Page({ params }: { params: { id: string } }) {
         </div>
       </section>
       <section>
-        <div className={useStyles(["navigation-gutter"])}></div>
-        <div className={useStyles(["content-reviews"])}>Reviews here.</div>
+        <div className={style(["navigation-gutter"])}></div>
+        <div className={style(["content-reviews"])}>Reviews here.</div>
       </section>
     </main>
   );

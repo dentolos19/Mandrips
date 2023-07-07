@@ -1,9 +1,9 @@
 "use client";
 
 import styles from "./page.module.scss";
-import { CartItem, clearCart, getCartItems } from "@/lib/user-data";
-import { makeUseStyles } from "@/lib/utilities";
 import { useEffect, useState } from "react";
+import { clearCart, getCartItems, CartItem } from "@/lib/user-data";
+import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
   const [items, setItems] = useState<CartItem[]>([]);
@@ -17,7 +17,7 @@ export default function Page() {
     setItems([]);
   };
 
-  const useStyles = makeUseStyles(styles);
+  const style = useStyles(styles);
 
   if (items.length <= 0) {
     return (
@@ -33,16 +33,16 @@ export default function Page() {
 
   return (
     <main>
-      <div className={useStyles(["navigation-gutter"])}></div>
-      <div className={useStyles(["container"])}>
-        <div className={useStyles(["left"])}>
-          <div className={useStyles(["items"])}>
+      <div className={style(["navigation-gutter"])}></div>
+      <div className={style(["container"])}>
+        <div className={style(["left"])}>
+          <div className={style(["items"])}>
             {items.map((item) => (
-              <div key={item.clothing.id} className={useStyles(["item"])}>
-                <div className={useStyles(["details"])}>
-                  <img className={useStyles(["image"])} src={`/clothes/${item.clothing.colorFile}`} />
-                  <div className={useStyles(["text"])}>
-                    <div className={useStyles(["title"])}>{item.clothing.name}</div>
+              <div key={item.clothing.id} className={style(["item"])}>
+                <div className={style(["details"])}>
+                  <img className={style(["image"])} src={`/clothes/${item.clothing.colorFile}`} />
+                  <div className={style(["text"])}>
+                    <div className={style(["title"])}>{item.clothing.name}</div>
                     <div>Product ID: {item.clothing.id}</div>
                     <div>
                       Color: {item.clothing.colorName} / Size: {item.size}
@@ -50,17 +50,17 @@ export default function Page() {
                     <div>Quantity: {item.quantity}</div>
                   </div>
                 </div>
-                <div className={useStyles(["price"])}>{`S$${(item.clothing.price * item.quantity).toFixed(2)}`}</div>
+                <div className={style(["price"])}>{`S$${(item.clothing.price * item.quantity).toFixed(2)}`}</div>
               </div>
             ))}
           </div>
         </div>
-        <div className={useStyles(["right"])}>
-          <div className={useStyles(["order"])}>
+        <div className={style(["right"])}>
+          <div className={style(["order"])}>
             <div>Order Summary</div>
-            <div className={useStyles(["buttons"])}>
-              <button className={useStyles(["button"])}>Checkout</button>
-              <button className={useStyles(["button"])} onClick={clearHandler}>
+            <div className={style(["buttons"])}>
+              <button className={style(["button"])}>Checkout</button>
+              <button className={style(["button"])} onClick={clearHandler}>
                 Clear Cart
               </button>
             </div>
