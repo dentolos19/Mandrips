@@ -57,9 +57,32 @@ export default function Page() {
         </div>
         <div className={style(["right"])}>
           <div className={style(["order"])}>
-            <div>Order Summary</div>
+            <div>
+              <div className={style(["title"])}>Order Summary</div>
+              <table border={1} align={"center"}>
+                <tr>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                </tr>
+                {items.map((item) => (
+                  <tr>
+                    <td>
+                      {item.clothing.name} ({item.clothing.colorName})
+                    </td>
+                    <td align={"center"}>{item.quantity}</td>
+                    <td align={"center"}>{`S$${(item.clothing.price * item.quantity).toFixed(2)}`}</td>
+                  </tr>
+                ))}
+                <tr>
+                  <th>Subtotal</th>
+                  <th>{items.reduce((acc, item) => acc + item.quantity, 0)}</th>
+                  <th>{`S$${items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0).toFixed(2)}`}</th>
+                </tr>
+              </table>
+            </div>
             <div className={style(["buttons"])}>
-              <button className={style(["button"])}>Checkout</button>
+              <button className={style(["button", "primary"])}>Checkout</button>
               <button className={style(["button"])} onClick={clearHandler}>
                 Clear Cart
               </button>

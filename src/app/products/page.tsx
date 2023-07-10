@@ -57,7 +57,7 @@ export default function Page() {
             </section>
             <div className={style(["buttons"])}>
               <div className={style(["buttons"])}>
-                <button className={style(["button"])} type={"submit"}>
+                <button className={style(["button", "primary"])} type={"submit"}>
                   Filter
                 </button>
                 <button className={style(["button"])} onClick={() => setFilterOpened(false)}>

@@ -15,8 +15,8 @@
   }
 
   .right {
-    max-width: 25%;
-    min-width: 25%;
+    max-width: 40%;
+    min-width: 40%;
   }
 }
 
@@ -65,8 +65,16 @@
 
   padding: 1rem;
 
+  .title {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
   .buttons {
     display: flex;
+    margin-top: 1rem;
     gap: 0.5rem;
   }
 

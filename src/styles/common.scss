@@ -17,6 +17,11 @@
   background: white;
   border: none;
   transition: all 250ms;
+
+  &.primary {
+    color: white;
+    background: black;
+  }
 }
 
 .button:hover {

@@ -45,11 +45,11 @@ export default function Page() {
                 </tr>
                 <tr>
                   <td className={style(["buttons"])}>
+                  <button className={style(["button", "primary"])} type="submit">
+                      Submit
+                    </button>
                     <button className={style(["button"])} type="reset">
                       Clear
-                    </button>
-                    <button className={style(["button"])} type="submit">
-                      Submit
                     </button>
                   </td>
                 </tr>
