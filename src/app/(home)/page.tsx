@@ -17,7 +17,7 @@ export default function Page() {
             <Link href={"https://github.com/dentolos19/Mandrips"}>
               <i className="lni lni-github-original"></i>
             </Link>
-            <Link href={"https://github.com/dentolos19/Mandrips"}>
+            <Link href={"https://youtu.be/dQw4w9WgXcQ"}>
               <i className="lni lni-linkedin-original"></i>
             </Link>
             <Link href={"https://youtu.be/dQw4w9WgXcQ"}>

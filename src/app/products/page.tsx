@@ -3,10 +3,13 @@
 import styles from "./page.module.scss";
 import Link from "next/link";
 import Loading from "@/app/loading";
+import { useState } from "react";
 import { getClothings } from "@/lib/clothing-data";
 import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
+  const [filterOpened, setFilterOpened] = useState(false);
+
   const { data: clothings } = getClothings();
   if (!clothings) return <Loading />;
 
@@ -15,7 +18,8 @@ export default function Page() {
     <main>
       <div className={style(["navigation-gutter"])}></div>
       <form className={style(["container"])}>
-        <div className={style(["left"])}>
+        {filterOpened && (
+          <div className={style(["left"])}>
           <form className={style(["filters"])}>
             <section>
               <div>Categories</div>
@@ -56,15 +60,21 @@ export default function Page() {
                 <button className={style(["button"])} type={"submit"}>
                   Filter
                 </button>
-                <button className={style(["button"])} type={"reset"}>
-                  Clear
+                <button className={style(["button"])} onClick={() => setFilterOpened(false)}>
+                  Hide
                 </button>
               </div>
             </div>
           </form>
         </div>
+        )}
         <div className={style(["right"])}>
           <div className={style(["search"])}>
+            {!filterOpened && (
+              <button className={style(["filter-button"])} onClick={() => setFilterOpened(true)}>
+                <i className={"lni lni-radio-button"}></i>
+              </button>
+            )}
             <input className={style(["input"])} name={"search"} type={"search"} placeholder={"Search"} />
           </div>
           <div className={style(["items"])}>

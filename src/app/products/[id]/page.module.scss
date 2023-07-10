@@ -11,17 +11,20 @@
     background-size: cover;
     background-position: center;
     scroll-snap-align: start;
+
+    .content {
+      width: 90%;
+      height: 80%;
+      margin: {
+        left: auto;
+        right: auto;
+      }
+    }
   }
 }
 
-.content-product {
+.product {
   display: flex;
-  width: 90%;
-  height: 80%;
-  margin: {
-    left: auto;
-    right: auto;
-  }
   gap: 0.5rem;
 
   .left {
@@ -34,16 +37,10 @@
   }
 }
 
-.content-reviews {
+.reviews {
   @extend .surface;
 
   display: grid;
-  width: 90%;
-  height: 80%;
-  margin: {
-    left: auto;
-    right: auto;
-  }
   place-items: center;
 }
 

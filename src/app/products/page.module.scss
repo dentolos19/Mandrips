@@ -39,12 +39,21 @@
 }
 
 .search {
+  display: flex;
   margin-bottom: 0.5rem;
+
+  .filter-button {
+    @extend .button;
+
+    width: 4rem;
+    margin-right: 0.5rem;
+  }
 }
 
 .items {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
 
   .item {

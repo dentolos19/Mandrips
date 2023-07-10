@@ -63,7 +63,7 @@ export default function Page({ params }: { params: { id: string } }) {
     <main className={style(["sections"])}>
       <section>
         <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content-product"])}>
+        <div className={style(["content", "product"])}>
           <div className={style(["left"])}>
             <div className={style(["display"])}>
               {clothing.colors.map((color) => (
@@ -111,7 +111,7 @@ export default function Page({ params }: { params: { id: string } }) {
       </section>
       <section>
         <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content-reviews"])}>Reviews here.</div>
+        <div className={style(["content", "reviews"])}>Reviews here.</div>
       </section>
     </main>
   );
