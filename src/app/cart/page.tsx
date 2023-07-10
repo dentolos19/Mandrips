@@ -68,7 +68,7 @@ export default function Page() {
                 {items.map((item) => (
                   <tr>
                     <td>
-                      {item.clothing.name} ({item.clothing.colorName})
+                      {item.size} {item.clothing.name} ({item.clothing.colorName})
                     </td>
                     <td align={"center"}>{item.quantity}</td>
                     <td align={"center"}>{`S$${(item.clothing.price * item.quantity).toFixed(2)}`}</td>

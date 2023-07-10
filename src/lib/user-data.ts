@@ -9,7 +9,10 @@ export type CartItem = {
 export function addToCart(item: CartItem) {
   const existingCartItems = JSON.parse(localStorage.getItem("cartItems") || "[]") as CartItem[];
   const existingCartItemIndex = existingCartItems.findIndex(
-    (cartItem) => cartItem.clothing.id === item.clothing.id && cartItem.clothing.colorName === item.clothing.colorName
+    (cartItem) =>
+      cartItem.clothing.id === item.clothing.id &&
+      cartItem.clothing.colorName === item.clothing.colorName &&
+      cartItem.size === item.size
   );
   if (existingCartItemIndex !== -1) {
     existingCartItems[existingCartItemIndex].quantity += item.quantity;
