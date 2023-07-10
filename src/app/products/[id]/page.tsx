@@ -25,7 +25,7 @@ export default function Page({ params }: { params: { id: string } }) {
     if (diffColor) {
       clothingColor = diffColor;
       useEffect(() => {
-        document.querySelector(`#${colorName}`)?.scrollIntoView({ behavior: "smooth" });
+        document.querySelector(`#${colorName}`)?.scrollIntoView();
       }, []);
     }
   }

@@ -1,0 +1,21 @@
+@import "@/styles/common.scss";
+
+.container {
+  display: flex;
+  width: 90%;
+  height: 80%;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  gap: 0.5rem;
+
+  .left {
+    flex-grow: 1;
+  }
+
+  .right {
+    max-width: 25%;
+    min-width: 25%;
+  }
+}
