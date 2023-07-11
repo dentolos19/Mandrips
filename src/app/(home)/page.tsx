@@ -50,7 +50,7 @@ export default function Page() {
       </section>
       <section>
         <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content"])}>
+        <div className={style(["content", "surface"])}>
           <div
             style={{
               display: "flex",
@@ -67,7 +67,7 @@ export default function Page() {
       </section>
       <section>
         <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content"])}>
+        <div className={style(["content", "surface"])}>
           <div
             style={{
               display: "flex",

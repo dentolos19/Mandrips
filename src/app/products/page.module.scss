@@ -60,14 +60,14 @@
     @extend .surface;
 
     position: relative;
-    width: 200px;
+    flex: 1 1 17%;
+    aspect-ratio: 1 / 1;
     border: 1px solid black;
     overflow: hidden;
     transition: all 250ms;
 
     img {
-      display: block;
-      width: inherit;
+      width: 100%;
     }
 
     .price {

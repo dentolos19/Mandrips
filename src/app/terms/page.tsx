@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <main>
       <div className={style(["navigation-gutter"])}></div>
-      <div className={style(["text"])}>
+      <div className={style(["container", "text"])}>
         <h2>
           <strong>Terms and Conditions</strong>
         </h2>
