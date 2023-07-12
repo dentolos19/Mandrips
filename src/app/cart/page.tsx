@@ -59,7 +59,7 @@ export default function Page() {
           <div className={style(["order"])}>
             <div>
               <div className={style(["title"])}>Order Summary</div>
-              <table border={1} align={"center"}>
+              {/* <table border={1} align={"center"}>
                 <tr>
                   <th>Item</th>
                   <th>Quantity</th>
@@ -79,7 +79,19 @@ export default function Page() {
                   <th>{items.reduce((acc, item) => acc + item.quantity, 0)}</th>
                   <th>{`S$${items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0).toFixed(2)}`}</th>
                 </tr>
-              </table>
+              </table> */}
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ fontWeight: "bold" }}>Subtotal</span>
+                <span>
+                  {`S$${items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0).toFixed(2)}`}
+                </span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ fontWeight: "bold" }}>Estimated Tax</span>
+                <span>
+                  {`S$${(items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0) * 0.07).toFixed(2)}`}
+                </span>
+              </div>
             </div>
             <div className={style(["buttons"])}>
               <button className={style(["button", "primary"])}>Checkout</button>

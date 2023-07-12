@@ -68,3 +68,93 @@
     border-radius: 8px;
   }
 }
+
+.who {
+  @extend .surface;
+
+  h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin: auto;
+    padding-top: 1em;
+  }
+
+  p {
+    text-align: center;
+    margin: auto;
+    padding-top: 1em;
+    max-width: 85%;
+  }
+}
+
+.titles {
+  position: relative;
+  top: -12%;
+
+  .mandrix {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: absolute;
+    left: 15%;
+  }
+  .killian {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: absolute;
+    left: 33%;
+  }
+  .brayden {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: absolute;
+    left: 50%;
+  }
+  .dennis {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: absolute;
+    left: 70%;
+  }
+}
+
+.founders {
+  position: relative;
+  top: -50%;
+
+  .killianpic {
+    position: absolute;
+    height: 230px;
+    width: 180px;
+    left: 33%;
+    border-radius: 8px;
+  }
+  .braydenpic {
+    position: absolute;
+    height: 230px;
+    width: 180px;
+    left: 52%;
+    border-radius: 8px;
+  }
+  .dennispic {
+    position: absolute;
+    height: 230px;
+    width: 180px;
+    left: 72%;
+    border-radius: 8px;
+  }
+  .mandrixpic {
+    position: absolute;
+    height: 230px;
+    width: 180px;
+    left: 16%;
+    border-radius: 8px;
+  }
+}
