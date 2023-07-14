@@ -67,7 +67,7 @@ export default function Page() {
         </div>
         <div className={style(["titles"])}>
           <h5 className={style(["mandrix"])}>Mandrips the Great (1481~1561)</h5>
-          <h5 className={style(["dennis"])}>Denis the Extraodinary (1496~1587)</h5>
+          <h5 className={style(["dennise"])}>Denis the Extraordinary (1496~1587)</h5>
           <h5 className={style(["brayden"])}>Brandon the Tremendous (1492~1551)</h5>
           <h5 className={style(["killian"])}>Cillian the Rizzler (1479~1558)</h5>
         </div>
@@ -75,7 +75,7 @@ export default function Page() {
           <img className={style(["mandrixpic"])} src={"assets/mandrix.jpg"} />
           <img className={style(["killianpic"])} src={"assets/killian.jpg"} />
           <img className={style(["braydenpic"])} src={"assets/brayden.jpg"} />
-          <img className={style(["dennispic"])} src={"assets/dennise.jpg"} />
+          <img className={style(["dennisepic"])} src={"assets/dennise.jpg"} />
         </div>
       </section>
     </main>

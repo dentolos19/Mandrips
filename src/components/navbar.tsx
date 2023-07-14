@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <div className={style(["navigation-container"])}>
       <nav className={style(["navigation"])}>
-        <Link href={"/"} className={style(["title"])}>
+        <Link className={style(["title"])} href={"/"}>
           Mandrips
         </Link>
         <div className={style(["items"])}>

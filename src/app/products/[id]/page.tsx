@@ -56,6 +56,7 @@ export default function Page({ params }: { params: { id: string } }) {
       size: size,
       quantity: quantity,
     } as CartItem);
+    alert("Your item has been added to cart!");
   };
 
   const style = useStyles(styles);

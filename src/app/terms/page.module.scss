@@ -1,7 +1,7 @@
 @import "@/styles/common.scss";
 
 .text {
-  @extend .surface;
+  @extend .surface; /* inherits style from the surface class in common.scss */
 
   padding: 1rem 2rem;
 }

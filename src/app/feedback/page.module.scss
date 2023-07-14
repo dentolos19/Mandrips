@@ -9,7 +9,32 @@
   }
 
   .right {
-    min-width: 40%;
+    min-width: 50%;
+  }
+}
+
+.faq {
+  @extend .surface; /* inherits style from the surface class in common.scss */
+
+  padding: 1rem;
+
+  .title {
+    font-weight: bold;
+    font-size: 30px;
+    text-align: left;
+    text-decoration: underline;
+  }
+
+  .question {
+    font-weight: bold;
+    font-size: 23px;
+    text-decoration: underline;
+  }
+
+  .answer {
+    font-weight: normal;
+    font-size: 15px;
+    text-decoration: none;
   }
 }
 

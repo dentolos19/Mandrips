@@ -8,17 +8,26 @@ export default function Page() {
       <section>
         <div className={style(["navigation-gutter"])}></div>
         <div className={style(["content", "feedback"])}>
-          <div
-            className={style(["left", "surface"])}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            Something here :)
+          <div className={style(["left", "faq"])}>
+            <span className={style(["title"])}>FAQs</span>
+            <br />
+            <span className={style(["question"])}>1) What is the return policy for online clothing purchases?</span>
+            <br />
+            <span className={style(["answer"])}>
+              Check the website's return policy for details on eligibility, conditions, and any associated fees.
+            </span>
+            <br />
+            <span className={style(["question"])}>2) What is the return policy for online clothing purchases?</span>
+            <br />
+            <span className={style(["answer"])}>
+              Check the website's return policy for details on eligibility, conditions, and any associated fees.
+            </span>
+            <br />
+            <span className={style(["question"])}>3) What is the return policy for online clothing purchases?</span>
+            <br />
+            <span className={style(["answer"])}>
+              Check the website's return policy for details on eligibility, conditions, and any associated fees.
+            </span>
           </div>
           <div className={style(["right"])}>
             <form className={style(["form"])}>
@@ -45,32 +54,16 @@ export default function Page() {
                 </tr>
                 <tr>
                   <td className={style(["buttons"])}>
-                  <button className={style(["button", "primary"])} type="submit">
-                      Submit
+                    <button className={style(["button", "primary"])} type={"submit"}>
+                      Send
                     </button>
-                    <button className={style(["button"])} type="reset">
+                    <button className={style(["button"])} type={"reset"}>
                       Clear
                     </button>
                   </td>
                 </tr>
               </table>
             </form>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content", "surface"])}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <h3>FAQs</h3>
           </div>
         </div>
       </section>

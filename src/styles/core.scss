@@ -1,14 +1,16 @@
 @import "./common.scss";
 
+/* the default stylings for all elements */
 * {
   user-select: none;
-  box-sizing: border-box;
+  box-sizing: border-box; /* the padding and border are included in the width and height */
 }
 
+/* this hides the outline when focusing on an element, this affects all elements */
 *:focus {
   outline: none;
 }
 
 body {
-  margin: 0;
+  margin: 0; /* this removes the default margin set by the browser */
 }

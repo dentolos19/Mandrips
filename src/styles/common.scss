@@ -41,7 +41,7 @@
 }
 
 .button {
-  @extend .surface;
+  @extend .surface; /* inherits style from the surface class */
 
   width: 100%;
   padding: 0.5rem 1rem;
@@ -65,7 +65,7 @@
 }
 
 .input {
-  @extend .surface;
+  @extend .surface; /* inherits style from the surface class */
 
   width: 100%;
   padding: 0.2rem 1rem;
@@ -74,7 +74,7 @@
 }
 
 .select {
-  @extend .surface;
+  @extend .surface; /* inherits style from the surface class */
 
   width: 100%;
   height: 2rem;

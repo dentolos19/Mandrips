@@ -15,14 +15,14 @@
 }
 
 .reviews {
-  @extend .surface;
+  @extend .surface; /* inherits style from the surface class in common.scss */
 
   display: grid;
   place-items: center;
 }
 
 .display {
-  @extend .surface;
+  @extend .surface; /* inherits style from the surface class in common.scss */
 
   height: 100%;
   scroll-snap-type: y mandatory;
@@ -43,7 +43,7 @@
 }
 
 .details {
-  @extend .surface;
+  @extend .surface; /* inherits style from the surface class in common.scss */
 
   padding: 1rem;
 
