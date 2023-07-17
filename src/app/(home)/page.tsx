@@ -50,36 +50,14 @@ export default function Page() {
       </section>
       <section>
         <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content", "surface"])}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <h1>To be added.</h1>
-            <p>This website is still under construction.</p>
-          </div>
+        <div className={style(["content", "promotional"])}>
+          <div></div>
         </div>
       </section>
       <section>
         <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content", "surface"])}>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              height: "100%",
-            }}
-          >
-            <h1>To be added.</h1>
-            <p>This website is still under construction.</p>
-          </div>
+        <div className={style(["content", "sales"])}>
+          <div></div>
         </div>
       </section>
     </main>

@@ -99,5 +99,35 @@
         "file": "5/wine.webp"
       }
     ]
+  },
+  {
+    "id": 6,
+    "type": "shirt",
+    "name": "PEACE FOR ALL Peanuts Short Sleeve T-Shirt",
+    "price": 19.9,
+    "description": "A single T-shirt has the power to spread peace.",
+    "colors": [
+      {
+        "name": "Default",
+        "file": "6/default.webp"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "type": "shirt",
+    "name": "Austin's Special Edition T-Shirt",
+    "price": 149.9,
+    "description": "Show that Jesus will answer your calls, no matter where you are.",
+    "colors": [
+      {
+        "name": "Black",
+        "file": "7/black.jpg"
+      },
+      {
+        "name": "White",
+        "file": "7/white.jpg"
+      }
+    ]
   }
 ]
