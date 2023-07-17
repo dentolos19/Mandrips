@@ -103,7 +103,7 @@ export default function Page({ params }: { params: { id: string } }) {
                   onChange={quantityChangedHandler}
                 />
               </div>
-              <button className={style(["button"])} type={"submit"} onClick={addHandler}>
+              <button className={style(["button", "primary"])} type={"submit"} onClick={addHandler}>
                 Add to Cart
               </button>
             </div>

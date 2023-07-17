@@ -86,21 +86,9 @@ export default function Page() {
       <form className={style(["container"])}>
         {filterOpened && (
           <div className={style(["left"])}>
-            <form className={style(["filters"])}>
+            <div className={style(["filters"])}>
               <section>
                 <div>Categories</div>
-                {/* <div>
-                  <input name={"category"} type={"checkbox"} value={"shirts"} />
-                  <label>Shirts</label>
-                </div>
-                <div>
-                  <input name={"category"} type={"checkbox"} value={"hoodies"} />
-                  <label>Hoodies</label>
-                </div>
-                <div>
-                  <input name={"category"} type={"checkbox"} value={"hats"} />
-                  <label>Hats</label>
-                </div> */}
                 {categories.map((category, index) => (
                   <div key={index}>
                     <input
@@ -116,22 +104,6 @@ export default function Page() {
               </section>
               <section>
                 <div>Price Ranges</div>
-                {/* <div>
-                  <input name={"price"} type={"radio"} value={"all"} checked />
-                  <label>All</label>
-                </div>
-                <div>
-                  <input name={"price"} type={"radio"} value={"poor"} />
-                  <label>$5 to $29</label>
-                </div>
-                <div>
-                  <input name={"price"} type={"radio"} value={"mid"} />
-                  <label>$30 to $99</label>
-                </div>
-                <div>
-                  <input name={"price"} type={"radio"} value={"rich"} />
-                  <label>$100 and beyond</label>
-                </div> */}
                 {priceRanges.map((item, index) => (
                   <div key={index}>
                     <input
@@ -145,7 +117,14 @@ export default function Page() {
                   </div>
                 ))}
               </section>
-            </form>
+              <button
+                className={style(["button"])}
+                style={{ marginTop: "1rem" }}
+                onClick={() => setFilterOpened(false)}
+              >
+                Close
+              </button>
+            </div>
           </div>
         )}
         <div className={style(["right"])}>

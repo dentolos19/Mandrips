@@ -43,12 +43,12 @@
 .items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 0.5rem;
 
   .item {
     @extend .surface; /* inherits style from the surface class in common.scss */
 
+    max-width: 20%;
     position: relative;
     flex: 1 1 17%;
     aspect-ratio: 1 / 1;

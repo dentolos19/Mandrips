@@ -9,25 +9,27 @@ export default function Page() {
         <div className={style(["navigation-gutter"])}></div>
         <div className={style(["content", "feedback"])}>
           <div className={style(["left", "faq"])}>
-            <span className={style(["title"])}>FAQs</span>
-            <br />
-            <span className={style(["question"])}>1) What is the return policy for online clothing purchases?</span>
-            <br />
-            <span className={style(["answer"])}>
-              Check the website's return policy for details on eligibility, conditions, and any associated fees.
-            </span>
-            <br />
-            <span className={style(["question"])}>2) What is the return policy for online clothing purchases?</span>
-            <br />
-            <span className={style(["answer"])}>
-              Check the website's return policy for details on eligibility, conditions, and any associated fees.
-            </span>
-            <br />
-            <span className={style(["question"])}>3) What is the return policy for online clothing purchases?</span>
-            <br />
-            <span className={style(["answer"])}>
-              Check the website's return policy for details on eligibility, conditions, and any associated fees.
-            </span>
+            <div className={style(["title"])}>FAQs</div>
+            <div className={style(["question"])}>1. What are your opening hours?</div>
+            <div className={style(["answer"])}>
+              We are open from 9 am to 9 pm, Monday to Saturday, and from 10 am to 6 pm on Sundays.
+            </div>
+            <div className={style(["question"])}>2. What is your return policy?</div>
+            <div className={style(["answer"])}>
+              You can return any unworn, unwashed, and undamaged items within 30 days of purchase with a valid receipt.
+              We will issue a full refund or exchange as per your preference.
+            </div>
+            <div className={style(["question"])}>3. Do you offer free shipping?</div>
+            <div className={style(["answer"])}>
+              Yes, we offer free standard shipping on orders over $50 within the US. For international orders, shipping
+              fees may vary depending on the destination and weight of the package.
+            </div>
+            <div className={style(["question"])}>4. How can I contact customer service?</div>
+            <div className={style(["answer"])}>
+              You can call us at <code>1-800-MAN-DRIPS</code>, contact us via the form on the right, or email us at{" "}
+              <a href={"mailto:support@mandrips.com"}>support@mandrips.com</a>. We are available from 8 am to 10 pm,
+              Monday to Friday, and from 9 am to 7 pm on weekends.
+            </div>
           </div>
           <div className={style(["right"])}>
             <form className={style(["form"])}>

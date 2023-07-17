@@ -19,22 +19,19 @@
   padding: 1rem;
 
   .title {
+    margin-bottom: 1rem;
+    font-size: 2rem;
     font-weight: bold;
-    font-size: 30px;
-    text-align: left;
-    text-decoration: underline;
   }
 
   .question {
+    margin-bottom: 0.5rem;
     font-weight: bold;
-    font-size: 23px;
-    text-decoration: underline;
   }
 
   .answer {
+    margin-bottom: 0.5rem;
     font-weight: normal;
-    font-size: 15px;
-    text-decoration: none;
   }
 }
 

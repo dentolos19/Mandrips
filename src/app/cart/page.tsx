@@ -2,15 +2,22 @@
 
 import styles from "./page.module.scss";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { clearCart, getCartItems, CartItem } from "@/lib/user-data";
 import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
+  const router = useRouter();
+
   const [items, setItems] = useState<CartItem[]>([]);
 
   useEffect(() => {
     setItems(getCartItems());
   }, []);
+
+  const checkoutHandler = () => {
+    router.push("/checkout");
+  };
 
   const clearHandler = () => {
     clearCart();
@@ -59,27 +66,6 @@ export default function Page() {
           <div className={style(["order"])}>
             <div>
               <div className={style(["title"])}>Order Summary</div>
-              {/* <table border={1} align={"center"}>
-                <tr>
-                  <th>Item</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
-                </tr>
-                {items.map((item) => (
-                  <tr>
-                    <td>
-                      {item.size} {item.clothing.name} ({item.clothing.colorName})
-                    </td>
-                    <td align={"center"}>{item.quantity}</td>
-                    <td align={"center"}>{`S$${(item.clothing.price * item.quantity).toFixed(2)}`}</td>
-                  </tr>
-                ))}
-                <tr>
-                  <th>Subtotal</th>
-                  <th>{items.reduce((acc, item) => acc + item.quantity, 0)}</th>
-                  <th>{`S$${items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0).toFixed(2)}`}</th>
-                </tr>
-              </table> */}
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <span style={{ fontWeight: "bold" }}>Subtotal</span>
                 <span>
@@ -94,7 +80,7 @@ export default function Page() {
               </div>
             </div>
             <div className={style(["buttons"])}>
-              <button className={style(["button", "primary"])}>Checkout</button>
+              <button className={style(["button", "primary"])} onClick={checkoutHandler}>Checkout</button>
               <button className={style(["button"])} onClick={clearHandler}>
                 Clear Cart
               </button>
