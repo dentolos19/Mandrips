@@ -12,34 +12,31 @@ import { useStyles } from "@/lib/utilities";
 export default function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
 
+  const [color, setColor] = useState<string>();
+  const [size, setSize] = useState("Medium");
+  const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    if (!color) return;
+    document.querySelector(`#${color}`)?.scrollIntoView();
+  }, [color]);
+
+  useEffect(() => {
+    const colorName = searchParams.get("color");
+    if (colorName) {
+      setColor(colorName);
+    }
+  }, []);
+
   const id = parseInt(params.id);
   if (isNaN(id)) return <NotFound />;
   const { data: clothings } = getClothings();
   if (!clothings) return <Loading />;
   const clothing = clothings.find((clothing) => clothing.id === id);
   if (!clothing) return <NotFound />;
-  let clothingColor = clothing.colors[0];
-  const colorName = searchParams.get("color");
-  if (colorName) {
-    const diffColor = clothing.colors.find((color) => color.name === colorName);
-    if (diffColor) {
-      clothingColor = diffColor;
-      useEffect(() => {
-        document.querySelector(`#${colorName}`)?.scrollIntoView();
-      }, []);
-    }
-  }
-
-  const [color, setColor] = useState(clothing.colors.find((color) => color.name === colorName) || clothing.colors[0]);
-  const [size, setSize] = useState("Medium");
-  const [quantity, setQuantity] = useState(1);
 
   const colorChangedHandler = (event: ChangeEvent<HTMLSelectElement>) => {
-    const diffColor = clothing.colors.find((color) => color.name === event.target.value);
-    if (diffColor) {
-      setColor(diffColor);
-      document.querySelector(`#${diffColor.name}`)?.scrollIntoView({ behavior: "smooth" });
-    }
+    setColor(event.target.value);
   };
 
   const sizeChangedHandler = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -52,7 +49,7 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const addHandler = () => {
     addToCart({
-      clothing: getColoredClothing(clothing, color),
+      clothing: getColoredClothing(clothing, clothing.colors.find((item) => item.name === color) ?? clothing.colors[0]),
       size: size,
       quantity: quantity,
     } as CartItem);
@@ -80,7 +77,7 @@ export default function Page({ params }: { params: { id: string } }) {
               <div>{`S$${clothing.price.toFixed(2)}`}</div>
               <div className={style(["description"])}>{clothing.description}</div>
               <div className={style(["setting"])}>
-                <select className={style(["select"])} value={color.name} onChange={colorChangedHandler}>
+                <select className={style(["select"])} value={color} onChange={colorChangedHandler}>
                   {clothing.colors.map((color) => (
                     <option key={color.name}>{color.name}</option>
                   ))}
