@@ -158,9 +158,10 @@ export default function Page() {
                 <Link
                   key={`${item.id}-${item.colorName}`}
                   className={style(["item"])}
+                  title={item.name}
                   href={`/products/${item.id}?color=${item.colorName}`}
                 >
-                  <img title={item.name} src={`clothes/${item.colorFile}`} />
+                  <img src={`clothes/${item.colorFile}`} />
                   <div className={style(["price"])}>{`S$${item.price.toFixed(2)}`}</div>
                 </Link>
               ))

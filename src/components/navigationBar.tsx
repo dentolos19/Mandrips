@@ -1,8 +1,8 @@
-import styles from "./navbar.module.scss";
+import styles from "./navigationBar.module.scss";
 import Link from "next/link";
 import { useStyles } from "@/lib/utilities";
 
-export default function Navbar() {
+export default function NavigationBar() {
   const style = useStyles(styles);
   return (
     <div className={style(["navigation-container"])}>
