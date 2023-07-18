@@ -5,16 +5,24 @@ import Link from "next/link";
 import Loading from "@/app/loading";
 import { ChangeEvent, useEffect, useState } from "react";
 import { ColoredClothing, getClothings, getColoredClothings } from "@/lib/clothing-data";
-import { useStyles } from "@/lib/utilities";
+import { shuffleArray, useStyles } from "@/lib/utilities";
 
 const categories = [
   {
-    name: "Shirts",
+    name: "T-Shirts",
     value: "shirt",
+  },
+  {
+    name: "Polo Shirts",
+    value: "polo",
   },
   {
     name: "Hoodies",
     value: "hoodie",
+  },
+  {
+    name: "Sweaters",
+    value: "sweater",
   },
   {
     name: "Hats",
@@ -51,23 +59,25 @@ export default function Page() {
   const { data: clothings } = getClothings();
 
   useEffect(() => {
-    if (clothings) setFilteredClothings(getColoredClothings(clothings));
+    if (clothings) setFilteredClothings(shuffleArray(getColoredClothings(clothings)));
   }, [clothings]);
 
   if (!filteredClothings) return <Loading />;
 
   useEffect(() => {
     if (!clothings) return;
-    const filtered = getColoredClothings(clothings).filter((item) => {
-      return (
-        item.name.toLowerCase().includes(search.toLowerCase()) &&
-        categoryChecked[categories.findIndex((category) => category.value === item.type)] &&
-        (priceRange === "all" ||
-          (priceRange === "poor" && item.price >= 5 && item.price <= 29) ||
-          (priceRange === "mid" && item.price >= 30 && item.price <= 99) ||
-          (priceRange === "rich" && item.price >= 100))
-      );
-    });
+    const filtered = shuffleArray(
+      getColoredClothings(clothings).filter((item) => {
+        return (
+          item.name.toLowerCase().includes(search.toLowerCase()) &&
+          categoryChecked[categories.findIndex((category) => category.value === item.type)] &&
+          (priceRange === "all" ||
+            (priceRange === "poor" && item.price >= 5 && item.price <= 29) ||
+            (priceRange === "mid" && item.price >= 30 && item.price <= 99) ||
+            (priceRange === "rich" && item.price >= 100))
+        );
+      })
+    );
     setFilteredClothings(filtered);
   }, [search, categoryChecked, priceRange]);
 
@@ -143,16 +153,23 @@ export default function Page() {
             />
           </div>
           <div className={style(["items"])}>
-            {filteredClothings.map((item) => (
-              <Link
-                key={`${item.id}-${item.colorName}`}
-                className={style(["item"])}
-                href={`/products/${item.id}?color=${item.colorName}`}
-              >
-                <img src={`clothes/${item.colorFile}`} />
-                <div className={style(["price"])}>{`S$${item.price.toFixed(2)}`}</div>
-              </Link>
-            ))}
+            {filteredClothings.length > 0 ? (
+              filteredClothings.map((item) => (
+                <Link
+                  key={`${item.id}-${item.colorName}`}
+                  className={style(["item"])}
+                  href={`/products/${item.id}?color=${item.colorName}`}
+                >
+                  <img title={item.name} src={`clothes/${item.colorFile}`} />
+                  <div className={style(["price"])}>{`S$${item.price.toFixed(2)}`}</div>
+                </Link>
+              ))
+            ) : (
+              <div style={{ width: "100%", textAlign: "center" }}>
+                <h3>No items found.</h3>
+                <p>We will cater to your needs soon enough!</p>
+              </div>
+            )}
           </div>
         </div>
       </form>

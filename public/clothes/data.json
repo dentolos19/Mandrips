@@ -129,5 +129,64 @@
         "file": "7/white.jpg"
       }
     ]
+  },
+  {
+    "id": 8,
+    "type": "sweater",
+    "name": "Cashmere Turtleneck Long Sleeve Sweater",
+    "price": 149.9,
+    "description": "Based on customer feedback, we revised and updated the thickness and knit tension of the cashmere yarn for a thicker, richer texture.",
+    "colors": [
+      {
+        "name": "Black",
+        "file": "8/black.webp"
+      },
+      {
+        "name": "Navy",
+        "file": "8/navy.webp"
+      },
+      {
+        "name": "Red",
+        "file": "8/red.webp"
+      },
+      {
+        "name": "White",
+        "file": "8/white.webp"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "type": "polo",
+    "name": "Dry-EX Short Sleeve Polo Shirt (Tipping)",
+    "price": 29.9,
+    "description": "Quick-drying 'DRY-EX' for stay-fresh comfort. Cool, breathable mesh.",
+    "colors": [
+      {
+        "name": "Black",
+        "file": "9/black.webp"
+      },
+      {
+        "name": "Blue",
+        "file": "9/blue.webp"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "type": "polo",
+    "name": "Dry-EX Short Sleeve Polo Shirt (Border)",
+    "price": 29.9,
+    "description": "Quick-drying 'DRY-EX' for stay-fresh comfort. Cool, breathable mesh.",
+    "colors": [
+      {
+        "name": "Blue",
+        "file": "10/blue.webp"
+      },
+      {
+        "name": "Red",
+        "file": "10/red.webp"
+      }
+    ]
   }
 ]

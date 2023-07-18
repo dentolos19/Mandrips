@@ -2,10 +2,13 @@
 
 import styles from "./page.module.scss";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { CartItem, getCartItems } from "@/lib/user-data";
 import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
+  const router = useRouter();
+
   const [items, setItems] = useState<CartItem[]>([]);
 
   useEffect(() => {
@@ -14,6 +17,10 @@ export default function Page() {
 
   const purchaseHandler = () => {
     alert("Purchase has been successful");
+  };
+
+  const backHandler = () => {
+    router.push("/cart");
   };
 
   const deliverybutton = () => {
@@ -128,25 +135,28 @@ export default function Page() {
           </div>
         </div>
         <div className={style(["right"])}>
-          <div className={style(["surface"])} style={{ padding: "1rem" }}>
-            <div>Order Summary</div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ fontWeight: "bold" }}>Subtotal</span>
-              <span>{`S$${items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0).toFixed(2)}`}</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ fontWeight: "bold" }}>Estimated Tax</span>
-              <span>
-                {`S$${(items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0) * 0.07).toFixed(2)}`}
-              </span>
+          <div className={style(["order"])}>
+            <div>
+              <div className={style(["title"])}>Order Summary</div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ fontWeight: "bold" }}>Subtotal</span>
+                <span>
+                  {`S$${items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0).toFixed(2)}`}
+                </span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <span style={{ fontWeight: "bold" }}>Estimated Tax</span>
+                <span>
+                  {`S$${(items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0) * 0.07).toFixed(2)}`}
+                </span>
+              </div>
             </div>
             <div className={style(["buttons"])}>
-              <button
-                className={style(["button"])}
-                style={{ background: "black", color: "white" }}
-                onClick={purchaseHandler}
-              >
+              <button className={style(["button", "primary"])} onClick={purchaseHandler}>
                 Purchase
+              </button>
+              <button className={style(["button"])} onClick={backHandler}>
+                Back
               </button>
             </div>
           </div>
