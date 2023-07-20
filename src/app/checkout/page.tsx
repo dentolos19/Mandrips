@@ -3,7 +3,7 @@
 import styles from "./page.module.scss";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CartItem, getCartItems } from "@/lib/user-data";
+import { CartItem, clearCart, getCartItems } from "@/lib/user-data";
 import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
@@ -17,6 +17,8 @@ export default function Page() {
 
   const purchaseHandler = () => {
     alert("Purchase has been successful");
+    clearCart();
+    router.push("/checkout/complete");
   };
 
   const backHandler = () => {
