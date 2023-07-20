@@ -1,4 +1,4 @@
-import { ColoredClothing } from "./clothing-data";
+import { ColoredClothing } from "./database";
 
 export type CartItem = {
   clothing: ColoredClothing;

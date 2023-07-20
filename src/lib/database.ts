@@ -19,10 +19,16 @@ export type Color = {
   file: string;
 };
 
+export type Review = {
+  name: string;
+  rating: number;
+  review: string;
+}
+
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export function getClothings() {
-  return useSWR<Clothing[]>("/clothes/data.json", fetcher);
+  return useSWR<Clothing[]>("/database/clothes.json", fetcher);
 }
 
 export function getColoredClothings(clothings: Clothing[]) {
@@ -43,4 +49,8 @@ export function getColoredClothing(clothing: Clothing, color: Color) {
     colorName: color.name,
     colorFile: color.file,
   } as ColoredClothing;
+}
+
+export function getReviews() {
+  return useSWR<Review[]>("/database/reviews.json", fetcher);
 }

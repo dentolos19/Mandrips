@@ -5,7 +5,7 @@ import Loading from "@/app/loading";
 import NotFound from "@/app/not-found";
 import { useEffect, useState, ChangeEvent } from "react";
 import { useSearchParams } from "next/navigation";
-import { getClothings, getColoredClothing } from "@/lib/clothing-data";
+import { getClothings, getColoredClothing, getReviews } from "@/lib/database";
 import { addToCart, CartItem } from "@/lib/user-data";
 import { useStyles } from "@/lib/utilities";
 
@@ -30,8 +30,11 @@ export default function Page({ params }: { params: { id: string } }) {
 
   const id = parseInt(params.id);
   if (isNaN(id)) return <NotFound />;
+
   const { data: clothings } = getClothings();
-  if (!clothings) return <Loading />;
+  const { data: reviews } = getReviews();
+
+  if (!clothings || !reviews) return <Loading />;
   const clothing = clothings.find((clothing) => clothing.id === id);
   if (!clothing) return <NotFound />;
 
@@ -66,7 +69,7 @@ export default function Page({ params }: { params: { id: string } }) {
             <div className={style(["display"])}>
               {clothing.colors.map((color) => (
                 <div key={color.name} id={color.name} className={style(["slide"])}>
-                  <img src={`/clothes/${color.file}`} />
+                  <img src={`/database/clothes/${id}/${color.file}`} />
                 </div>
               ))}
             </div>
@@ -109,7 +112,21 @@ export default function Page({ params }: { params: { id: string } }) {
       </section>
       <section>
         <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content", "reviews"])}>Reviews here.</div>
+        <div className={style(["content", "reviews"])}>
+          {reviews &&
+            reviews.map((review) => (
+              <div className={style(["review"])}>
+                <div className={style(["image"])}>
+                  <img src={"/assets/cat.jpeg"} />
+                </div>
+                <div>
+                  <div className={style(["name"])}>{review.name}</div>
+                  <div className={style(["stars"])}>{"★".repeat(review.rating)}</div>
+                  <div className={style(["text"])}>{review.review}</div>
+                </div>
+              </div>
+            ))}
+        </div>
       </section>
     </main>
   );

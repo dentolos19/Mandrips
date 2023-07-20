@@ -8,19 +8,19 @@
     "colors": [
       {
         "name": "Black",
-        "file": "1/black.webp"
+        "file": "black.webp"
       },
       {
         "name": "Gray",
-        "file": "1/gray.webp"
+        "file": "gray.webp"
       },
       {
         "name": "Natural",
-        "file": "1/natural.webp"
+        "file": "natural.webp"
       },
       {
         "name": "Red",
-        "file": "1/red.webp"
+        "file": "red.webp"
       }
     ]
   },
@@ -33,15 +33,15 @@
     "colors": [
       {
         "name": "Black",
-        "file": "2/black.webp"
+        "file": "black.webp"
       },
       {
         "name": "Blue",
-        "file": "2/blue.webp"
+        "file": "blue.webp"
       },
       {
         "name": "Gray",
-        "file": "2/gray.webp"
+        "file": "gray.webp"
       }
     ]
   },
@@ -54,11 +54,11 @@
     "colors": [
       {
         "name": "Navy",
-        "file": "3/navy.webp"
+        "file": "navy.webp"
       },
       {
         "name": "Olive",
-        "file": "3/olive.webp"
+        "file": "olive.webp"
       }
     ]
   },
@@ -71,11 +71,11 @@
     "colors": [
       {
         "name": "Gray",
-        "file": "4/gray.webp"
+        "file": "gray.webp"
       },
       {
         "name": "Navy",
-        "file": "4/navy.webp"
+        "file": "navy.webp"
       }
     ]
   },
@@ -88,15 +88,15 @@
     "colors": [
       {
         "name": "Navy",
-        "file": "5/navy.webp"
+        "file": "navy.webp"
       },
       {
         "name": "White",
-        "file": "5/white.webp"
+        "file": "white.webp"
       },
       {
         "name": "Wine",
-        "file": "5/wine.webp"
+        "file": "wine.webp"
       }
     ]
   },
@@ -109,7 +109,7 @@
     "colors": [
       {
         "name": "Default",
-        "file": "6/default.webp"
+        "file": "default.webp"
       }
     ]
   },
@@ -122,11 +122,11 @@
     "colors": [
       {
         "name": "Black",
-        "file": "7/black.jpg"
+        "file": "black.jpg"
       },
       {
         "name": "White",
-        "file": "7/white.jpg"
+        "file": "white.jpg"
       }
     ]
   },
@@ -139,19 +139,19 @@
     "colors": [
       {
         "name": "Black",
-        "file": "8/black.webp"
+        "file": "black.webp"
       },
       {
         "name": "Navy",
-        "file": "8/navy.webp"
+        "file": "navy.webp"
       },
       {
         "name": "Red",
-        "file": "8/red.webp"
+        "file": "red.webp"
       },
       {
         "name": "White",
-        "file": "8/white.webp"
+        "file": "white.webp"
       }
     ]
   },
@@ -164,11 +164,11 @@
     "colors": [
       {
         "name": "Black",
-        "file": "9/black.webp"
+        "file": "black.webp"
       },
       {
         "name": "Blue",
-        "file": "9/blue.webp"
+        "file": "blue.webp"
       }
     ]
   },
@@ -181,11 +181,11 @@
     "colors": [
       {
         "name": "Blue",
-        "file": "10/blue.webp"
+        "file": "blue.webp"
       },
       {
         "name": "Red",
-        "file": "10/red.webp"
+        "file": "red.webp"
       }
     ]
   }

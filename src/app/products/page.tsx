@@ -4,7 +4,7 @@ import styles from "./page.module.scss";
 import Link from "next/link";
 import Loading from "@/app/loading";
 import { ChangeEvent, useEffect, useState } from "react";
-import { ColoredClothing, getClothings, getColoredClothings } from "@/lib/clothing-data";
+import { ColoredClothing, getClothings, getColoredClothings } from "@/lib/database";
 import { shuffleArray, useStyles } from "@/lib/utilities";
 
 const categories = [
@@ -161,7 +161,7 @@ export default function Page() {
                   title={item.name}
                   href={`/products/${item.id}?color=${item.colorName}`}
                 >
-                  <img src={`clothes/${item.colorFile}`} />
+                  <img src={`/database/clothes/${item.id}/${item.colorFile}`} />
                   <div className={style(["price"])}>{`S$${item.price.toFixed(2)}`}</div>
                 </Link>
               ))

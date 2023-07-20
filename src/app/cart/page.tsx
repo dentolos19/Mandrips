@@ -20,6 +20,8 @@ export default function Page() {
   };
 
   const clearHandler = () => {
+    const response = confirm("Are you sure you want to clear your cart?");
+    if (!response) return;
     clearCart();
     setItems([]);
   };
