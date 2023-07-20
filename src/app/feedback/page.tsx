@@ -21,7 +21,7 @@ export default function Page() {
             </div>
             <div className={style(["question"])}>3. Do you offer free shipping?</div>
             <div className={style(["answer"])}>
-              Yes, we offer free standard shipping on orders over $50 within the US. For international orders, shipping
+              Yes, we offer free standard shipping on orders over $50 within Singapore. For international orders, shipping
               fees may vary depending on the destination and weight of the package.
             </div>
             <div className={style(["question"])}>4. How can I contact customer service?</div>

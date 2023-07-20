@@ -49,7 +49,10 @@ export default function Page() {
             {items.map((item) => (
               <div key={item.clothing.id} className={style(["item"])}>
                 <div className={style(["details"])}>
-                  <img className={style(["image"])} src={`/clothes/${item.clothing.colorFile}`} />
+                  <img
+                    className={style(["image"])}
+                    src={`/database/clothes/${item.clothing.id}/${item.clothing.colorFile}`}
+                  />
                   <div className={style(["text"])}>
                     <div className={style(["title"])}>{item.clothing.name}</div>
                     <div>Product ID: {item.clothing.id}</div>
@@ -82,7 +85,9 @@ export default function Page() {
               </div>
             </div>
             <div className={style(["buttons"])}>
-              <button className={style(["button", "primary"])} onClick={checkoutHandler}>Checkout</button>
+              <button className={style(["button", "primary"])} onClick={checkoutHandler}>
+                Checkout
+              </button>
               <button className={style(["button"])} onClick={clearHandler}>
                 Clear Cart
               </button>
