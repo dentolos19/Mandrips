@@ -3,7 +3,7 @@
 import styles from "./page.module.scss";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { CartItem, clearCart, getCartItems } from "@/lib/user-data";
+import { CartItem, clearCart, getCartItems } from "@/lib/cart";
 import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
@@ -11,6 +11,7 @@ export default function Page() {
 
   const [items, setItems] = useState<CartItem[]>([]);
 
+  // this runs after render of the page has been completed
   useEffect(() => {
     setItems(getCartItems());
   }, []);
@@ -113,7 +114,7 @@ export default function Page() {
                     <td>
                       <div>Phone number (for delivery updates)</div>
                       <select className={style(["select"])} name="Phone Number">
-                        <option value="Singapore(+65)">Singapore(+65)</option>
+                        <option value="Singapore(+65)">Singapore (+65)</option>
                       </select>
                     </td>
                   </tr>

@@ -1,5 +1,3 @@
-@import "~lineicons/web-font/lineicons.css";
-
 .navigation-gutter {
   height: 100px;
 }
@@ -41,7 +39,7 @@
 }
 
 .button {
-  @extend .surface; /* inherits style from the surface class */
+  @extend .surface;
 
   width: 100%;
   padding: 0.5rem 1rem;
@@ -53,19 +51,21 @@
     color: white;
     background: black;
   }
+
+  &:hover {
+    cursor: pointer;
+    scale: 1.05;
+  }
+
+  &:active {
+    scale: 1;
+  }
 }
 
-.button:hover {
-  cursor: pointer;
-  scale: 1.05;
-}
 
-.button:active {
-  scale: 1;
-}
 
 .input {
-  @extend .surface; /* inherits style from the surface class */
+  @extend .surface;
 
   width: 100%;
   padding: 0.2rem 1rem;
@@ -74,7 +74,7 @@
 }
 
 .select {
-  @extend .surface; /* inherits style from the surface class */
+  @extend .surface;
 
   width: 100%;
   height: 2rem;
@@ -82,23 +82,6 @@
   text-align: center;
   appearance: none;
   border: none;
-}
-
-.dialog[open] {
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-
-  .content {
-    @extend .surface;
-
-    padding: 1em;
-    background: white;
-  }
 }
 
 i.lni {

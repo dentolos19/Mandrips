@@ -60,7 +60,7 @@ export default function Page() {
         <div className={style(["content", "who"])}>
           <h3>Who are we</h3>
           <p>
-            We are the decendants of Mandrix the great and have just started an online store to compete in the online
+            We are the decendants of Mandrips the great and have just started an online store to compete in the online
             marketplace. Our products has been the top of the line in quality since the 1500s and will continue to
             provide our customers with the same quality.
           </p>

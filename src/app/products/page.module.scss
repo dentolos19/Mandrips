@@ -46,7 +46,7 @@
   gap: 0.5rem;
 
   .item {
-    @extend .surface; /* inherits style from the surface class in common.scss */
+    @extend .surface;
 
     max-width: 20%;
     position: relative;

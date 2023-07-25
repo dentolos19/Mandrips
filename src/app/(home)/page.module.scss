@@ -1,7 +1,7 @@
 @import "@/styles/common.scss";
 
 .home {
-  @extend .surface; /* inherits style from the surface class in common.scss */
+  @extend .surface;
 
   display: flex;
   position: relative;

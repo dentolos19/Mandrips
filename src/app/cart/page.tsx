@@ -3,7 +3,7 @@
 import styles from "./page.module.scss";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { clearCart, getCartItems, CartItem } from "@/lib/user-data";
+import { clearCart, getCartItems, CartItem, removeFromCart } from "@/lib/cart";
 import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
@@ -11,6 +11,7 @@ export default function Page() {
 
   const [items, setItems] = useState<CartItem[]>([]);
 
+  // this runs after render of the page has been completed
   useEffect(() => {
     setItems(getCartItems());
   }, []);
@@ -24,6 +25,12 @@ export default function Page() {
     if (!response) return;
     clearCart();
     setItems([]);
+  };
+
+  const removeHandler = (item: CartItem) => {
+    const response = confirm("Are you sure you want to remove this item from your cart?");
+    if (!response) return;
+    setItems(removeFromCart(item));
   };
 
   const style = useStyles(styles);
@@ -54,7 +61,16 @@ export default function Page() {
                     src={`/database/clothes/${item.clothing.id}/${item.clothing.colorFile}`}
                   />
                   <div className={style(["text"])}>
-                    <div className={style(["title"])}>{item.clothing.name}</div>
+                    <div className={style(["title"])}>
+                      <span>{item.clothing.name}</span>
+                      <span
+                        className={style(["delete"])}
+                        style={{ marginLeft: "0.5rem", cursor: "pointer" }}
+                        onClick={() => removeHandler(item)}
+                      >
+                        <i className={"lni lni-trash-can"}></i>
+                      </span>
+                    </div>
                     <div>Product ID: {item.clothing.id}</div>
                     <div>
                       Color: {item.clothing.colorName} / Size: {item.size}

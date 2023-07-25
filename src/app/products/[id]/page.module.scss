@@ -67,7 +67,7 @@
 }
 
 .review {
-  @extend .surface; /* inherits style from the surface class in common.scss */
+  @extend .surface;
 
   display: flex;
   flex: 1 0 20%;
@@ -77,7 +77,7 @@
   gap: 1rem;
 
   .image {
-    @extend .surface; /* inherits style from the surface class in common.scss */
+    @extend .surface;
 
     aspect-ratio: 1 / 1;
     border-radius: 50%;

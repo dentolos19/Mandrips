@@ -6,7 +6,7 @@ import NotFound from "@/app/not-found";
 import { useEffect, useState, ChangeEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import { getClothings, getColoredClothing, getReviews } from "@/lib/database";
-import { addToCart, CartItem } from "@/lib/user-data";
+import { addToCart, CartItem } from "@/lib/cart";
 import { useStyles } from "@/lib/utilities";
 
 export default function Page({ params }: { params: { id: string } }) {

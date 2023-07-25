@@ -1,7 +1,13 @@
+"use client";
+
 import styles from "./page.module.scss";
 import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
+  const submitHandler = () => {
+    alert("Your feedback has been submitted.");
+  };
+
   const style = useStyles(styles);
   return (
     <main className={style(["sections"])}>
@@ -21,8 +27,8 @@ export default function Page() {
             </div>
             <div className={style(["question"])}>3. Do you offer free shipping?</div>
             <div className={style(["answer"])}>
-              Yes, we offer free standard shipping on orders over $50 within Singapore. For international orders, shipping
-              fees may vary depending on the destination and weight of the package.
+              Yes, we offer free standard shipping on orders over $50 within Singapore. For international orders,
+              shipping fees may vary depending on the destination and weight of the package.
             </div>
             <div className={style(["question"])}>4. How can I contact customer service?</div>
             <div className={style(["answer"])}>
@@ -32,26 +38,26 @@ export default function Page() {
             </div>
           </div>
           <div className={style(["right"])}>
-            <form className={style(["form"])}>
+            <form className={style(["form"])} onSubmit={submitHandler}>
               <table cellSpacing={8}>
                 <tr>
                   <td>
-                    <input className={style(["input"])} type={"text"} placeholder={"John Doe"} />
+                    <input className={style(["input"])} type={"text"} placeholder={"John Doe"} required />
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <input className={style(["input"])} type={"email"} placeholder={"john.doe@gmail.com"} />
+                    <input className={style(["input"])} type={"email"} placeholder={"john.doe@gmail.com"} required />
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <input className={style(["input"])} type={"text"} placeholder={"Feedback Subject"} />
+                    <input className={style(["input"])} type={"text"} placeholder={"Feedback Subject"} required />
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <textarea className={style(["input"])} />
+                    <textarea className={style(["input"])} required />
                   </td>
                 </tr>
                 <tr>

@@ -1,7 +1,7 @@
 @import "@/styles/common.scss";
 
 .about {
-  @extend .surface; /* inherits style from the surface class in common.scss */
+  @extend .surface;
 
   display: flex;
   justify-content: space-around;
@@ -51,7 +51,7 @@
 }
 
 .history {
-  @extend .surface; /* inherits style from the surface class in common.scss */
+  @extend .surface;
 
   display: flex;
   flex-direction: column;
@@ -70,7 +70,7 @@
 }
 
 .who {
-  @extend .surface; /* inherits style from the surface class in common.scss */
+  @extend .surface;
 
   h3 {
     text-align: center;
