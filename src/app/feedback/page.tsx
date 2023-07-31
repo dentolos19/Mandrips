@@ -1,11 +1,13 @@
 "use client";
 
 import styles from "./page.module.scss";
+import { FormEvent } from "react";
 import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
-  const submitHandler = () => {
+  const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     alert("Your feedback has been submitted.");
+    event.preventDefault();
   };
 
   const style = useStyles(styles);

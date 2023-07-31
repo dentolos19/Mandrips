@@ -48,18 +48,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section>
-        <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content", "promotional"])}>
-          <div></div>
-        </div>
-      </section>
-      <section>
-        <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content", "sales"])}>
-          <div></div>
-        </div>
-      </section>
     </main>
   );
 }

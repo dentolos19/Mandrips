@@ -21,10 +21,17 @@
   backdrop-filter: blur(8px);
 
   .title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     color: inherit;
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
+
+    img {
+      height: 1.6em;
+    }
   }
 
   .items {

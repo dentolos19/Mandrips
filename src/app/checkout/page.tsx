@@ -11,7 +11,6 @@ export default function Page() {
 
   const [items, setItems] = useState<CartItem[]>([]);
 
-  // this runs after render of the page has been completed
   useEffect(() => {
     setItems(getCartItems());
   }, []);
@@ -24,10 +23,6 @@ export default function Page() {
 
   const backHandler = () => {
     router.push("/cart");
-  };
-
-  const deliverybutton = () => {
-    alert("Information has been saved");
   };
 
   const style = useStyles(styles);
@@ -44,17 +39,17 @@ export default function Page() {
                   <tr>
                     <td>
                       <label style={{ display: "block" }}>Email</label>
-                      <input type="email" placeholder="Supercool@gmail.com" />
+                      <input className={style(["input"])} type="email" placeholder="Supercool@gmail.com" />
                     </td>
                   </tr>
                   <tr>
                     <td>
                       <label style={{ display: "block" }}>Firstname</label>
-                      <input type="text" placeholder="Bofa" />
+                      <input className={style(["input"])} type="text" placeholder="Bofa" />
                     </td>
                     <td>
                       <label style={{ display: "block" }}>Lastname</label>
-                      <input type="text" placeholder="Dinesh" />
+                      <input className={style(["input"])} type="text" placeholder="Dinesh" />
                     </td>
                   </tr>
                 </table>
@@ -66,7 +61,7 @@ export default function Page() {
                   <tr>
                     <td>
                       <label style={{ display: "block" }}>Address</label>
-                      <input type="text" />
+                      <input className={style(["input"])} type="text" />
                       <div style={{ color: "gray" }}>Block number, House number, Building number, Street name</div>
                     </td>
                   </tr>
@@ -74,11 +69,11 @@ export default function Page() {
                     <td style={{ display: "flex", gap: "1rem" }}>
                       <span>
                         <label style={{ display: "block" }}>Town/City</label>
-                        <input type="text" />
+                        <input className={style(["input"])} type="text" />
                       </span>
                       <span>
                         <label style={{ display: "block" }}>Postal code</label>
-                        <input type="text" />
+                        <input className={style(["input"])} type="text" />
                       </span>
                     </td>
                   </tr>
@@ -114,7 +109,7 @@ export default function Page() {
                     <td>
                       <div>Phone number (for delivery updates)</div>
                       <select className={style(["select"])} name="Phone Number">
-                        <option value="Singapore(+65)">Singapore (+65)</option>
+                        <option value="Singapore(+65)">Singapore(+65)</option>
                       </select>
                     </td>
                   </tr>
@@ -124,15 +119,87 @@ export default function Page() {
                     </td>
                   </tr>
                 </table>
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "20px", width: "100%" }}>
-                  <button
-                    className={style(["button"])}
-                    style={{ width: "fit-content", background: "black", color: "white" }}
-                    onClick={deliverybutton}
-                  >
-                    Save
-                  </button>
-                </div>
+                <div style={{ display: "flex", justifyContent: "center", marginTop: "20px", width: "100%" }}></div>
+                <div style={{ display: "flex", justifyContent: "center", marginTop: "20px", width: "100%" }}></div>
+              </div>
+              <div className={style(["surface"])} style={{ padding: "1em", width: "100%" }}>
+                <div style={{ fontSize: "1.5em", fontWeight: "600" }}>Payment</div>
+                <table>
+                  <tr>
+                    <td>
+                      <div>How would you like to pay?</div>
+                    </td>
+                  </tr>
+                  <hr />
+                  <tr>
+                    <td>
+                      <div style={{ display: "flex", marginTop: "1rem" }}>
+                        <input type="radio" style={{ scale: "2" }} />
+                        <label style={{ marginLeft: "1rem", display: "flex", alignItems: "center" }}>
+                          <i className="lni lni-visa" style={{ fontSize: "1.5em" }}></i>
+                          <i className="lni lni-mastercard" style={{ fontSize: "1.5em" }}></i>
+
+                          <span style={{ marginLeft: "1.5rem" }}>
+                            <div style={{ fontWeight: "bold" }}>Credit Card</div>
+                          </span>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>
+                        <label style={{ display: "block" }}>Firstname</label>
+                        <input className={style(["input"])} type="text" placeholder="Bofa" />
+                      </div>
+                      <div>
+                        <label style={{ display: "block" }}>Lastname</label>
+                        <input className={style(["input"])} type="text" placeholder="Dinesh" />
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div>
+                        <label style={{ display: "flex", justifyContent: "space-between" }}>
+                          <span>Card number</span>
+                          <span>
+                            <i className="lni lni-visa" style={{ fontSize: "1.5rem" }}></i>
+                            <i className="lni lni-mastercard" style={{ fontSize: "1.5em" }}></i>
+                          </span>
+                        </label>
+                      </div>
+                      <input
+                        className={style(["input"])}
+                        type="tel"
+                        inputMode="numeric"
+                        pattern="[0-9\s]{13,19}"
+                        autoComplete="cc-number"
+                        maxLength={19}
+                        placeholder="xxxx xxxx xxxx xxxx"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style={{ display: "flex", flexDirection: "row" }}>
+                      <span className="expiration">
+                        <label style={{ display: "block" }}>Expiry date</label>
+                        <input
+                          className={style(["input"])}
+                          type="text"
+                          name="month"
+                          placeholder="MM/YY"
+                          maxLength={5}
+                          size={5}
+                        />
+                      </span>
+                      <div style={{ marginLeft: "2rem" }}>
+                        <label style={{ display: "block" }}>Cvv</label>
+                        <input className={style(["input"])} type="tel" maxLength={3} placeholder="3 digits" />
+                      </div>
+                    </td>
+                  </tr>
+                </table>
               </div>
             </div>
           </div>

@@ -58,7 +58,7 @@ export default function Page() {
       <section>
         <div className={style(["navigation-gutter"])}></div>
         <div className={style(["content", "who"])}>
-          <h3>Who are we</h3>
+          <h3>Who Are We</h3>
           <p>
             We are the decendants of Mandrips the great and have just started an online store to compete in the online
             marketplace. Our products has been the top of the line in quality since the 1500s and will continue to
