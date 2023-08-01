@@ -41,11 +41,11 @@ export default function Page() {
       <section>
         <div className={style(["navigation-gutter"])}></div>
         <div className={style(["content", "vision"])}>
-          <h3>Our Mission, Vision &amp; Goals</h3>
-          <p>"Anyone can have drip" ~ Mandrix</p>
-          <p>"My drip makes people wet" ~ [REDACTED]</p>
-          <p>"Drip can be bought" ~ Brayden</p>
-          <p>"I am dripped out of my mind" ~ Killian</p>
+          <h3>Testimonials</h3>
+          <p>"Now anyone can have drip! 👕💦" ~ Mandrix</p>
+          <p>"My drip makes people wet. 🥵💦" ~ [REDACTED]</p>
+          <p>"Drip can be bought. 🤸" ~ Brayden</p>
+          <p>"I am dripped out of my mind!!! 💦🤯" ~ Killian</p>
         </div>
       </section>
       <section>
