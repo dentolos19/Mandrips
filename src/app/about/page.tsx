@@ -64,8 +64,42 @@ export default function Page() {
             marketplace. Our products has been the top of the line in quality since the 1500s and will continue to
             provide our customers with the same quality.
           </p>
+          <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "40px" }}>
+            <div style={{ width: "200px" }}>
+              <img className={style(["surface"])} src={"assets/mandrix.jpg"} style={{ width: "100%", height: "60%" }} />
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontWeight: "bold" }}>Mandrips the Great</div>
+                <div>The Founder</div>
+                <div>1496 - 1581</div>
+              </div>
+            </div>
+            <div style={{ width: "200px" }}>
+              <img className={style(["surface"])} src={"assets/killian.jpg"} style={{ width: "100%", height: "60%" }} />
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontWeight: "bold" }}>Cillian the Rizzler</div>
+                <div>3rd Generation CEO</div>
+                <div>1632 - 1712</div>
+              </div>
+            </div>
+            <div style={{ width: "200px" }}>
+              <img className={style(["surface"])} src={"assets/dennise.jpg"} style={{ width: "100%", height: "60%" }} />
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontWeight: "bold" }}>Denis the Extrodinary</div>
+                <div>7th Generation CEO</div>
+                <div>1838 - 1912</div>
+              </div>
+            </div>
+            <div style={{ width: "200px" }}>
+              <img className={style(["surface"])} src={"assets/brayden.jpg"} style={{ width: "100%", height: "60%" }} />
+              <div style={{ textAlign: "center" }}>
+                <div style={{ fontWeight: "bold" }}>Brandon the Tremendous</div>
+                <div>Current CEO</div>
+                <div>1956 - Now</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className={style(["titles"])}>
+        {/* <div className={style(["titles"])}>
           <h5 className={style(["mandrix"])}>Mandrips the Great (1481~1561)</h5>
           <h5 className={style(["dennise"])}>Denis the Extraordinary (1496~1587)</h5>
           <h5 className={style(["brayden"])}>Brandon the Tremendous (1492~1551)</h5>
@@ -76,7 +110,7 @@ export default function Page() {
           <img className={style(["killianpic"])} src={"assets/killian.jpg"} />
           <img className={style(["braydenpic"])} src={"assets/brayden.jpg"} />
           <img className={style(["dennisepic"])} src={"assets/dennise.jpg"} />
-        </div>
+        </div> */}
       </section>
     </main>
   );
