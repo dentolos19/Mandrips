@@ -1,11 +1,13 @@
 [
   {
     "name": "Lee Hsien Loong",
+    "avatar": "lhl.jpeg",
     "rating": 5,
     "review": "All Singaporeans should buy clothes from this brand!"
   },
   {
     "name": "Very Sus Man",
+    "avatar": "sus.jpg",
     "rating": 5,
     "review": "This clothes is super sexy, it made me drip so much I filled an entire ocean from being so moist! OMG! This is the best clothes in the entire world."
   },
@@ -16,12 +18,26 @@
   },
   {
     "name": "Mohammad Bofer Dinesh",
+    "avatar": "bofer.jpeg",
     "rating": 5,
     "review": "I look like my ancestor now!"
   },
   {
     "name": "Elon Musk",
+    "avatar": "elon.jpeg",
     "rating": 5,
-    "review": "600 years of history? More like 600 set of clothes!"
+    "review": "These good clothings are a sublime fusion of design and comfort, elevating your style like a rocket soaring to the stars."
+  },
+  {
+    "name": "William Shakespeare",
+    "avatar": "shakespeare.jpeg",
+    "rating": 5,
+    "review": "In threads of elegance, these garments weave a tapestry of noble taste, fit for royalty and a poetry of style!"
+  },
+  {
+    "name": "Issac Newton",
+    "avatar": "newton.jpeg",
+    "rating": 5,
+    "review": "These exquisite garments, like celestial bodies in perfect harmony, embrace the wearer with a gravitational allure that leaves one in awe of their elegance and refinement."
   }
 ]

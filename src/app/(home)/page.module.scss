@@ -40,19 +40,3 @@
     bottom: 0;
   }
 }
-
-.promotional {
-  @extend .surface;
-
-  background-image: url("../../../public/assets/man.jpg");
-  background-position: center;
-  background-size: cover;
-}
-
-.sales {
-  @extend .surface;
-
-  background-image: url("../../../public/assets/woman.jpg");
-  background-position: center;
-  background-size: cover;
-}

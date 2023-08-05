@@ -8,7 +8,7 @@ export default function NavigationBar() {
     <div className={style(["navigation-container"])}>
       <nav className={style(["navigation"])}>
         <Link className={style(["title"])} href={"/"}>
-          <img src="assets/icon.png"/>
+          <img src="/assets/icon.png"/>
         </Link>
         <div className={style(["items"])}>
           <Link href={"/"}>Home</Link>

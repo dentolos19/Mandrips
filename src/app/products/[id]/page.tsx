@@ -117,7 +117,7 @@ export default function Page({ params }: { params: { id: string } }) {
             reviews.map((review) => (
               <div className={style(["review"])}>
                 <div className={style(["image"])}>
-                  <img src={"/assets/cat.jpeg"} />
+                  <img src={`/database/avatars/${review.avatar ?? "default.jpeg"}`} />
                 </div>
                 <div>
                   <div className={style(["name"])}>{review.name}</div>

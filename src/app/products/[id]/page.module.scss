@@ -15,8 +15,6 @@
 }
 
 .reviews {
-  @extend .surface; /* inherits style from the surface class in common.scss */
-
   display: flex;
   padding: 1rem;
   flex-wrap: wrap;
@@ -24,7 +22,7 @@
 }
 
 .display {
-  @extend .surface; /* inherits style from the surface class in common.scss */
+  @extend .surface;
 
   height: 100%;
   scroll-snap-type: y mandatory;
@@ -45,7 +43,7 @@
 }
 
 .details {
-  @extend .surface; /* inherits style from the surface class in common.scss */
+  @extend .surface;
 
   padding: 1rem;
 
@@ -70,7 +68,7 @@
   @extend .surface;
 
   display: flex;
-  flex: 1 0 20%;
+  flex: 1 0 25%;
   width: fit-content;
   padding: 1rem;
   align-items: center;
@@ -79,8 +77,11 @@
   .image {
     @extend .surface;
 
+    min-width: 4rem;
+    max-width: 4rem;
     aspect-ratio: 1 / 1;
     border-radius: 50%;
+    object-fit: cover;
     overflow: hidden;
 
     img {
@@ -94,7 +95,6 @@
     font-size: 24px;
     font-weight: bold;
     margin-top: auto;
-    font: 30px;
   }
 
   .stars {

@@ -3,7 +3,7 @@
     "id": 1,
     "type": "shirt",
     "name": "Crew Neck Short Sleeve T-Shirt",
-    "price": 12.9,
+    "price": 9.9,
     "description": "Heavyweight fabric gains character the more you wear it. Flattering roomy fit.",
     "colors": [
       {
@@ -28,7 +28,7 @@
     "id": 2,
     "type": "hoodie",
     "name": "Stretch Dry Sweat Long Sleeve Full-Zip Hoodie",
-    "price": 49.9,
+    "price": 14.9,
     "description": "Based on customer feedback, we updated these sweats to be wrinkle-resistant and have a natural look that is great for everyday wear.",
     "colors": [
       {
@@ -49,7 +49,7 @@
     "id": 3,
     "type": "hat",
     "name": "UV Protection Hat",
-    "price": 16.9,
+    "price": 4.9,
     "description": "Perfect for the great outdoors. Light and foldable for easy carrying.",
     "colors": [
       {
@@ -66,7 +66,7 @@
     "id": 4,
     "type": "pants",
     "name": "Sweat Pants (Side Lined)",
-    "price": 29.9,
+    "price": 9.9,
     "description": "Soft and comfortable sweatpants. Side lines accentuate the silhouette for a sleek look.",
     "colors": [
       {
@@ -83,7 +83,7 @@
     "id": 5,
     "type": "shirt",
     "name": "Extra Fine Cotton Short Sleeve Shirt",
-    "price": 29.9,
+    "price": 14.9,
     "description": "100% premium cotton, prewashed for a casual look. Stunning colors and patterns.",
     "colors": [
       {
@@ -117,7 +117,7 @@
     "id": 7,
     "type": "shirt",
     "name": "Austin's Special Edition T-Shirt",
-    "price": 59.9,
+    "price": 29.9,
     "description": "Show that Jesus will answer your calls, no matter where you are.",
     "colors": [
       {
@@ -134,7 +134,7 @@
     "id": 8,
     "type": "sweater",
     "name": "Cashmere Turtleneck Long Sleeve Sweater",
-    "price": 68.9,
+    "price": 19.9,
     "description": "Based on customer feedback, we revised and updated the thickness and knit tension of the cashmere yarn for a thicker, richer texture.",
     "colors": [
       {
@@ -159,7 +159,7 @@
     "id": 9,
     "type": "polo",
     "name": "Dry-EX Short Sleeve Polo Shirt (Tipping)",
-    "price": 19.9,
+    "price": 14.9,
     "description": "Quick-drying 'DRY-EX' for stay-fresh comfort. Cool, breathable mesh.",
     "colors": [
       {
@@ -176,7 +176,7 @@
     "id": 10,
     "type": "polo",
     "name": "Dry-EX Short Sleeve Polo Shirt (Border)",
-    "price": 19.9,
+    "price": 14.9,
     "description": "Quick-drying 'DRY-EX' for stay-fresh comfort. Cool, breathable mesh.",
     "colors": [
       {

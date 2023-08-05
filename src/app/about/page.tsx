@@ -84,7 +84,7 @@ export default function Page() {
             <div style={{ width: "200px" }}>
               <img className={style(["surface"])} src={"assets/dennise.jpg"} style={{ width: "100%", height: "60%" }} />
               <div style={{ textAlign: "center" }}>
-                <div style={{ fontWeight: "bold" }}>Denis the Extrodinary</div>
+                <div style={{ fontWeight: "bold" }}>Denis the Extraordinaire</div>
                 <div>7th Generation CEO</div>
                 <div>1838 - 1912</div>
               </div>

@@ -30,6 +30,14 @@ export default function Page() {
               <i className="lni lni-facebook-original"></i>
             </Link>
           </div>
+          <div style={{ display: "flex", gap: "0.5rem", marginTop: "2rem" }}>
+            <Link className={style(["button", "primary"])} href={"/products"} style={{ width: "fit-content" }}>
+              Shop now!
+            </Link>
+            <Link className={style(["button"])} href={"/about"} style={{ width: "fit-content" }}>
+              Learn more!
+            </Link>
+          </div>
           <div className={style(["images"])}>
             <img
               src={"assets/dude-1.png"}

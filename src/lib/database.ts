@@ -21,6 +21,7 @@ export type Color = {
 
 export type Review = {
   name: string;
+  avatar: string;
   rating: number;
   review: string;
 }
