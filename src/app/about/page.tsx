@@ -40,23 +40,6 @@ export default function Page() {
       </section>
       <section>
         <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content", "vision"])}>
-          <h3>Testimonials</h3>
-          <p>"Now anyone can have drip! 👕💦" ~ Mandrix</p>
-          <p>"My drip makes people wet. 🥵💦" ~ [REDACTED]</p>
-          <p>"Drip can be bought. 🤸" ~ Brayden</p>
-          <p>"I am dripped out of my mind!!! 💦🤯" ~ Killian</p>
-        </div>
-      </section>
-      <section>
-        <div className={style(["navigation-gutter"])}></div>
-        <div className={style(["content", "history"])}>
-          <h3>Our History</h3>
-          <video controls muted src={"assets/advertisement.mp4"}></video>
-        </div>
-      </section>
-      <section>
-        <div className={style(["navigation-gutter"])}></div>
         <div className={style(["content", "who"])}>
           <h3>Who Are We</h3>
           <p>
@@ -111,6 +94,23 @@ export default function Page() {
           <img className={style(["braydenpic"])} src={"assets/brayden.jpg"} />
           <img className={style(["dennisepic"])} src={"assets/dennise.jpg"} />
         </div> */}
+      </section>
+      <section>
+        <div className={style(["navigation-gutter"])}></div>
+        <div className={style(["content", "history"])}>
+          <h3>Our History</h3>
+          <video controls muted src={"assets/advertisement.mp4"}></video>
+        </div>
+      </section>
+      <section>
+        <div className={style(["navigation-gutter"])}></div>
+        <div className={style(["content", "vision"])}>
+          <h3>Customers' Testimonials</h3>
+          <p>"Now anyone can have drip! 👕💦" ~ Mandrix</p>
+          <p>"My drip makes people wet. 🥵💦" ~ [REDACTED]</p>
+          <p>"Drip can be bought. 🤸" ~ Brayden</p>
+          <p>"I am dripped out of my mind!!! 💦🤯" ~ Killian</p>
+        </div>
       </section>
     </main>
   );

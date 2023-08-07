@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import styles from "./page.module.scss";
+import Link from "next/link";
 import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
