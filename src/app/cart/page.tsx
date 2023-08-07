@@ -11,7 +11,6 @@ export default function Page() {
 
   const [items, setItems] = useState<CartItem[]>([]);
 
-  // this runs after render of the page has been completed
   useEffect(() => {
     setItems(getCartItems());
   }, []);

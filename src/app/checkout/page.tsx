@@ -16,7 +16,7 @@ export default function Page() {
   }, []);
 
   const purchaseHandler = () => {
-    alert("Purchase has been successful");
+    alert("Purchase has been successful!");
     clearCart();
     router.push("/checkout/complete");
   };
