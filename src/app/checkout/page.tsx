@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./page.module.scss";
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { CartItem, clearCart, getCartItems } from "@/lib/cart";
 import { useStyles } from "@/lib/utilities";
@@ -15,7 +15,8 @@ export default function Page() {
     setItems(getCartItems());
   }, []);
 
-  const purchaseHandler = () => {
+  const purchaseHandler = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     alert("Purchase has been successful!");
     clearCart();
     router.push("/checkout/complete");
@@ -29,179 +30,70 @@ export default function Page() {
   return (
     <main>
       <div className={style(["navigation-gutter"])}></div>
-      <div className={style(["container"])}>
+      <form className={style(["container"])} onSubmit={purchaseHandler}>
         <div className={style(["left"])}>
-          <div style={{ display: "flex", justifyContent: "space-between", height: "150px", width: "100%" }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", width: "100%" }}>
-              <div className={style(["surface"])} style={{ padding: "1em", width: "100%" }}>
-                <div style={{ fontSize: "1.5em", fontWeight: "600" }}>Payment Information</div>
-                <table>
-                  <tr>
-                    <td>
-                      <label style={{ display: "block" }}>Email</label>
-                      <input className={style(["input"])} type="email" placeholder="Supercool@gmail.com" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <label style={{ display: "block" }}>Firstname</label>
-                      <input className={style(["input"])} type="text" placeholder="Bofa" />
-                    </td>
-                    <td>
-                      <label style={{ display: "block" }}>Lastname</label>
-                      <input className={style(["input"])} type="text" placeholder="Dinesh" />
-                    </td>
-                  </tr>
-                </table>
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}></div>
+          <div className={style(["checkout"])}>
+            <section>
+              <div className={style(["title"])}>Order</div>
+              <div className={style(["content"])}>
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <div style={{ flexGrow: 1 }}>
+                    <label>First Name</label>
+                    <input className={style(["input"])} type={"text"} placeholder={"John"} required/>
+                  </div>
+                  <div style={{ flexGrow: 1 }}>
+                    <label>Last Name</label>
+                    <input className={style(["input"])} type={"text"} placeholder={"Doe"} required/>
+                  </div>
+                </div>
+                <div>
+                  <label>Email Address</label>
+                  <input className={style(["input"])} type={"email"} placeholder={"john.doe@gmail.com"} required/>
+                </div>
               </div>
-              <div className={style(["surface"])} style={{ padding: "1em", width: "100%" }}>
-                <div style={{ fontSize: "1.5em", fontWeight: "600" }}>Billing address</div>
-                <table>
-                  <tr>
-                    <td>
-                      <label style={{ display: "block" }}>Address</label>
-                      <input className={style(["input"])} type="text" />
-                      <div style={{ color: "gray" }}>Block number, House number, Building number, Street name</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={{ display: "flex", gap: "1rem" }}>
-                      <span>
-                        <label style={{ display: "block" }}>Town/City</label>
-                        <input className={style(["input"])} type="text" />
-                      </span>
-                      <span>
-                        <label style={{ display: "block" }}>Postal code</label>
-                        <input className={style(["input"])} type="text" />
-                      </span>
-                    </td>
-                  </tr>
-                </table>
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "20px", width: "100%" }}></div>
+            </section>
+            <section>
+              <div className={style(["title"])}>Delivery</div>
+              <div className={style(["content"])}>
+                <div>
+                  <label>Address</label>
+                  <input className={style(["input"])} type={"text"} placeholder={"1965 Singapore St 9"} required/>
+                </div>
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <div style={{ flexGrow: 1 }}>
+                    <label>City (for International Shipping)</label>
+                    <input className={style(["input"])} type={"text"} placeholder={"Singapore"} />
+                  </div>
+                  <div style={{ flexGrow: 1 }}>
+                    <label>Unit Number (if applicable)</label>
+                    <input className={style(["input"])} type={"text"} placeholder={"#12-34"} />
+                  </div>
+                  <div style={{ flexGrow: 1 }}>
+                    <label>Postal Code</label>
+                    <input className={style(["input"])} type={"text"} placeholder={"123456"} required/>
+                  </div>
+                </div>
               </div>
-              <div className={style(["surface"])} style={{ padding: "1em", width: "100%" }}>
-                <div style={{ fontSize: "1.5em", fontWeight: "600" }}>Delivery</div>
-                <table>
-                  <tr>
-                    <td>
-                      <input type="checkbox" />
-                      Same as my billing address
-                      <div style={{ fontWeight: "bold" }}>Where would you like your ordered to be delivered?</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div style={{ display: "flex", marginTop: "2rem" }}>
-                        <input type="radio" style={{ scale: "2" }} />
-                        <label style={{ marginLeft: "1rem", display: "flex", alignItems: "center" }}>
-                          <i className="lni lni-home" style={{ fontSize: "1.3em" }}></i>
-                          <span style={{ marginLeft: "1.5rem" }}>
-                            <div style={{ fontWeight: "bold" }}>Home Standard Delivery</div>
-                            <div>S$ 6.90 . 3-5days</div>
-                          </span>
-                        </label>
-                      </div>
-                    </td>
-                  </tr>
-                  <hr />
-                  <tr>
-                    <td>
-                      <div>Phone number (for delivery updates)</div>
-                      <select className={style(["select"])} name="Phone Number">
-                        <option value="Singapore(+65)">Singapore(+65)</option>
-                      </select>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <input className={style(["input"])} type="tel" placeholder="83637961" />
-                    </td>
-                  </tr>
-                </table>
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "20px", width: "100%" }}></div>
-                <div style={{ display: "flex", justifyContent: "center", marginTop: "20px", width: "100%" }}></div>
+            </section>
+            <section>
+              <div className={style(["title"])}>Payment</div>
+              <div className={style(["content"])}>
+                <div>
+                  <label>Card Number</label>
+                  <input className={style(["input"])} type={"text"} placeholder={"1234 5678 9012 3456"} required/>
+                </div>
+                <div style={{ display: "flex", gap: "0.5rem" }}>
+                  <div style={{ flexGrow: 1 }}>
+                    <label>Expiry Date</label>
+                    <input className={style(["input"])} type={"text"} placeholder={"MM/YY"} required/>
+                  </div>
+                  <div style={{ flexGrow: 1 }}>
+                    <label>CVV</label>
+                    <input className={style(["input"])} type={"text"} placeholder={"123"} required/>
+                  </div>
+                </div>
               </div>
-              <div className={style(["surface"])} style={{ padding: "1em", width: "100%" }}>
-                <div style={{ fontSize: "1.5em", fontWeight: "600" }}>Payment</div>
-                <table>
-                  <tr>
-                    <td>
-                      <div>How would you like to pay?</div>
-                    </td>
-                  </tr>
-                  <hr />
-                  <tr>
-                    <td>
-                      <div style={{ display: "flex", marginTop: "1rem" }}>
-                        <input type="radio" style={{ scale: "2" }} />
-                        <label style={{ marginLeft: "1rem", display: "flex", alignItems: "center" }}>
-                          <i className="lni lni-visa" style={{ fontSize: "1.5em" }}></i>
-                          <i className="lni lni-mastercard" style={{ fontSize: "1.5em" }}></i>
-
-                          <span style={{ marginLeft: "1.5rem" }}>
-                            <div style={{ fontWeight: "bold" }}>Credit Card</div>
-                          </span>
-                        </label>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div>
-                        <label style={{ display: "block" }}>Firstname</label>
-                        <input className={style(["input"])} type="text" placeholder="Bofa" />
-                      </div>
-                      <div>
-                        <label style={{ display: "block" }}>Lastname</label>
-                        <input className={style(["input"])} type="text" placeholder="Dinesh" />
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <div>
-                        <label style={{ display: "flex", justifyContent: "space-between" }}>
-                          <span>Card number</span>
-                          <span>
-                            <i className="lni lni-visa" style={{ fontSize: "1.5rem" }}></i>
-                            <i className="lni lni-mastercard" style={{ fontSize: "1.5em" }}></i>
-                          </span>
-                        </label>
-                      </div>
-                      <input
-                        className={style(["input"])}
-                        type="tel"
-                        inputMode="numeric"
-                        pattern="[0-9\s]{13,19}"
-                        autoComplete="cc-number"
-                        maxLength={19}
-                        placeholder="xxxx xxxx xxxx xxxx"
-                      />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td style={{ display: "flex", flexDirection: "row" }}>
-                      <span className="expiration">
-                        <label style={{ display: "block" }}>Expiry date</label>
-                        <input
-                          className={style(["input"])}
-                          type="text"
-                          name="month"
-                          placeholder="MM/YY"
-                          maxLength={5}
-                          size={5}
-                        />
-                      </span>
-                      <div style={{ marginLeft: "2rem" }}>
-                        <label style={{ display: "block" }}>Cvv</label>
-                        <input className={style(["input"])} type="tel" maxLength={3} placeholder="3 digits" />
-                      </div>
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
+            </section>
           </div>
         </div>
         <div className={style(["right"])}>
@@ -228,16 +120,16 @@ export default function Page() {
               </div>
             </div>
             <div className={style(["buttons"])}>
-              <button className={style(["button", "primary"])} onClick={purchaseHandler}>
+              <button className={style(["button", "primary"])} type={"submit"}>
                 Purchase
               </button>
-              <button className={style(["button"])} onClick={backHandler}>
+              <button className={style(["button"])} type={"button"} onClick={backHandler}>
                 Back
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </main>
   );
 }

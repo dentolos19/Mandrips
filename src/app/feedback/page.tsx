@@ -6,8 +6,8 @@ import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
-    alert("Your feedback has been submitted.");
     event.preventDefault();
+    alert("Your feedback has been submitted.");
   };
 
   const style = useStyles(styles);
