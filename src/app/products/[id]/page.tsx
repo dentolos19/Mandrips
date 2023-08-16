@@ -7,7 +7,7 @@ import { useEffect, useState, ChangeEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import { getClothings, getColoredClothing, getReviews } from "@/lib/database";
 import { addToCart, CartItem } from "@/lib/cart";
-import { useStyles } from "@/lib/utilities";
+import { randomSet, useStyles } from "@/lib/utilities";
 
 export default function Page({ params }: { params: { id: string } }) {
   const searchParams = useSearchParams();
@@ -37,6 +37,8 @@ export default function Page({ params }: { params: { id: string } }) {
   if (!clothings || !reviews) return <Loading />;
   const clothing = clothings.find((clothing) => clothing.id === id);
   if (!clothing) return <NotFound />;
+
+  const reviewSet = randomSet(reviews, 4);
 
   const colorChangedHandler = (event: ChangeEvent<HTMLSelectElement>) => {
     setColor(event.target.value);
@@ -113,8 +115,8 @@ export default function Page({ params }: { params: { id: string } }) {
       <section>
         <div className={style(["navigation-gutter"])}></div>
         <div className={style(["content", "reviews"])}>
-          {reviews &&
-            reviews.map((review) => (
+          {reviewSet &&
+            reviewSet.map((review) => (
               <div className={style(["review"])}>
                 <div className={style(["image"])}>
                   <img src={`/database/avatars/${review.avatar ?? "default.jpeg"}`} />

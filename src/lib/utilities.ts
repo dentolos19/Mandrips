@@ -59,3 +59,14 @@ export function shuffleArray(array: any[]) {
   }
   return array;
 }
+
+/**
+ * Returns a random set of elements from the given array.
+ *
+ * @param array The array to select elements from.
+ * @param limit The length of the resultant set.
+ * @returns A random set of elements from the given array.
+ */
+export function randomSet(array: any[], limit: number) {
+  return shuffleArray(array).slice(0, limit);
+}

@@ -68,9 +68,11 @@
   @extend .surface;
 
   display: flex;
-  flex: 1 0 25%;
+  flex: 1 0 20%;
+  flex-direction: column;
   width: fit-content;
   padding: 1rem;
+  justify-content: center;
   align-items: center;
   gap: 1rem;
 
@@ -92,20 +94,20 @@
   }
 
   .name {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
+    text-align: center;
     margin-top: auto;
   }
 
   .stars {
-    width: 100px;
     color: #f9004d;
     font-size: 24px;
+    text-align: center;
   }
 
   .text {
-    display: flex;
-    flex-direction: column;
     margin-top: 0.5rem;
+    text-align: center;
   }
 }
