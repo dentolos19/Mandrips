@@ -12,7 +12,7 @@ export default function Page() {
           <div className={style(["text"])}>
             <h1>About Us</h1>
             <h5>
-              The <span>Best</span> Clothing Brand In The World!
+              The <span>Best Clothing Brand</span> In The World!
             </h5>
             <p>
               Founded by tailor <span>Mandrix the Great</span> in the 1500s, Mandrips quickly became renowned for its
@@ -20,13 +20,6 @@ export default function Page() {
               attracted the attention of the nobility, establishing Mandrips as a prestigious clothing brand. As time
               passed, Mandrips adapted and evolved with changing fashion trends and customer preferences while staying
               true to its core values of exceptional craftsmanship.
-            </p>
-            <p>
-              The brand's ability to balance tradition with innovation allowed it to remain relevant and respected in
-              the fashion industry. In the modern era, Mandrips continues to embody elegance and creativity. Its
-              clothing designs are known for their attention to detail, exquisite fabrics, and timeless appeal. The
-              brand's commitment to superior craftsmanship ensures that every garment reflects the highest standards of
-              quality.
             </p>
             <p>
               Mandrips' legacy as a symbol of elegance and creativity in the fashion industry is a testament to its

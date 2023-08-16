@@ -70,11 +70,12 @@ export default function Page() {
                         <i className={"lni lni-trash-can"}></i>
                       </span>
                     </div>
-                    <div>Product ID: {item.clothing.id}</div>
                     <div>
-                      Color: {item.clothing.colorName} / Size: {item.size}
+                      {item.clothing.colorName} &#x2022; {item.size}
                     </div>
-                    <div>Quantity: {item.quantity}</div>
+                    <div style={{ marginTop: "0.5rem" }}>
+                      <b>Quantity</b>: {item.quantity}
+                    </div>
                   </div>
                 </div>
                 <div className={style(["price"])}>{`S$${(item.clothing.price * item.quantity).toFixed(2)}`}</div>

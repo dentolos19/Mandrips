@@ -31,11 +31,6 @@ export default function Page() {
               You can return any unworn, unwashed, and undamaged items within 30 days of purchase with a valid receipt.
               We will issue a full refund or exchange as per your preference.
             </div>
-            <div className={style(["question"])}>Do you offer free shipping?</div>
-            <div className={style(["answer"])}>
-              Yes, we offer free standard shipping on orders over $50 within Singapore. For international orders,
-              shipping fees may vary depending on the destination and weight of the package.
-            </div>
             <div className={style(["question"])}>How can I contact customer service?</div>
             <div className={style(["answer"])}>
               You can call us at <code>1-800-MAN-DRIPS</code>, contact us via the form on the right, or email us at{" "}
