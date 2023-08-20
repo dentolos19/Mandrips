@@ -34,7 +34,7 @@ export default function Page() {
         <div className={style(["left"])}>
           <div className={style(["checkout"])}>
             <section>
-              <div className={style(["title"])}>Order</div>
+              <div className={style(["title"])}>Recipient Information</div>
               <div className={style(["content"])}>
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   <div style={{ flexGrow: 1 }}>
@@ -53,7 +53,7 @@ export default function Page() {
               </div>
             </section>
             <section>
-              <div className={style(["title"])}>Delivery</div>
+              <div className={style(["title"])}>Delivery Information</div>
               <div className={style(["content"])}>
                 <div>
                   <label>Address</label>
@@ -76,7 +76,7 @@ export default function Page() {
               </div>
             </section>
             <section>
-              <div className={style(["title"])}>Payment</div>
+              <div className={style(["title"])}>Payment Information</div>
               <div className={style(["content"])}>
                 <div>
                   <label>Card Number</label>
