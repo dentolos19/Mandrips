@@ -152,9 +152,9 @@ export default function Page() {
               onChange={searchHandler}
             />
           </div>
-          <div className={style(["items"])}>
-            {filteredClothings.length > 0 ? (
-              filteredClothings.map((item) => (
+          {filteredClothings.length > 0 ? (
+            <div className={style(["items"])}>
+              {filteredClothings.map((item) => (
                 <Link
                   key={`${item.id}-${item.colorName}`}
                   className={style(["item"])}
@@ -164,14 +164,14 @@ export default function Page() {
                   <img src={`/database/clothes/${item.id}/${item.colorFile}`} />
                   <div className={style(["price"])}>{`S$${item.price.toFixed(2)}`}</div>
                 </Link>
-              ))
-            ) : (
-              <div style={{ width: "100%", textAlign: "center" }}>
-                <h3>No items found.</h3>
-                <p>We will cater to your needs soon enough!</p>
-              </div>
-            )}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div style={{ width: "100%", textAlign: "center" }}>
+              <h3>No items found.</h3>
+              <p>We will cater to your needs soon enough!</p>
+            </div>
+          )}
         </div>
       </form>
     </main>
