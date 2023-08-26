@@ -24,7 +24,7 @@ export type Review = {
   avatar: string;
   rating: number;
   review: string;
-}
+};
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 

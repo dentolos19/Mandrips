@@ -39,16 +39,16 @@ export default function Page() {
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   <div style={{ flexGrow: 1 }}>
                     <label>First Name</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"John"} required/>
+                    <input className={style(["input"])} type={"text"} placeholder={"John"} required />
                   </div>
                   <div style={{ flexGrow: 1 }}>
                     <label>Last Name</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"Doe"} required/>
+                    <input className={style(["input"])} type={"text"} placeholder={"Doe"} required />
                   </div>
                 </div>
                 <div>
                   <label>Email Address</label>
-                  <input className={style(["input"])} type={"email"} placeholder={"john.doe@gmail.com"} required/>
+                  <input className={style(["input"])} type={"email"} placeholder={"john.doe@gmail.com"} required />
                 </div>
               </div>
             </section>
@@ -57,7 +57,7 @@ export default function Page() {
               <div className={style(["content"])}>
                 <div>
                   <label>Address</label>
-                  <input className={style(["input"])} type={"text"} placeholder={"1965 Singapore St 9"} required/>
+                  <input className={style(["input"])} type={"text"} placeholder={"1965 Singapore St 9"} required />
                 </div>
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   <div style={{ flexGrow: 1 }}>
@@ -70,7 +70,7 @@ export default function Page() {
                   </div>
                   <div style={{ flexGrow: 1 }}>
                     <label>Postal Code</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"123456"} required/>
+                    <input className={style(["input"])} type={"text"} placeholder={"123456"} required />
                   </div>
                 </div>
               </div>
@@ -80,16 +80,16 @@ export default function Page() {
               <div className={style(["content"])}>
                 <div>
                   <label>Card Number</label>
-                  <input className={style(["input"])} type={"text"} placeholder={"1234 5678 9012 3456"} required/>
+                  <input className={style(["input"])} type={"text"} placeholder={"1234 5678 9012 3456"} required />
                 </div>
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   <div style={{ flexGrow: 1 }}>
                     <label>Expiry Date</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"MM/YY"} required/>
+                    <input className={style(["input"])} type={"text"} placeholder={"MM/YY"} required />
                   </div>
                   <div style={{ flexGrow: 1 }}>
                     <label>CVV</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"123"} required/>
+                    <input className={style(["input"])} type={"text"} placeholder={"123"} required />
                   </div>
                 </div>
               </div>

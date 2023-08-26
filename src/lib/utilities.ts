@@ -1,42 +1,75 @@
 /**
- * This function takes in an dictionary of style names and returns a function
- * that takes in an array of style names and returns a string of the matching
- * style names from the style dictionary.
+ * This function takes an object of CSS styles as input and returns a function
+ * that conditionally constructs a space-separated list of CSS classes.
  *
- * This is used for easily adding multiple styles to an element.
- *
- * @param styles - A dictionary of style names and their corresponding CSS class names.
- * @returns A function that takes an array of style names and returns a string of space-separated CSS class names.
+ * @param styles An object of styles, where the keys are style names in the CSS and the values are class names.
+ * @returns A function that takes any number of arguments and returns a space-separated list of CSS classes.
  */
-export function useStyles(styles: { [key: string]: string }) {
-  /**
-   * This function takes an array of style names as input and returns a string of space-separated CSS class names.
-   *
-   * @param styleNames - An array of style names.
-   * @returns A string of space-separated CSS class names.
-   */
-  return function (styleNames: string[]) {
-    /*
-      The map() method creates a new array with the results of calling a provided function on every element in the calling array.
-      In this case, it maps each style name to its corresponding CSS class name in the styles dictionary.
-    */
-    return (
-      styleNames
-        .map((styleName) => {
-          /*
-            If the current style name does not exist in the styles object, return the original style name.
-            This allows for adding custom styles that are not defined in the styles dictionary.
-          */
-          if (!styles[styleName]) {
-            return styleName;
+export function useStyles(styles: { [key: string]: string } = {}) {
+  const parseStyle = (value: string) => {
+    return styles.hasOwnProperty(value) ? styles[value] : value;
+  };
+
+  const parseValue = (value: any) => {
+    var output = "",
+      temp;
+    if (typeof value === "string") {
+      const values = value.split(" ");
+      if (values.length > 1) {
+        values.forEach((element) => {
+          if ((temp = parseStyle(element))) {
+            output && (output += " ");
+            output += temp;
           }
-          // If the current style name exists in the styles object, return the corresponding CSS class name.
-          return styles[styleName];
-        })
-        // The join() method joins all elements of an array into a string.
-        // In this case, it joins the array of CSS class names into a single string with spaces between each class name.
-        .join(" ")
-    );
+        });
+      } else {
+        if ((temp = parseStyle(value))) {
+          output && (output += " ");
+          output += temp;
+        }
+      }
+    } else if (Array.isArray(value)) {
+      for (let index = 0; index < value.length; index++) {
+        const element = value[index];
+        if (!element) continue;
+        if ((temp = parseValue(element))) {
+          output && (output += " ");
+          output += temp;
+        }
+      }
+    } else {
+      for (const key in value) {
+        if (!value.hasOwnProperty(key)) continue;
+        const condition = value[key];
+        if (!condition) continue;
+        if ((temp = parseStyle(key))) {
+          output && (output += " ");
+          output += temp;
+        }
+      }
+    }
+    return output;
+  };
+
+  /**
+   * It takes any number of arguments and returns a space-separated list of
+   * class names. Each argument is parsed for class names conditionally.
+   *
+   * @param args Any number of arguments to be parsed for class names.
+   * @returns A space-separated list of class names.
+   */
+  return function (...args: any[]) {
+    var output = "",
+      temp;
+    for (let index = 0; index < args.length; index++) {
+      const value = args[index];
+      if (!value) continue;
+      if ((temp = parseValue(value))) {
+        output && (output += " ");
+        output += temp;
+      }
+    }
+    return output;
   };
 }
 

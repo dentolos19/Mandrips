@@ -1,4 +1,4 @@
-import "@/styles/core.scss";
+import "@/styles/globals.scss";
 
 import NavigationBar from "@/components/navigationBar";
 import PageTransitionLayer from "@/components/pageTransitionLayer";
