@@ -1,5 +1,5 @@
 <h1>
-    <img src="docs/icon.png" style="height: 1em;"/>
+    <img src="icon.png" style="height: 1em;"/>
     <span>Mandrips</span>
 </h1>
 
@@ -9,7 +9,11 @@ A mock online clothing store for our school project!
 
 ## 🫂 Project Information
 
-### Tasks
+You are business owner. Create a website for your business.
+
+> **Note**: The company can be fictitious or real.
+
+### Requirements
 
 - [X] Have at least one page for each project member (4 pages)
 - [X] Include a navigation menu in all pages
