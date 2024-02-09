@@ -1,8 +1,8 @@
 "use client";
 
-import styles from "./page.module.scss";
+import { generateStyler } from "@/lib/utilities";
 import { FormEvent } from "react";
-import { useStyles } from "@/lib/utilities";
+import styles from "./page.module.scss";
 
 export default function Page() {
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
@@ -10,7 +10,7 @@ export default function Page() {
     alert("Your feedback has been submitted.");
   };
 
-  const style = useStyles(styles);
+  const style = generateStyler(styles);
   return (
     <main className={style(["sections"])}>
       <section>
@@ -19,7 +19,7 @@ export default function Page() {
           <div className={style(["left", "faq"])}>
             <div className={style(["title"])}>FAQs</div>
             <div className={style(["question"])}>
-              Where are you located?
+              Where are your stores located?
             </div>
             <div className={style(["answer"])}>
               We are available at any mall near you!
@@ -28,22 +28,26 @@ export default function Page() {
               What are your opening hours?
             </div>
             <div className={style(["answer"])}>
-              We are open from 9 am to 9 pm, Monday to Saturday, and from 10 am to 6 pm on Sundays.
+              We are open from 9 am to 9 pm, Monday to Saturday, and from 10 am
+              to 6 pm on Sundays.
             </div>
             <div className={style(["question"])}>
               What is your return policy?
             </div>
             <div className={style(["answer"])}>
-              You can return any unworn, unwashed, and undamaged items within 30 days of purchase with a valid receipt.
-              We will issue a full refund or exchange as per your preference.
+              You can return any unworn, unwashed, and undamaged items within 30
+              days of purchase with a valid receipt. We will issue a full refund
+              or exchange as per your preference.
             </div>
             <div className={style(["question"])}>
               How can I contact customer service?
             </div>
             <div className={style(["answer"])}>
-              You can call us at <code>1-800-MAN-DRIPS</code>, contact us via the form on the right, or email us at{" "}
-              <a href={"mailto:support@mandrips.com"}>support@mandrips.com</a>. We are available from 8 am to 10 pm,
-              Monday to Friday, and from 9 am to 7 pm on weekends.
+              You can call us at <code>1-800-MAN-DRIPS</code>, contact us via
+              the form on the right, or email us at{" "}
+              <a href={"mailto:support@mandrips.com"}>support@mandrips.com</a>.
+              We are available from 8 am to 10 pm, Monday to Friday, and from 9
+              am to 7 pm on weekends.
             </div>
           </div>
           <div className={style(["right"])}>
@@ -51,17 +55,32 @@ export default function Page() {
               <table cellSpacing={8}>
                 <tr>
                   <td>
-                    <input className={style(["input"])} type={"text"} placeholder={"John Doe"} required />
+                    <input
+                      className={style(["input"])}
+                      type={"text"}
+                      placeholder={"John Doe"}
+                      required
+                    />
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <input className={style(["input"])} type={"email"} placeholder={"john.doe@gmail.com"} required />
+                    <input
+                      className={style(["input"])}
+                      type={"email"}
+                      placeholder={"john.doe@gmail.com"}
+                      required
+                    />
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <input className={style(["input"])} type={"text"} placeholder={"Feedback Subject"} required />
+                    <input
+                      className={style(["input"])}
+                      type={"text"}
+                      placeholder={"Feedback Subject"}
+                      required
+                    />
                   </td>
                 </tr>
                 <tr>
@@ -71,7 +90,10 @@ export default function Page() {
                 </tr>
                 <tr>
                   <td className={style(["buttons"])}>
-                    <button className={style(["button", "primary"])} type={"submit"}>
+                    <button
+                      className={style(["button", "primary"])}
+                      type={"submit"}
+                    >
                       Send
                     </button>
                     <button className={style(["button"])} type={"reset"}>

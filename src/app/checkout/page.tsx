@@ -1,10 +1,10 @@
 "use client";
 
-import styles from "./page.module.scss";
-import { FormEvent, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { CartItem, clearCart, getCartItems } from "@/lib/cart";
-import { useStyles } from "@/lib/utilities";
+import { generateStyler } from "@/lib/utilities";
+import { useRouter } from "next/navigation";
+import { FormEvent, useEffect, useState } from "react";
+import styles from "./page.module.scss";
 
 export default function Page() {
   const router = useRouter();
@@ -26,7 +26,7 @@ export default function Page() {
     router.push("/cart");
   };
 
-  const style = useStyles(styles);
+  const style = generateStyler(styles);
   return (
     <main>
       <div className={style(["navigation-gutter"])}></div>
@@ -39,16 +39,31 @@ export default function Page() {
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   <div style={{ flexGrow: 1 }}>
                     <label>First Name</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"John"} required />
+                    <input
+                      className={style(["input"])}
+                      type={"text"}
+                      placeholder={"John"}
+                      required
+                    />
                   </div>
                   <div style={{ flexGrow: 1 }}>
                     <label>Last Name</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"Doe"} required />
+                    <input
+                      className={style(["input"])}
+                      type={"text"}
+                      placeholder={"Doe"}
+                      required
+                    />
                   </div>
                 </div>
                 <div>
                   <label>Email Address</label>
-                  <input className={style(["input"])} type={"email"} placeholder={"john.doe@gmail.com"} required />
+                  <input
+                    className={style(["input"])}
+                    type={"email"}
+                    placeholder={"john.doe@gmail.com"}
+                    required
+                  />
                 </div>
               </div>
             </section>
@@ -57,20 +72,38 @@ export default function Page() {
               <div className={style(["content"])}>
                 <div>
                   <label>Address</label>
-                  <input className={style(["input"])} type={"text"} placeholder={"1965 Singapore St 9"} required />
+                  <input
+                    className={style(["input"])}
+                    type={"text"}
+                    placeholder={"1965 Singapore St 9"}
+                    required
+                  />
                 </div>
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   <div style={{ flexGrow: 1 }}>
                     <label>City (for International Shipping)</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"Singapore"} />
+                    <input
+                      className={style(["input"])}
+                      type={"text"}
+                      placeholder={"Singapore"}
+                    />
                   </div>
                   <div style={{ flexGrow: 1 }}>
                     <label>Unit Number (if applicable)</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"#12-34"} />
+                    <input
+                      className={style(["input"])}
+                      type={"text"}
+                      placeholder={"#12-34"}
+                    />
                   </div>
                   <div style={{ flexGrow: 1 }}>
                     <label>Postal Code</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"123456"} required />
+                    <input
+                      className={style(["input"])}
+                      type={"text"}
+                      placeholder={"123456"}
+                      required
+                    />
                   </div>
                 </div>
               </div>
@@ -80,16 +113,31 @@ export default function Page() {
               <div className={style(["content"])}>
                 <div>
                   <label>Card Number</label>
-                  <input className={style(["input"])} type={"text"} placeholder={"1234 5678 9012 3456"} required />
+                  <input
+                    className={style(["input"])}
+                    type={"text"}
+                    placeholder={"1234 5678 9012 3456"}
+                    required
+                  />
                 </div>
                 <div style={{ display: "flex", gap: "0.5rem" }}>
                   <div style={{ flexGrow: 1 }}>
                     <label>Expiry Date</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"MM/YY"} required />
+                    <input
+                      className={style(["input"])}
+                      type={"text"}
+                      placeholder={"MM/YY"}
+                      required
+                    />
                   </div>
                   <div style={{ flexGrow: 1 }}>
                     <label>CVV</label>
-                    <input className={style(["input"])} type={"text"} placeholder={"123"} required />
+                    <input
+                      className={style(["input"])}
+                      type={"text"}
+                      placeholder={"123"}
+                      required
+                    />
                   </div>
                 </div>
               </div>
@@ -103,19 +151,34 @@ export default function Page() {
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <span style={{ fontWeight: "bold" }}>Subtotal</span>
                 <span>
-                  {`S$${(items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0) * 0.92).toFixed(2)}`}
+                  {`S$${(
+                    items.reduce(
+                      (acc, item) => acc + item.clothing.price * item.quantity,
+                      0
+                    ) * 0.92
+                  ).toFixed(2)}`}
                 </span>
               </div>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <span style={{ fontWeight: "bold" }}>Estimated Tax</span>
                 <span>
-                  {`S$${(items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0) * 0.08).toFixed(2)}`}
+                  {`S$${(
+                    items.reduce(
+                      (acc, item) => acc + item.clothing.price * item.quantity,
+                      0
+                    ) * 0.08
+                  ).toFixed(2)}`}
                 </span>
               </div>
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <span style={{ fontWeight: "bold" }}>Total</span>
                 <span>
-                  {`S$${items.reduce((acc, item) => acc + item.clothing.price * item.quantity, 0).toFixed(2)}`}
+                  {`S$${items
+                    .reduce(
+                      (acc, item) => acc + item.clothing.price * item.quantity,
+                      0
+                    )
+                    .toFixed(2)}`}
                 </span>
               </div>
             </div>
@@ -123,7 +186,11 @@ export default function Page() {
               <button className={style(["button", "primary"])} type={"submit"}>
                 Purchase
               </button>
-              <button className={style(["button"])} type={"button"} onClick={backHandler}>
+              <button
+                className={style(["button"])}
+                type={"button"}
+                onClick={backHandler}
+              >
                 Back
               </button>
             </div>

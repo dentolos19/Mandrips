@@ -9,7 +9,9 @@ export type CartItem = {
 };
 
 export function addToCart(item: CartItem) {
-  const cartItems = JSON.parse(localStorage.getItem(cartKeyName) || "[]") as CartItem[];
+  const cartItems = JSON.parse(
+    localStorage.getItem(cartKeyName) || "[]"
+  ) as CartItem[];
   const cartItemIndex = cartItems.findIndex(
     (cartItem) =>
       cartItem.clothing.id === item.clothing.id &&
@@ -26,7 +28,9 @@ export function addToCart(item: CartItem) {
 }
 
 export function removeFromCart(item: CartItem) {
-  const cartItems = JSON.parse(localStorage.getItem(cartKeyName) || "[]") as CartItem[];
+  const cartItems = JSON.parse(
+    localStorage.getItem(cartKeyName) || "[]"
+  ) as CartItem[];
   const cartItemIndex = cartItems.findIndex(
     (cartItem) =>
       cartItem.clothing.id === item.clothing.id &&

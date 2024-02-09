@@ -1,11 +1,15 @@
 "use client";
 
-import styles from "./page.module.scss";
-import Link from "next/link";
 import Loading from "@/app/loading";
+import {
+  ColoredClothing,
+  getClothings,
+  getColoredClothings,
+} from "@/lib/database";
+import { generateStyler, shuffleArray } from "@/lib/utilities";
+import Link from "next/link";
 import { ChangeEvent, useEffect, useState } from "react";
-import { ColoredClothing, getClothings, getColoredClothings } from "@/lib/database";
-import { shuffleArray, useStyles } from "@/lib/utilities";
+import styles from "./page.module.scss";
 
 const categories = [
   {
@@ -51,15 +55,20 @@ const priceRanges = [
 
 export default function Page() {
   const [filterOpened, setFilterOpened] = useState(false);
-  const [filteredClothings, setFilteredClothings] = useState<ColoredClothing[]>([]);
+  const [filteredClothings, setFilteredClothings] = useState<ColoredClothing[]>(
+    []
+  );
   const [search, setSearch] = useState("");
-  const [categoryChecked, setCategoryChecked] = useState<boolean[]>(new Array(categories.length).fill(true));
+  const [categoryChecked, setCategoryChecked] = useState<boolean[]>(
+    new Array(categories.length).fill(true)
+  );
   const [priceRange, setPriceRange] = useState<string>("all");
 
   const { data: clothings } = getClothings();
 
   useEffect(() => {
-    if (clothings) setFilteredClothings(shuffleArray(getColoredClothings(clothings)));
+    if (clothings)
+      setFilteredClothings(shuffleArray(getColoredClothings(clothings)));
   }, [clothings]);
 
   if (!filteredClothings) return <Loading />;
@@ -70,7 +79,9 @@ export default function Page() {
       getColoredClothings(clothings).filter((item) => {
         return (
           item.name.toLowerCase().includes(search.toLowerCase()) &&
-          categoryChecked[categories.findIndex((category) => category.value === item.type)] &&
+          categoryChecked[
+            categories.findIndex((category) => category.value === item.type)
+          ] &&
           (priceRange === "all" ||
             (priceRange === "poor" && item.price >= 5 && item.price <= 29) ||
             (priceRange === "mid" && item.price >= 30 && item.price <= 99) ||
@@ -79,17 +90,19 @@ export default function Page() {
       })
     );
     setFilteredClothings(filtered);
-  }, [search, categoryChecked, priceRange]);
+  }, [clothings, search, categoryChecked, priceRange]);
 
   const searchHandler = (event: ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   };
 
   const categoryCheckHandler = (position: number) => {
-    setCategoryChecked(categoryChecked.map((item, index) => (index === position ? !item : item)));
+    setCategoryChecked(
+      categoryChecked.map((item, index) => (index === position ? !item : item))
+    );
   };
 
-  const style = useStyles(styles);
+  const style = generateStyler(styles);
   return (
     <main>
       <div className={style(["navigation-gutter"])}></div>
@@ -140,7 +153,10 @@ export default function Page() {
         <div className={style(["right"])}>
           <div className={style(["search"])}>
             {!filterOpened && (
-              <button className={style(["filter-button"])} onClick={() => setFilterOpened(true)}>
+              <button
+                className={style(["filter-button"])}
+                onClick={() => setFilterOpened(true)}
+              >
                 <i className={"lni lni-radio-button"}></i>
               </button>
             )}
@@ -162,7 +178,9 @@ export default function Page() {
                   href={`/products/${item.id}?color=${item.colorName}`}
                 >
                   <img src={`/database/clothes/${item.id}/${item.colorFile}`} />
-                  <div className={style(["price"])}>{`S$${item.price.toFixed(2)}`}</div>
+                  <div className={style(["price"])}>{`S$${item.price.toFixed(
+                    2
+                  )}`}</div>
                 </Link>
               ))}
             </div>

@@ -1,11 +1,11 @@
 "use client";
 
-import styles from "./page.module.scss";
+import { generateStyler } from "@/lib/utilities";
 import Link from "next/link";
-import { useStyles } from "@/lib/utilities";
+import styles from "./page.module.scss";
 
 export default function Page() {
-  const style = useStyles(styles);
+  const style = generateStyler(styles);
   return (
     <main className={style(["sections"])}>
       <section>
@@ -31,10 +31,18 @@ export default function Page() {
             </Link>
           </div>
           <div style={{ display: "flex", gap: "0.5rem", marginTop: "2rem" }}>
-            <Link className={style(["button", "primary"])} href={"/products"} style={{ width: "fit-content" }}>
+            <Link
+              className={style(["button", "primary"])}
+              href={"/products"}
+              style={{ width: "fit-content" }}
+            >
               Shop now!
             </Link>
-            <Link className={style(["button"])} href={"/about"} style={{ width: "fit-content" }}>
+            <Link
+              className={style(["button"])}
+              href={"/about"}
+              style={{ width: "fit-content" }}
+            >
               Learn more!
             </Link>
           </div>

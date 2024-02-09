@@ -1,10 +1,10 @@
 "use client";
 
-import styles from "./page.module.scss";
-import { useEffect, useState } from "react";
+import { CartItem, clearCart, getCartItems, removeFromCart } from "@/lib/cart";
+import { generateStyler } from "@/lib/utilities";
 import { useRouter } from "next/navigation";
-import { clearCart, getCartItems, CartItem, removeFromCart } from "@/lib/cart";
-import { useStyles } from "@/lib/utilities";
+import { useEffect, useState } from "react";
+import styles from "./page.module.scss";
 
 export default function Page() {
   const router = useRouter();
@@ -32,7 +32,7 @@ export default function Page() {
     setItems(removeFromCart(item));
   };
 
-  const style = useStyles(styles);
+  const style = generateStyler(styles);
 
   if (items.length <= 0) {
     return (

@@ -1,8 +1,8 @@
+import { generateStyler } from "@/lib/utilities";
 import styles from "./page.module.scss";
-import { useStyles } from "@/lib/utilities";
 
 export default function Page() {
-  const style = useStyles(styles);
+  const style = generateStyler(styles);
   return (
     <main>
       <div className={style(["navigation-gutter"])}></div>

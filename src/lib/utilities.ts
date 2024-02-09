@@ -5,7 +5,7 @@
  * @param styles An object of styles, where the keys are style names in the CSS and the values are class names.
  * @returns A function that takes any number of arguments and returns a space-separated list of CSS classes.
  */
-export function useStyles(styles: { [key: string]: string } = {}) {
+export function generateStyler(styles: { [key: string]: string } = {}) {
   const parseStyle = (value: string) => {
     return styles.hasOwnProperty(value) ? styles[value] : value;
   };
@@ -88,7 +88,10 @@ export function shuffleArray(array: any[]) {
     currentIndex--;
 
     // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
   }
   return array;
 }

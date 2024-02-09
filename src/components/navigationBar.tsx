@@ -1,9 +1,9 @@
-import styles from "./navigationBar.module.scss";
+import { generateStyler } from "@/lib/utilities";
 import Link from "next/link";
-import { useStyles } from "@/lib/utilities";
+import styles from "./navigationBar.module.scss";
 
 export default function NavigationBar() {
-  const style = useStyles(styles);
+  const style = generateStyler(styles);
   return (
     <div className={style(["navigation-container"])}>
       <nav className={style(["navigation"])}>
