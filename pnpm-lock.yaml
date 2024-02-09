@@ -6,10 +6,10 @@ settings:
 
 dependencies:
   framer-motion:
-    specifier: ^11.0.3
+    specifier: ^11
     version: 11.0.3(react-dom@18.2.0)(react@18.2.0)
   lineicons:
-    specifier: ^1.0.3
+    specifier: ^1
     version: 1.0.3
   next:
     specifier: 14.1.0
@@ -21,7 +21,7 @@ dependencies:
     specifier: ^18
     version: 18.2.0(react@18.2.0)
   swr:
-    specifier: ^2.2.4
+    specifier: ^2
     version: 2.2.4(react@18.2.0)
 
 devDependencies:
@@ -41,7 +41,7 @@ devDependencies:
     specifier: 14.1.0
     version: 14.1.0(eslint@8.56.0)(typescript@5.3.3)
   sass:
-    specifier: ^1.70.0
+    specifier: 1.70.0
     version: 1.70.0
   typescript:
     specifier: ^5
