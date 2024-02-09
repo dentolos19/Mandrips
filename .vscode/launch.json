@@ -5,11 +5,11 @@
       "name": "Debug",
       "type": "node-terminal",
       "request": "launch",
-      "command": "npm run dev",
+      "command": "pnpm run dev",
       "serverReadyAction": {
-        "pattern": "started server on .+, url: (https?://.+)",
+        "pattern": "- Local:.+(https?://.+)",
         "uriFormat": "%s",
-        "action": "debugWithEdge"
+        "action": "openExternally"
       }
     }
   ]
