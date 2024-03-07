@@ -23,7 +23,11 @@ You are business owner. Create a website for your business. The company can be f
 
 ### Team Members
 
-- Dennise
+- Dennise (Leader)
 - Brayden
 - Mandrix
 - Killian
+
+## 📜 License
+
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
