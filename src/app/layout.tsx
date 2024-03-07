@@ -1,6 +1,6 @@
 import "@/styles/globals.scss";
 
-import NavigationBar from "@/components/navigationBar";
+import NavigationBar from "@/components/navigation-bar";
 import PageTransitionLayer from "@/components/pageTransitionLayer";
 import { Poppins } from "next/font/google";
 

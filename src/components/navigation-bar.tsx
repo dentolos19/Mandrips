@@ -1,6 +1,6 @@
 import { generateStyler } from "@/lib/utilities";
 import Link from "next/link";
-import styles from "./navigationBar.module.scss";
+import styles from "./navigation-bar.module.scss";
 
 export default function NavigationBar() {
   const style = generateStyler(styles);
@@ -8,7 +8,7 @@ export default function NavigationBar() {
     <div className={style(["navigation-container"])}>
       <nav className={style(["navigation"])}>
         <Link className={style(["title"])} href={"/"}>
-          <img src="/assets/icon.png"/>
+          <img src="/favicon.png" />
         </Link>
         <div className={style(["items"])}>
           <Link href={"/"}>Home</Link>
