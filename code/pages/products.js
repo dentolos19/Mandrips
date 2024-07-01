@@ -1,40 +1,44 @@
 import { getProductsColors } from "../database.js";
-import { getSearchParams } from "../main.js";
+import { getSearchParams } from "../utils.js";
 
 const searchParams = getSearchParams();
 console.log(searchParams);
 
-// Get filter elements
-const shirtFilterElement = document.querySelector("#a1");
-const poloFilterElement = document.querySelector("#a2");
-const hoodieFilterElement = document.querySelector("#a3");
-const hatFilterElement = document.querySelector("#a4");
+const getFilterElement = (name, value) => {
+  return document.querySelector(`input[name='${name}'][value='${value}']`);
+}
 
-const allFilterElement = document.querySelector("#b0");
-const lowFilterElement = document.querySelector("#b1");
-const midFilterElement = document.querySelector("#b2");
-const highFilterElement = document.querySelector("#b3");
+// Get filter elements
+const e_typeShirt = getFilterElement("type", "shirt");
+const e_typePolo = getFilterElement("type", "polo");
+const e_typeHoodie = getFilterElement("type", "hoodie");
+const e_typeHat = getFilterElement("type", "hat");
+
+const e_priceAll = getFilterElement("price", "all");
+const e_priceLow = getFilterElement("price", "low");
+const e_priceMid = getFilterElement("price", "mid");
+const e_priceHigh = getFilterElement("price", "high");
 
 // Declare functions
 
 function filterProduct(product) {
 	// Get filter element states for types
-	const f_typeShirt = shirtFilterElement.checked;
-	const f_typePolo = poloFilterElement.checked;
-	const f_typeHoodie = hoodieFilterElement.checked;
-	const f_typeHat = hatFilterElement.checked;
+	const f_typeShirt = e_typeShirt.checked;
+	const f_typePolo = e_typePolo.checked;
+	const f_typeHoodie = e_typeHoodie.checked;
+	const f_typeHat = e_typeHat.checked;
 
 	// Get filter element states for prices
-	const f_priceAll = allFilterElement.checked;
-	const f_priceLow = lowFilterElement.checked;
-	const f_priceMid = midFilterElement.checked;
-	const f_priceHigh = highFilterElement.checked;
+	const f_priceAll = e_priceAll.checked;
+	const f_priceLow = e_priceLow.checked;
+	const f_priceMid = e_priceMid.checked;
+	const f_priceHigh = e_priceHigh.checked;
 
 	return !(
-		((f_typeShirt && product.type === shirtFilterElement.value) ||
-			(f_typePolo && product.type === poloFilterElement.value) ||
-			(f_typeHoodie && product.type === hoodieFilterElement.value) ||
-			(f_typeHat && product.type === hatFilterElement.value)) &&
+		((f_typeShirt && product.type === e_typeShirt.value) ||
+			(f_typePolo && product.type === e_typePolo.value) ||
+			(f_typeHoodie && product.type === e_typeHoodie.value) ||
+			(f_typeHat && product.type === e_typeHat.value)) &&
 		(f_priceAll ||
 			(f_priceLow && product.price < 10) ||
 			(f_priceMid && product.price >= 10 && product.price < 30) ||

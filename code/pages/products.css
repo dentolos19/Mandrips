@@ -12,8 +12,8 @@ main.filters-hidden {
     border: 1px solid #ccc;
 }
 
-.filters span {
-    font-weight: bold;
+.filters label {
+    display: block;
 }
 
 .filters button {
@@ -31,6 +31,7 @@ main.filters-hidden {
 
 .filters .category .title {
     margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 .filter-button {
@@ -83,7 +84,7 @@ main.filters-hidden {
     text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
     main {
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr;

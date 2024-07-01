@@ -11,6 +11,7 @@ export function getProductsColors() {
 					type: product.type,
 					name: product.name,
 					price: product.price,
+					description: product.description,
 					colorName: color.name,
 					colorUrl: color.url,
 				};
@@ -33,6 +34,7 @@ export function getProductColors(id) {
 				type: product.type,
 				name: product.name,
 				price: product.url,
+				description: product.description,
 				colorName: color.name,
 				colorUrl: color.url,
 			};

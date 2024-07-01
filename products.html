@@ -4,60 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mandrips</title>
-    <link rel="stylesheet" href="styles/common.css" />
-    <link rel="stylesheet" href="styles/pages/products.css" />
-    <script type="module" src="scripts/main.js"></script>
-    <script type="module" src="scripts/pages/products.js"></script>
+    <link rel="stylesheet" href="code/common.css" />
+    <link rel="stylesheet" href="code/pages/products.css" />
+    <script type="module" src="code/main.js"></script>
+    <script type="module" src="code/pages/products.js"></script>
   </head>
   <body>
     <nav>
-      <a href="/">Home</a>
-      <a href="/products.html" class="active">Products</a>
-      <a href="/cart.html">Cart</a>
-      <a href="/about.html">About</a>
-      <a href="#" class="toggle">
-        <i class="fa fa-bars"></i>
-      </a>
+      <!-- To be added by JavaScript -->
     </nav>
     <main class="container">
       <form class="filters">
         <div class="category">
           <span class="title">Type</span>
-          <div>
-            <input id="a1" type="checkbox" name="type" value="shirt" checked />
-            <label for="a1">T-Shirt</label>
-          </div>
-          <div>
-            <input id="a2" type="checkbox" name="type" value="polo" checked />
-            <label for="a2">Polo Shirt</label>
-          </div>
-          <div>
-            <input id="a3" type="checkbox" name="type" value="hoodie" checked />
-            <label for="a3">Hoodies</label>
-          </div>
-          <div>
-            <input id="a4" type="checkbox" name="type" value="hat" checked />
-            <label for="a4">Hats</label>
-          </div>
+          <label>
+            <input type="checkbox" name="type" value="shirt" checked />
+            <span>T-Shirt</span>
+          </label>
+          <label>
+            <input type="checkbox" name="type" value="polo" checked />
+            <span>Polo Shirt</span>
+          </label>
+          <label>
+            <input type="checkbox" name="type" value="hoodie" checked />
+            <span>Hoodies</span>
+          </label>
+          <label>
+            <input type="checkbox" name="type" value="hat" checked />
+            <span>Hats</span>
+          </label>
         </div>
         <div class="category">
           <span class="title">Price Range</span>
-          <div>
-            <input id="b0" type="radio" name="price" value="all" checked />
-            <label for="b0">All</label>
-          </div>
-          <div>
-            <input id="b1" type="radio" name="price" value="low" />
-            <label for="b1">Under $10</label>
-          </div>
-          <div>
-            <input id="b2" type="radio" name="price" value="mid" />
-            <label for="b2">$10 to $29</label>
-          </div>
-          <div>
-            <input id="b3" type="radio" name="price" value="high" />
-            <label for="b3">Over $30</label>
-          </div>
+          <label>
+            <input type="radio" name="price" value="all" checked />
+            <span>All</span>
+          </label>
+          <label>
+            <input type="radio" name="price" value="low" />
+            <span>Under $10</span>
+          </label>
+          <label>
+            <input type="radio" name="price" value="mid" />
+            <span>$10 to $29</span>
+          </label>
+          <label>
+            <input type="radio" name="price" value="high" />
+            <span>Over $30</span>
+          </label>
         </div>
         <div>
           <button type="submit">Filter</button>
