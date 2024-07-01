@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Q1
+      const friends = ["Ali", "Ben", "Cathy", "Dory"];
+      document.write(friends[0] + "<br>");
+      document.write(friends[3] + "<br>");
+
+      document.write("<br>");
+
+      // Q2
+      const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      for (let i = 0; i < days.length; i++) {
+        document.write(days[i] + "<br>");
+      }
+
+      document.write("<br>");
+
+      // Q3
+      const marks = [30, 50, 80, 90];
+      marks[2] = 85;
+      document.write(marks[2] + "<br>");
+      marks.pop(0);
+      marks.pop(3);
+      document.write("<br>");
+      for (let i = 0; i < marks.length; i++) {
+        document.write(marks[i] + "<br>");
+      }
+
+      document.write("<br>");
+
+      // Q4
+      const nums = [];
+      nums.push(80);
+      nums.push(68);
+      nums.push(74);
+      nums.push(80);
+      let ans = 0;
+      for (let i = 0; i < nums.length; i++) {
+        ans += nums[i];
+        document.write(nums[i] + " ");
+        if (i == nums.length - 1) {
+          document.write("= ");
+        } else {
+          document.write("+ ");
+        }
+      }
+      document.write(ans + "<br>");
+
+      document.write("<br>");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,192 @@
+[
+  {
+    "id": 1,
+    "type": "shirt",
+    "name": "Crew Neck Short Sleeve T-Shirt",
+    "price": 9.9,
+    "description": "Heavyweight fabric gains character the more you wear it. Flattering roomy fit.",
+    "colors": [
+      {
+        "name": "Black",
+        "url": "/assets/clothes/1/black.webp"
+      },
+      {
+        "name": "Gray",
+        "url": "/assets/clothes/1/gray.webp"
+      },
+      {
+        "name": "Natural",
+        "url": "/assets/clothes/1/natural.webp"
+      },
+      {
+        "name": "Red",
+        "url": "/assets/clothes/1/red.webp"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "type": "hoodie",
+    "name": "Stretch Dry Sweat Long Sleeve Full-Zip Hoodie",
+    "price": 14.9,
+    "description": "Based on customer feedback, we updated these sweats to be wrinkle-resistant and have a natural look that is great for everyday wear.",
+    "colors": [
+      {
+        "name": "Black",
+        "url": "/assets/clothes/2/black.webp"
+      },
+      {
+        "name": "Blue",
+        "url": "/assets/clothes/2/blue.webp"
+      },
+      {
+        "name": "Gray",
+        "url": "/assets/clothes/2/gray.webp"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "type": "hat",
+    "name": "UV Protection Hat",
+    "price": 4.9,
+    "description": "Perfect for the great outdoors. Light and foldable for easy carrying.",
+    "colors": [
+      {
+        "name": "Navy",
+        "url": "/assets/clothes/3/navy.webp"
+      },
+      {
+        "name": "Olive",
+        "url": "/assets/clothes/3/olive.webp"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "type": "pants",
+    "name": "Sweat Pants (Side Lined)",
+    "price": 9.9,
+    "description": "Soft and comfortable sweatpants. Side lines accentuate the silhouette for a sleek look.",
+    "colors": [
+      {
+        "name": "Gray",
+        "url": "/assets/clothes/4/gray.webp"
+      },
+      {
+        "name": "Navy",
+        "url": "/assets/clothes/4/navy.webp"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "type": "shirt",
+    "name": "Extra Fine Cotton Short Sleeve Shirt",
+    "price": 14.9,
+    "description": "100% premium cotton, prewashed for a casual look. Stunning colors and patterns.",
+    "colors": [
+      {
+        "name": "Navy",
+        "url": "/assets/clothes/5/navy.webp"
+      },
+      {
+        "name": "White",
+        "url": "/assets/clothes/5/white.webp"
+      },
+      {
+        "name": "Wine",
+        "url": "/assets/clothes/5/wine.webp"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "type": "shirt",
+    "name": "PEACE FOR ALL Peanuts Short Sleeve T-Shirt",
+    "price": 19.9,
+    "description": "A single T-shirt has the power to spread peace.",
+    "colors": [
+      {
+        "name": "Default",
+        "url": "/assets/clothes/6/default.webp"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "type": "shirt",
+    "name": "Austin's Special Edition T-Shirt",
+    "price": 29.9,
+    "description": "Show that Jesus will answer your calls, no matter where you are.",
+    "colors": [
+      {
+        "name": "Black",
+        "url": "/assets/clothes/7/black.jpg"
+      },
+      {
+        "name": "White",
+        "url": "/assets/clothes/7/white.jpg"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "type": "sweater",
+    "name": "Cashmere Turtleneck Long Sleeve Sweater",
+    "price": 19.9,
+    "description": "Based on customer feedback, we revised and updated the thickness and knit tension of the cashmere yarn for a thicker, richer texture.",
+    "colors": [
+      {
+        "name": "Black",
+        "url": "/assets/clothes/8/black.webp"
+      },
+      {
+        "name": "Navy",
+        "url": "/assets/clothes/8/navy.webp"
+      },
+      {
+        "name": "Red",
+        "url": "/assets/clothes/8/red.webp"
+      },
+      {
+        "name": "White",
+        "url": "/assets/clothes/8/white.webp"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "type": "polo",
+    "name": "Dry-EX Short Sleeve Polo Shirt (Tipping)",
+    "price": 14.9,
+    "description": "Quick-drying 'DRY-EX' for stay-fresh comfort. Cool, breathable mesh.",
+    "colors": [
+      {
+        "name": "Black",
+        "url": "/assets/clothes/9/black.webp"
+      },
+      {
+        "name": "Blue",
+        "url": "/assets/clothes/9/blue.webp"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "type": "polo",
+    "name": "Dry-EX Short Sleeve Polo Shirt (Border)",
+    "price": 14.9,
+    "description": "Quick-drying 'DRY-EX' for stay-fresh comfort. Cool, breathable mesh.",
+    "colors": [
+      {
+        "name": "Blue",
+        "url": "/assets/clothes/10/blue.webp"
+      },
+      {
+        "name": "Red",
+        "url": "/assets/clothes/10/red.webp"
+      }
+    ]
+  }
+]
