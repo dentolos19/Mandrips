@@ -17,23 +17,45 @@
       <div class="preview">
         <!-- To be added by JavaScript -->
       </div>
-      <div class="details">
-        <h1 id="name">
+      <form class="details">
+        <div class="name">
           <!-- To be added by JavaScript -->
-        </h1>
-        <p id="description">
+        </div>
+        <div class="price">
           <!-- To be added by JavaScript -->
-        </p>
-        <p class="colors">
+        </div>
+        <div class="description">
           <!-- To be added by JavaScript -->
-        </p>
-        <p class="sizes">
-          <!-- To be added by JavaScript -->
-        </p>
-        <p>
-          <button id="addButton" type="submit">Add to cart</button>
-        </p>
-      </div>
+        </div>
+        <div style="margin-bottom: 0.8rem">
+          <div style="margin-bottom: 0.4rem">Select your color</div>
+          <div class="colors">
+            <!-- To be added by JavaScript -->
+          </div>
+        </div>
+        <div style="margin-bottom: 0.8rem">
+          <div style="margin-bottom: 0.4rem">
+            Select your size
+            <a
+              style="color: inherit; text-decoration: inherit"
+              href="/size.html"
+              ><i class="fa-solid fa-circle-info"></i
+            ></a>
+          </div>
+          <div class="sizes">
+            <!-- To be added by JavaScript -->
+          </div>
+        </div>
+        <div style="margin-bottom: 0.8rem">
+          <div style="margin-bottom: 0.4rem">Quantity</div>
+          <div>
+            <input type="number" name="quantity" value="1" min="1" />
+          </div>
+        </div>
+        <form>
+          <button type="submit">Add to cart</button>
+        </form>
+      </form>
     </main>
   </body>
 </html>

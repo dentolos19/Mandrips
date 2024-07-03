@@ -48,8 +48,8 @@ function filterProduct(product) {
 
 function refreshProducts() {
 	getProductsColors().then((data) => {
-		const list = document.getElementsByClassName("products")[0];
-		list.innerHTML = "";
+		const productsElement = document.querySelector(".products");
+		productsElement.innerHTML = "";
 
 		for (const product of data) {
 			if (filterProduct(product)) {
@@ -69,7 +69,7 @@ function refreshProducts() {
 			container.appendChild(image);
 			container.appendChild(price);
 
-			list.appendChild(container);
+			productsElement.appendChild(container);
 		}
 	});
 }

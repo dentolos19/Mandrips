@@ -1,3 +1,4 @@
+import { pushCart } from "../cart.js";
 import { getProductColors } from "../database.js";
 import { getSearchParams, setSearchParams } from "../utils.js";
 
@@ -16,8 +17,10 @@ getProductColors(id)
 	.then((shirtColors) => {
 		// Load product description
 		const shirtColor = shirtColors[0];
-		document.getElementById("name").textContent = shirtColor.name;
-		document.getElementById("description").textContent = shirtColor.description;
+		document.querySelector(".name").textContent = shirtColor.name;
+		document.querySelector(".price").textContent =
+			`$${shirtColor.price.toFixed(2)}`;
+		document.querySelector(".description").textContent = shirtColor.description;
 
 		// Add shirt previews and color options
 		for (const shirtColor of shirtColors) {
@@ -25,7 +28,6 @@ getProductColors(id)
 			const previewElement = document.createElement("img");
 			previewElement.src = shirtColor.colorUrl;
 			previewElement.alt = shirtColor.colorName;
-			previewElement.title = shirtColor.colorName;
 			previewsElement.appendChild(previewElement);
 
 			// Add color options
@@ -38,7 +40,7 @@ getProductColors(id)
 			colorSelectorElement.value = shirtColor.colorName;
 			colorSelectorElement.addEventListener("change", () => {
 				document
-					.querySelector(`img[alt='${shirtColor.colorName}']`)
+					.querySelector(`img[alt=${shirtColor.colorName}]`)
 					.scrollIntoView();
 				setSearchParams({
 					color: shirtColor.colorName,
@@ -61,10 +63,8 @@ getProductColors(id)
 		}
 	})
 	.finally(() => {
-		// TODO: Fix this
-		if (color) {
-			document.querySelector(`img[alt='${color}']`)?.scrollIntoView();
-		}
+		// TODO: Scroll to the selected color
+		// document.querySelector(`img[alt=${color}]`).scrollIntoView();
 	});
 
 // Add size options
@@ -96,7 +96,18 @@ for (const shirtSize of sizes) {
 	sizesElement.appendChild(sizeElement);
 }
 
-document.querySelector("#addButton").addEventListener("click", (e) => {
+document.querySelector("form").addEventListener("submit", (e) => {
 	e.preventDefault();
-	// TODO
+
+	const data = new FormData(e.target);
+	const entries = Object.fromEntries(data.entries());
+
+	pushCart({
+		id,
+		color: entries.color,
+		size: entries.size,
+		quantity: entries.quantity,
+	});
+
+	alert("Added to cart!");
 });
