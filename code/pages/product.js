@@ -9,9 +9,9 @@ const id = searchParams.id;
 const color = searchParams.color;
 const size = searchParams.size;
 
-const previewsElement = document.querySelector(".preview");
-const colorsElement = document.querySelector(".colors");
-const sizesElement = document.querySelector(".sizes");
+const e_previews = document.querySelector(".preview");
+const e_colors = document.querySelector(".colors");
+const e_sizes = document.querySelector(".sizes");
 
 getProductColors(id)
 	.then((shirtColors) => {
@@ -25,20 +25,20 @@ getProductColors(id)
 		// Add shirt previews and color options
 		for (const shirtColor of shirtColors) {
 			// Add shirt previews
-			const previewElement = document.createElement("img");
-			previewElement.src = shirtColor.colorUrl;
-			previewElement.alt = shirtColor.colorName;
-			previewsElement.appendChild(previewElement);
+			const e_preview = document.createElement("img");
+			e_preview.src = shirtColor.colorUrl;
+			e_preview.alt = shirtColor.colorName;
+			e_previews.appendChild(e_preview);
 
 			// Add color options
-			const colorElement = document.createElement("label");
-			colorElement.className = "option";
+			const e_color = document.createElement("label");
+			e_color.className = "option";
 
-			const colorSelectorElement = document.createElement("input");
-			colorSelectorElement.type = "radio";
-			colorSelectorElement.name = "color";
-			colorSelectorElement.value = shirtColor.colorName;
-			colorSelectorElement.addEventListener("change", () => {
+			const e_colorSelector = document.createElement("input");
+			e_colorSelector.type = "radio";
+			e_colorSelector.name = "color";
+			e_colorSelector.value = shirtColor.colorName;
+			e_colorSelector.addEventListener("change", () => {
 				document
 					.querySelector(`img[alt=${shirtColor.colorName}]`)
 					.scrollIntoView();
@@ -51,15 +51,15 @@ getProductColors(id)
 			colorNameElement.textContent = shirtColor.colorName;
 
 			if (!color) {
-				colorSelectorElement.checked =
+				e_colorSelector.checked =
 					shirtColor.colorName === shirtColors[0].colorName;
 			} else if (shirtColor.colorName === color) {
-				colorSelectorElement.checked = true;
+				e_colorSelector.checked = true;
 			}
 
-			colorElement.appendChild(colorSelectorElement);
-			colorElement.appendChild(colorNameElement);
-			colorsElement.appendChild(colorElement);
+			e_color.appendChild(e_colorSelector);
+			e_color.appendChild(colorNameElement);
+			e_colors.appendChild(e_color);
 		}
 	})
 	.finally(() => {
@@ -93,7 +93,7 @@ for (const shirtSize of sizes) {
 
 	sizeElement.appendChild(sizeSelectorElement);
 	sizeElement.appendChild(sizeNameElement);
-	sizesElement.appendChild(sizeElement);
+	e_sizes.appendChild(sizeElement);
 }
 
 document.querySelector("form").addEventListener("submit", (e) => {
