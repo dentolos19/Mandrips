@@ -1,0 +1,28 @@
+button {
+  padding: 8px 16px;
+  background-color: var(--neutral-100);
+  cursor: pointer;
+  border: var(--border);
+  border-radius: var(--component-radius);
+  box-shadow: var(--low-shadow);
+  transition: all 100ms;
+}
+
+button:hover {
+  background-color: var(--neutral-300);
+}
+
+button.circle {
+  padding: 1rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+}
+
+button.primary {
+  color: white;
+  background-color: var(--primary-100);
+}
+
+button.primary:hover {
+  background-color: var(--primary-300);
+}

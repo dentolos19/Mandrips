@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandrips</title>
+    <link rel="stylesheet" href="/code/common.css" />
+    <link rel="stylesheet" href="/code/pages/checkout.css" />
+    <script type="module" src="/code/main.js"></script>
+    <script type="module" src="/code/pages/checkout.js"></script>
+  </head>
+  <body>
+    <nav>
+      <!-- To be added by JavaScript -->
+    </nav>
+    <main>
+      <form>
+        <fieldset class="personal-info">
+          <label class="first-name">
+            <div>First Name</div>
+            <input type="text" name="firstName" placeholder="John" required />
+          </label>
+          <label class="last-name">
+            <div>Last Name</div>
+            <input type="text" name="lastName" placeholder="Doe" required />
+          </label>
+          <label class="email">
+            <div>Email Address</div>
+            <input type="email" name="email" placeholder="john.doe@nyp.sg" required />
+          </label>
+        </fieldset>
+        <fieldset class="shipping-info">
+          <label class="address1">
+            <div>Address Line 1</div>
+            <input type="text" name="addressLine1" placeholder="101 Singapore Street 69" required />
+          </label>
+          <label class="address2">
+            <div>Address Line 2</div>
+            <input type="text" name="addressLine2" />
+          </label>
+          <label class="city">
+            <div>City</div>
+            <input type="text" name="cityName" placeholder="Singapore" required />
+          </label>
+          <label class="unit">
+            <div>Unit Number</div>
+            <input type="text" name="unitNumber" placeholder="#01-23" required />
+          </label>
+          <label class="postal">
+            <div>Postal Code</div>
+            <input type="text" name="postalCode" placeholder="123456" required />
+          </label>
+        </fieldset>
+        <fieldset class="payment-info">
+          <label class="card-number">
+            <div>Card Number</div>
+            <input type="text" name="cardNumber" required />
+          </label>
+            <label class="expiry">
+            <div>Expiry</div>
+            <input type="month" name="expiryDate" required />
+            </label>
+          </label>
+          <label class="cvv">
+            <div>CVV</div>
+            <input type="text" name="cvv" required />
+          </label>
+        </fieldset>
+        <fieldset class="actions">
+          <button id="orderButton" class="primary" type="submit">
+            Place Order
+          </button>
+          <button id="cancelButton" type="button">Back to Cart</button>
+        </fieldset>
+      </form>
+    </main>
+  </body>
+</html>

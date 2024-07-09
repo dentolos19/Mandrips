@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandrips</title>
+    <link rel="stylesheet" href="/code/common.css" />
+    <link rel="stylesheet" href="/code/pages/products.css" />
+    <script type="module" src="/code/main.js"></script>
+    <script type="module" src="/code/pages/products.js"></script>
+  </head>
+  <body>
+    <nav>
+      <!-- To be added by JavaScript -->
+    </nav>
+    <main class="container">
+      <form class="filters">
+        <div class="category">
+          <span class="title">Type</span>
+          <label>
+            <input type="checkbox" name="type" value="shirt" checked />
+            <span>T-Shirt</span>
+          </label>
+          <label>
+            <input type="checkbox" name="type" value="polo" checked />
+            <span>Polo Shirt</span>
+          </label>
+          <label>
+            <input type="checkbox" name="type" value="hoodie" checked />
+            <span>Hoodies</span>
+          </label>
+          <label>
+            <input type="checkbox" name="type" value="hat" checked />
+            <span>Hats</span>
+          </label>
+          <label>
+            <input type="checkbox" name="type" value="pants" checked />
+            <span>Pants</span>
+          </label>
+        </div>
+        <div class="category">
+          <span class="title">Price Range</span>
+          <label>
+            <input type="radio" name="price" value="all" checked />
+            <span>All</span>
+          </label>
+          <label>
+            <input type="radio" name="price" value="low" />
+            <span>Under $10</span>
+          </label>
+          <label>
+            <input type="radio" name="price" value="mid" />
+            <span>$10 to $29</span>
+          </label>
+          <label>
+            <input type="radio" name="price" value="high" />
+            <span>Over $30</span>
+          </label>
+        </div>
+        <div>
+          <button id="filterButton" class="primary" type="submit">
+            Filter
+          </button>
+          <button id="closeButton" type="button">Close</button>
+        </div>
+      </form>
+      <div class="products">
+        <!-- To be added by JavaScript -->
+      </div>
+      <button id="toggleButton" class="circle primary filter-button">
+        <i class="fa-solid fa-filter"></i>
+      </button>
+    </main>
+  </body>
+</html>
