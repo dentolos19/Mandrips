@@ -1,0 +1,21 @@
+main {
+  display: grid;
+  place-items: center;
+}
+
+.message {
+  text-align: center;
+}
+
+.message .title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.message .actions {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}

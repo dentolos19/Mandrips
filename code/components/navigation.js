@@ -14,8 +14,7 @@ const links = [
 ];
 
 export function build() {
-	const e_nav = document.createElement("div");
-	e_nav.className = "nav";
+	const e_nav = document.createElement("nav");
 
 	const e_title = document.createElement("div");
 	e_title.className = "title";
@@ -47,7 +46,7 @@ export function build() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	const linkElements = document.querySelectorAll(".nav .links a");
+	const linkElements = document.querySelectorAll("nav .links a");
 	for (const link of linkElements) {
 		if (link.href === window.location.href) {
 			link.classList.add("active");

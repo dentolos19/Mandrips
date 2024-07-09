@@ -1,8 +1,12 @@
 :root {
   /* Colors */
-  --primary-300: #04a96d;
-  --primary-200: #05cb83;
   --primary-100: #05dc8e;
+  --primary-200: #05cb83;
+  --primary-300: #04a96d;
+
+  --neutral-100: rgb(250, 250, 250);
+  --neutral-200: rgb(245, 245, 245);
+  --neutral-300: rgb(240, 240, 240);
 
   /* Variables */
   --component-radius: 4px;

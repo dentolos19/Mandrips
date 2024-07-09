@@ -188,5 +188,26 @@
         "url": "/assets/clothes/10/red.webp"
       }
     ]
+  },
+  {
+    "id": 11,
+    "type": "pants",
+    "name": "Miracle Air Pants",
+    "price": 19.9,
+    "description": "These high-performance pants are lightweight, stretchy, and quick-drying.",
+    "colors": [
+      {
+        "name": "Beige",
+        "url": "/assets/clothes/11/beige.avif"
+      },
+      {
+        "name": "Black",
+        "url": "/assets/clothes/11/black.avif"
+      },
+      {
+        "name": "Navy",
+        "url": "/assets/clothes/11/navy.avif"
+      }
+    ]
   }
 ]
