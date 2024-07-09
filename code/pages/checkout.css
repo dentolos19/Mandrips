@@ -1,0 +1,98 @@
+form {
+  margin: 0 auto;
+  width: 50%;
+}
+
+form label > div {
+  margin-bottom: 0.2rem;
+}
+
+form label > input {
+  width: 100%;
+}
+
+form fieldset + fieldset {
+  margin-top: 1rem;
+}
+
+fieldset {
+  padding: 1rem;
+  border: var(--border);
+  border-radius: var(--container-radius);
+  box-shadow: var(--low-shadow);
+}
+
+fieldset.personal-info {
+  display: grid;
+  grid-template-areas:
+    "first-name last-name"
+    "email email";
+  gap: 1rem;
+}
+
+fieldset.personal-info .first-name {
+  grid-area: first-name;
+}
+
+fieldset.personal-info .last-name {
+  grid-area: last-name;
+}
+
+fieldset.personal-info .email {
+  grid-area: email;
+}
+
+fieldset.shipping-info {
+  display: grid;
+  grid-template-areas:
+    "address1 address1 address1"
+    "address2 address2 address2"
+    "city unit postal";
+  gap: 1rem;
+}
+
+fieldset.shipping-info .address1 {
+  grid-area: address1;
+}
+
+fieldset.shipping-info .address2 {
+  grid-area: address2;
+}
+
+fieldset.shipping-info .city {
+  grid-area: city;
+}
+
+fieldset.shipping-info .unit {
+  grid-area: unit;
+}
+
+fieldset.shipping-info .postal {
+  grid-area: postal;
+}
+
+fieldset.payment-info {
+  display: grid;
+  grid-template-areas:
+    "card-number card-number"
+    "expiry cvv";
+  gap: 1rem;
+}
+
+fieldset.payment-info .card-number {
+  grid-area: card-number;
+}
+
+fieldset.payment-info .expiry {
+  grid-area: expiry;
+}
+
+fieldset.payment-info .cvv {
+  grid-area: cvv;
+}
+
+fieldset.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}

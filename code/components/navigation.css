@@ -37,7 +37,7 @@
 }
 
 .nav .links a.active {
-  background-color: #04aa6d;
+  background-color: var(--primary-300);
 }
 
 .nav .links a:hover {
@@ -46,7 +46,7 @@
 }
 
 .nav .toggle {
-  padding-right: 1rem;
+  padding: 0 1rem;
   display: none;
   justify-content: center;
   align-items: center;

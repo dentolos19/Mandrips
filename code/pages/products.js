@@ -5,8 +5,8 @@ const searchParams = getSearchParams();
 console.log(searchParams);
 
 const getFilterElement = (name, value) => {
-  return document.querySelector(`input[name='${name}'][value='${value}']`);
-}
+	return document.querySelector(`input[name='${name}'][value='${value}']`);
+};
 
 // Get filter elements
 const e_typeShirt = getFilterElement("type", "shirt");
@@ -82,18 +82,14 @@ function toggleFilters() {
 // Declare event handlers
 
 document
-	.querySelector(".filter-button")
+	.querySelector("#toggleButton")
 	.addEventListener("click", toggleFilters);
 
-document
-	.querySelector(".filters button[type='submit']")
-	.addEventListener("click", (e) => {
-		e.preventDefault();
-		refreshProducts();
-	});
+document.querySelector("#filterButton").addEventListener("click", (e) => {
+	e.preventDefault();
+	refreshProducts();
+});
 
-document
-	.querySelector(".filters button[type='button']")
-	.addEventListener("click", toggleFilters);
+document.querySelector("#closeButton").addEventListener("click", toggleFilters);
 
 refreshProducts();

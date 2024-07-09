@@ -11,10 +11,6 @@ const links = [
 		title: "Cart",
 		href: "/cart.html",
 	},
-	{
-		title: "Contact",
-		href: "/contact.html",
-	},
 ];
 
 export function build() {

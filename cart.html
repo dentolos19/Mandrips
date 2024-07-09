@@ -18,13 +18,32 @@
         <!-- To be added by JavaScript -->
       </div>
       <div class="details">
-        <h2>Cart</h2>
-        <div>
-          <!-- To be added by JavaScript -->
+        <div class="title">Order Summary</div>
+        <div class="summary">
+          <div class="category">
+            <span class="name">Subtotal</span>
+            <span id="subtotal" class="value">
+              <!-- To be added by JavaScript -->
+            </span>
+          </div>
+          <div class="category">
+            <span class="name">Estimated Tax</span>
+            <span id="estimatedTax" class="value">
+              <!-- To be added by JavaScript -->
+            </span>
+          </div>
+          <div class="category">
+            <span class="name">Total</span>
+            <span id="total" class="value">
+              <!-- To be added by JavaScript -->
+            </span>
+          </div>
         </div>
-        <div>
-          <h3>Total: <span>0</span>€</h3>
-          <button>Checkout</button>
+        <div class="actions">
+          <button id="checkoutButton" class="primary" style="width: 100%">
+            Checkout
+          </button>
+          <button id="clearButton" style="width: 100%">Clear</button>
         </div>
       </div>
     </main>

@@ -1,0 +1,15 @@
+:root {
+  /* Colors */
+  --primary-300: #04a96d;
+  --primary-200: #05cb83;
+  --primary-100: #05dc8e;
+
+  /* Variables */
+  --component-radius: 4px;
+  --container-radius: 8px;
+
+  --high-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  --low-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+
+  --border: 1px solid rgba(128, 128, 128, 0.5);
+}

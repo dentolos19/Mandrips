@@ -35,21 +35,10 @@ main.filters-hidden {
 }
 
 .filter-button {
-  width: 50px;
-  aspect-ratio: 1/1;
   position: absolute;
   bottom: 2rem;
   right: 2rem;
-  font-size: 1.2rem;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 100ms;
-}
-
-.filter-button:hover {
-  color: white;
-  background-color: green;
+  font-size: 1.5rem;
 }
 
 .products {
@@ -66,12 +55,12 @@ main.filters-hidden {
   overflow: hidden;
   border: 1px solid black;
   border-radius: 4px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--low-shadow);
   transition: all 250ms;
 }
 
 .product:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--high-shadow);
   transform: scale(1.01);
 }
 

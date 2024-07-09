@@ -2,7 +2,33 @@ import { pushCart } from "../cart.js";
 import { getProductColors } from "../database.js";
 import { getSearchParams, setSearchParams } from "../utils.js";
 
-const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
+// const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
+const sizes = [
+	{
+		id: "XS",
+		name: "Extra Small",
+	},
+	{
+		id: "S",
+		name: "Small",
+	},
+	{
+		id: "M",
+		name: "Medium",
+	},
+	{
+		id: "L",
+		name: "Large",
+	},
+	{
+		id: "XL",
+		name: "Extra Large",
+	},
+	{
+		id: "XXL",
+		name: "Extra Extra Large",
+	},
+];
 
 const searchParams = getSearchParams();
 const id = searchParams.id;
@@ -50,6 +76,7 @@ getProductColors(id)
 			const colorNameElement = document.createElement("span");
 			colorNameElement.textContent = shirtColor.colorName;
 
+      // TODO: check default if color is invalid
 			if (!color) {
 				e_colorSelector.checked =
 					shirtColor.colorName === shirtColors[0].colorName;
@@ -75,19 +102,21 @@ for (const shirtSize of sizes) {
 	const sizeSelectorElement = document.createElement("input");
 	sizeSelectorElement.type = "radio";
 	sizeSelectorElement.name = "size";
-	sizeSelectorElement.value = shirtSize;
+	sizeSelectorElement.value = shirtSize.name;
 	sizeSelectorElement.addEventListener("change", () => {
 		setSearchParams({
-			size: shirtSize,
+			size: shirtSize.id,
 		});
 	});
 
 	const sizeNameElement = document.createElement("span");
-	sizeNameElement.textContent = shirtSize;
+	sizeNameElement.textContent = shirtSize.id;
+	sizeNameElement.title = shirtSize.name;
 
+  // TODO: check default if size is invalid
 	if (!size) {
-		sizeSelectorElement.checked = shirtSize === sizes[2];
-	} else if (shirtSize === size) {
+		sizeSelectorElement.checked = shirtSize.id === sizes[2].id;
+	} else if (shirtSize.id === size || shirtSize.name === size) {
 		sizeSelectorElement.checked = true;
 	}
 

@@ -40,6 +40,14 @@ export function setCart(cart) {
 	localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+export function clearCart() {
+	localStorage.removeItem("cart");
+}
+
+/**
+ *
+ * @param {Cart} item
+ */
 export function pushCart(item) {
 	const cart = getCart();
 	if (
@@ -62,4 +70,20 @@ export function pushCart(item) {
 		cart.push(item);
 	}
 	setCart(cart);
+}
+
+/**
+ *
+ * @param {Cart} item
+ */
+export function popCart(item) {
+	const cart = getCart();
+	const newCart = cart.filter((cartItem) => {
+		return (
+			cartItem.id !== item.id ||
+			cartItem.color !== item.color ||
+			cartItem.size !== item.size
+		);
+	});
+	setCart(newCart);
 }

@@ -1,7 +1,9 @@
+@import "theme.css";
 @import "components/button.css";
 @import "components/input.css";
 @import "components/navigation.css";
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
 *,
 *::before,
@@ -14,7 +16,7 @@ body {
   height: 100dvh;
   display: grid;
   grid-template-rows: auto 1fr;
-  font-family: sans-serif;
+  font-family: Inter, sans-serif;
 }
 
 main {
