@@ -1,10 +1,10 @@
 main {
-    padding: 1rem 0;
+  padding: 1rem 0;
 }
 
 form {
   margin: 0 auto;
-  width: 50%;
+  width: 70%;
 }
 
 form label > div {
@@ -99,4 +99,33 @@ fieldset.actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  form {
+    width: 90%;
+  }
+
+  fieldset.personal-info {
+    grid-template-areas:
+      "first-name"
+      "last-name"
+      "email";
+  }
+
+  fieldset.shipping-info {
+    grid-template-areas:
+      "address1"
+      "address2"
+      "city"
+      "unit"
+      "postal";
+  }
+
+  fieldset.payment-info {
+    grid-template-areas:
+      "card-number"
+      "expiry"
+      "cvv";
+  }
 }

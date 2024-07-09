@@ -1,21 +1,41 @@
 main {
-    scroll-snap-type: y mandatory;
+  scroll-snap-type: y mandatory;
 }
 
 section {
-    height: 100%;
-    position: relative;
-    scroll-snap-align: start;
+  height: 100%;
+  position: relative;
+  scroll-snap-align: start;
 }
 
-section img,
-section video {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    object-fit: cover;
+section > img,
+section > video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
 }
 
-section .content {
-    position: absolute;
+section > .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.intro {
+  display: grid;
+  place-items: center;
+}
+
+.intro .logo {
+  margin: auto auto;
+  width: 150px;
+  display: block;
+}
+
+.intro .tagline {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }

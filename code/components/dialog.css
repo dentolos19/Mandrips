@@ -1,0 +1,15 @@
+dialog {
+  padding: 1rem;
+  max-width: 50%;
+  background-color: var(--neutral-100);
+  outline: none;
+  border: var(--border);
+  border-radius: var(--container-radius);
+  box-shadow: var(--high-shadow);
+}
+
+@media (max-width: 768px) {
+  dialog {
+    max-width: 90%;
+  }
+}

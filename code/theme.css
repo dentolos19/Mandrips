@@ -1,19 +1,19 @@
 :root {
   /* Colors */
-  --primary-100: #05dc8e;
-  --primary-200: #05cb83;
-  --primary-300: #04a96d;
+  --primary-100: #00b4d8;
+  --primary-200: #0077b6;
+  --primary-300: #03045e;
 
   --neutral-100: rgb(250, 250, 250);
   --neutral-200: rgb(245, 245, 245);
   --neutral-300: rgb(240, 240, 240);
 
   /* Variables */
+  --border: 1px solid rgba(128, 128, 128, 0.5);
+
   --component-radius: 4px;
   --container-radius: 8px;
 
-  --high-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   --low-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-
-  --border: 1px solid rgba(128, 128, 128, 0.5);
+  --high-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }

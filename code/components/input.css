@@ -1,7 +1,7 @@
 input:not([type="checkbox"]):not([type="radio"]) {
   padding: 6px 8px;
-  background-color: rgb(250, 250, 250);
-  border: 1px solid rgba(128, 128, 128, 0.5);
+  background-color: var(--neutral-100);
+  border: var(--border);
   border-radius: 4px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--low-shadow);
 }
