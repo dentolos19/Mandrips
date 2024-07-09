@@ -39,8 +39,8 @@ const e_previews = document.querySelector(".preview");
 const e_colors = document.querySelector(".colors");
 const e_sizes = document.querySelector(".sizes");
 
-getProductColors(id)
-	.then((shirtColors) => {
+function loadProducts() {
+	getProductColors(id).then((shirtColors) => {
 		// Load product description
 		const shirtColor = shirtColors[0];
 		document.querySelector(".name").textContent = shirtColor.name;
@@ -76,7 +76,7 @@ getProductColors(id)
 			const colorNameElement = document.createElement("span");
 			colorNameElement.textContent = shirtColor.colorName;
 
-      // TODO: check default if color is invalid
+			// TODO: check default if color is invalid
 			if (!color) {
 				e_colorSelector.checked =
 					shirtColor.colorName === shirtColors[0].colorName;
@@ -88,47 +88,47 @@ getProductColors(id)
 			e_color.appendChild(colorNameElement);
 			e_colors.appendChild(e_color);
 		}
-	})
-	.finally(() => {
-		// TODO: Scroll to the selected color
-		// document.querySelector(`img[alt=${color}]`).scrollIntoView();
+
+		// Scroll to param color
+		document.querySelector(`img[alt=${color}]`).scrollIntoView();
 	});
 
-// Add size options
-for (const shirtSize of sizes) {
-	const sizeElement = document.createElement("label");
-	sizeElement.className = "option";
+	// Add size options
+	for (const shirtSize of sizes) {
+		const sizeElement = document.createElement("label");
+		sizeElement.className = "option";
 
-	const sizeSelectorElement = document.createElement("input");
-	sizeSelectorElement.type = "radio";
-	sizeSelectorElement.name = "size";
-	sizeSelectorElement.value = shirtSize.name;
-	sizeSelectorElement.addEventListener("change", () => {
-		setSearchParams({
-			size: shirtSize.id,
+		const sizeSelectorElement = document.createElement("input");
+		sizeSelectorElement.type = "radio";
+		sizeSelectorElement.name = "size";
+		sizeSelectorElement.value = shirtSize.name;
+		sizeSelectorElement.addEventListener("change", () => {
+			setSearchParams({
+				size: shirtSize.id,
+			});
 		});
-	});
 
-	const sizeNameElement = document.createElement("span");
-	sizeNameElement.textContent = shirtSize.id;
-	sizeNameElement.title = shirtSize.name;
+		const sizeNameElement = document.createElement("span");
+		sizeNameElement.textContent = shirtSize.id;
+		sizeNameElement.title = shirtSize.name;
 
-  // TODO: check default if size is invalid
-	if (!size) {
-		sizeSelectorElement.checked = shirtSize.id === sizes[2].id;
-	} else if (shirtSize.id === size || shirtSize.name === size) {
-		sizeSelectorElement.checked = true;
+		// TODO: check default if size is invalid
+		if (!size) {
+			sizeSelectorElement.checked = shirtSize.id === sizes[2].id;
+		} else if (shirtSize.id === size || shirtSize.name === size) {
+			sizeSelectorElement.checked = true;
+		}
+
+		sizeElement.appendChild(sizeSelectorElement);
+		sizeElement.appendChild(sizeNameElement);
+		e_sizes.appendChild(sizeElement);
 	}
-
-	sizeElement.appendChild(sizeSelectorElement);
-	sizeElement.appendChild(sizeNameElement);
-	e_sizes.appendChild(sizeElement);
 }
 
-document.querySelector("form").addEventListener("submit", (e) => {
-	e.preventDefault();
+function handleAdd(event) {
+	event.preventDefault();
 
-	const data = new FormData(e.target);
+	const data = new FormData(event.target);
 	const entries = Object.fromEntries(data.entries());
 
 	pushCart({
@@ -139,4 +139,8 @@ document.querySelector("form").addEventListener("submit", (e) => {
 	});
 
 	alert("Added to cart!");
-});
+}
+
+document.querySelector("form").addEventListener("submit", handleAdd);
+
+loadProducts();

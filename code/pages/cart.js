@@ -4,38 +4,15 @@ import { getProductColors } from "../database.js";
 // Initialize variables and fetch elements
 
 const e_items = document.querySelector(".items");
+const e_subtotal = document.querySelector("#subtotal");
+const e_estimatedTax = document.querySelector("#estimatedTax");
+const e_total = document.querySelector("#total");
 const e_checkoutButton = document.querySelector("#checkoutButton");
 const e_clearButton = document.querySelector("#clearButton");
 
 let cartTotal = 0;
 
-// Initialize functions
-
-function updateTotal() {
-	const cartTax = cartTotal * 0.09;
-	const cartSubtotal = cartTotal - cartTax;
-
-	document.querySelector("#subtotal").textContent =
-		`$${cartSubtotal.toFixed(2)}`;
-	document.querySelector("#estimatedTax").textContent =
-		`$${cartTax.toFixed(2)}`;
-	document.querySelector("#total").textContent = `$${cartTotal.toFixed(2)}`;
-}
-
-function handleCheckout() {
-	location.href = "/checkout.html";
-}
-
-function handleClear() {
-	const confirmation = confirm("Are you sure you want to clear your cart?");
-	if (!confirmation) return;
-	clearCart();
-	location.reload();
-}
-
-// Process code
-
-function reloadCart() {
+function loadCart() {
 	const cart = getCart();
 	cartTotal = 0;
 	for (const item of cart) {
@@ -136,10 +113,28 @@ function reloadCart() {
 	}
 }
 
-// Post-process code
+function updateTotal() {
+	const cartTax = cartTotal * 0.09;
+	const cartSubtotal = cartTotal - cartTax;
 
-reloadCart();
-updateTotal();
+	e_subtotal.textContent = `$${cartSubtotal.toFixed(2)}`;
+	e_estimatedTax.textContent = `$${cartTax.toFixed(2)}`;
+	e_total.textContent = `$${cartTotal.toFixed(2)}`;
+}
+
+function handleCheckout() {
+	location.href = "/checkout.html";
+}
+
+function handleClear() {
+	const confirmation = confirm("Are you sure you want to clear your cart?");
+	if (!confirmation) return;
+	clearCart();
+	location.reload();
+}
 
 e_checkoutButton.addEventListener("click", handleCheckout);
 e_clearButton.addEventListener("click", handleClear);
+
+loadCart();
+updateTotal();

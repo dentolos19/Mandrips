@@ -1,8 +1,8 @@
 import { getProductsColors } from "../database.js";
-import { getSearchParams } from "../utils.js";
 
-const searchParams = getSearchParams();
-console.log(searchParams);
+const e_toggleButton = document.querySelector("#toggleButton");
+const e_filterButton = document.querySelector("#filterButton");
+const e_closeButton = document.querySelector("#closeButton");
 
 const getFilterElement = (name, value) => {
 	return document.querySelector(`input[name='${name}'][value='${value}']`);
@@ -19,8 +19,6 @@ const e_priceAll = getFilterElement("price", "all");
 const e_priceLow = getFilterElement("price", "low");
 const e_priceMid = getFilterElement("price", "mid");
 const e_priceHigh = getFilterElement("price", "high");
-
-// Declare functions
 
 function filterProduct(product) {
 	// Get filter element states for types
@@ -68,7 +66,7 @@ function refreshProducts() {
 
 			const container = document.createElement("a");
 			container.className = "product";
-			container.href = `product.html?id=${product.id}&color=${product.colorName}`;
+			container.href = `/product.html?id=${product.id}&color=${product.colorName}`;
 			container.appendChild(image);
 			container.appendChild(price);
 
@@ -82,17 +80,13 @@ function toggleFilters() {
 	document.querySelector("main").classList.toggle("filters-hidden");
 }
 
-// Declare event handlers
-
-document
-	.querySelector("#toggleButton")
-	.addEventListener("click", toggleFilters);
-
-document.querySelector("#filterButton").addEventListener("click", (e) => {
-	e.preventDefault();
+function handleFilter(event) {
+	event.preventDefault();
 	refreshProducts();
-});
+}
 
-document.querySelector("#closeButton").addEventListener("click", toggleFilters);
+e_toggleButton.addEventListener("click", toggleFilters);
+e_filterButton.addEventListener("click", handleFilter);
+e_closeButton.addEventListener("click", toggleFilters);
 
 refreshProducts();

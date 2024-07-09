@@ -1,21 +1,25 @@
 import { clearCart } from "../cart.js";
 
 const e_form = document.querySelector("form");
-const e_orderButton = document.querySelector("#orderButton");
-const e_cancelButton = document.querySelector("#cancelButton");
 
 function handleOrder(event) {
 	event.preventDefault();
+
 	clearCart();
-	const values = new FormData(e_form);
-	const firstName = values.get("firstName");
-	const lastName = values.get("lastName");
+
+	const data = new FormData(event.target);
+	const entries = Object.fromEntries(data.entries());
+	const firstName = entries.firstName;
+	const lastName = entries.lastName;
+
 	location.href = `/complete.html?firstName=${firstName}&lastName=${lastName}`;
 }
 
-function handleCancel() {
+function handleCancel(event) {
+	event.preventDefault();
+
 	location.href = "/cart.html";
 }
 
-e_orderButton.addEventListener("click", handleOrder);
-e_cancelButton.addEventListener("click", handleCancel);
+e_form.addEventListener("submit", handleOrder);
+e_form.addEventListener("reset", handleCancel);
