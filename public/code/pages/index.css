@@ -29,13 +29,14 @@ section > .content {
 
 .intro .logo {
   margin: auto auto;
-  width: 150px;
+  width: 300px;
   display: block;
 }
 
 .intro .tagline {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: bold;
-  color: white;
+  text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  color: white;
 }
