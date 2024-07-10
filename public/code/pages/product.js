@@ -36,6 +36,10 @@ const color = searchParams.color;
 const size = searchParams.size;
 
 const e_previews = document.querySelector(".preview");
+const e_form = document.querySelector("form");
+const e_name = document.querySelector(".name");
+const e_price = document.querySelector(".price");
+const e_description = document.querySelector(".description");
 const e_colors = document.querySelector(".colors");
 const e_sizes = document.querySelector(".sizes");
 
@@ -43,10 +47,9 @@ function loadProducts() {
 	getProductColors(id).then((shirtColors) => {
 		// Load product description
 		const shirtColor = shirtColors[0];
-		document.querySelector(".name").textContent = shirtColor.name;
-		document.querySelector(".price").textContent =
-			`$${shirtColor.price.toFixed(2)}`;
-		document.querySelector(".description").textContent = shirtColor.description;
+		e_name.textContent = shirtColor.name;
+		e_price.textContent = `$${shirtColor.price.toFixed(2)}`;
+		e_description.textContent = shirtColor.description;
 
 		// Add shirt previews and color options
 		for (const shirtColor of shirtColors) {
@@ -141,6 +144,6 @@ function handleAdd(event) {
 	alert("Added to cart!");
 }
 
-document.querySelector("form").addEventListener("submit", handleAdd);
+e_form.addEventListener("submit", handleAdd);
 
 loadProducts();

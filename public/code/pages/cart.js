@@ -15,6 +15,9 @@ let cartTotal = 0;
 function loadCart() {
 	const cart = getCart();
 	cartTotal = 0;
+	if (cart) {
+		e_items.innerHTML = "";
+	}
 	for (const item of cart) {
 		getProductColors(item.id).then((productColors) => {
 			const productColor = productColors.find(
@@ -55,7 +58,7 @@ function loadCart() {
 			e_info_actions_increment.addEventListener("click", () => {
 				item.quantity++;
 				setCart(cart);
-				location.reload();
+				loadCart();
 			});
 
 			const e_info_actions_decrement = document.createElement("button");
@@ -76,7 +79,7 @@ function loadCart() {
 				} else {
 					setCart(cart);
 				}
-				location.reload();
+				loadCart();
 			});
 
 			const e_info_actions_remove = document.createElement("button");
@@ -89,7 +92,7 @@ function loadCart() {
 				);
 				if (!confirmation) return;
 				popCart(item);
-				location.reload();
+				loadCart();
 			});
 
 			e_info_actions.appendChild(e_info_actions_increment);
@@ -130,7 +133,7 @@ function handleClear() {
 	const confirmation = confirm("Are you sure you want to clear your cart?");
 	if (!confirmation) return;
 	clearCart();
-	location.reload();
+	loadCart();
 }
 
 e_checkoutButton.addEventListener("click", handleCheckout);

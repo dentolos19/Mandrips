@@ -1,5 +1,5 @@
 <h1>
-    <img src="assets/logo.png" alt="Icon" height="30">
+    <img src="public/assets/logo.png" alt="Icon" height="30">
     <span>Mandrips</span>
 </h1>
 

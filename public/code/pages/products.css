@@ -82,7 +82,17 @@ main.filters-hidden {
   border-top-left-radius: var(--component-radius);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: 25% 1fr;
+  }
+
+  .products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
   main {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
