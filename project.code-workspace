@@ -1,0 +1,11 @@
+{
+  "folders": [
+    {
+      "path": "public"
+    }
+  ],
+  "extensions": {
+    "recommendations": ["ritwickdey.liveserver"]
+  },
+  "settings": {}
+}

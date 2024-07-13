@@ -1,13 +1,30 @@
 main {
-    margin: 0 auto;
-    width: 70%;
+  padding: 1rem 0;
+}
+
+.content {
+  margin: 0 auto;
+  width: 70%;
+}
+
+.table {
+  margin: 0 auto;
+  overflow-x: auto;
 }
 
 table {
-    margin: 0 auto;
+  margin: 0 auto;
+  overflow-x: auto;
 }
 
-table th, table td {
+table th,
+table td {
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: var(--border);
+}
+
+@media (max-width: 768px) {
+  .content {
+    width: 90%;
+  }
 }
