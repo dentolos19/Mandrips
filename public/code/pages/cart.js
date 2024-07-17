@@ -126,10 +126,18 @@ function updateTotal() {
 }
 
 function handleCheckout() {
+	if (cartTotal === 0) {
+		alert("Your cart is empty!");
+		return;
+	}
 	location.href = "/checkout.html";
 }
 
 function handleClear() {
+  if (cartTotal === 0) {
+    alert("Your cart is already empty!");
+    return;
+  }
 	const confirmation = confirm("Are you sure you want to clear your cart?");
 	if (!confirmation) return;
 	clearCart();

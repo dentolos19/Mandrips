@@ -13,9 +13,25 @@ main {
   margin-bottom: 1rem;
 }
 
+.message .summary {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border: var(--border);
+  border-radius: var(--container-radius);
+}
+
 .message .actions {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
+}
+
+.summary .detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.summary .detail .label {
+  font-weight: bold;
 }
