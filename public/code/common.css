@@ -24,7 +24,12 @@ main {
   overflow-y: auto;
 }
 
+.disclaimer {
+  padding: 1.5rem 1rem;
+}
+
 .disclaimer .title {
+  margin: 0;
   text-align: center;
 }
 
