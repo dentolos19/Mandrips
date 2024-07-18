@@ -3,7 +3,7 @@ main {
   grid-template-columns: 15% 1fr;
 }
 
-main.filters-hidden {
+main:has(.filters.hidden) {
   grid-template-columns: 1fr;
 }
 
@@ -11,6 +11,10 @@ main.filters-hidden {
   padding: 1rem;
   border: var(--border);
   box-shadow: var(--high-shadow);
+}
+
+.filters.hidden {
+  display: none;
 }
 
 .filters label {
@@ -98,7 +102,7 @@ main.filters-hidden {
     grid-template-rows: auto 1fr;
   }
 
-  main.filters-hidden {
+  main:has(.filters.hidden) {
     grid-template-rows: 1fr;
   }
 

@@ -24,10 +24,6 @@ main {
   overflow-y: auto;
 }
 
-.hidden {
-  display: none !important;
-}
-
 .disclaimer .title {
   text-align: center;
 }

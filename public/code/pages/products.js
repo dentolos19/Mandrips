@@ -77,7 +77,6 @@ function refreshProducts() {
 
 function toggleFilters() {
 	document.querySelector(".filters").classList.toggle("hidden");
-	document.querySelector("main").classList.toggle("filters-hidden");
 }
 
 function handleFilter(event) {
