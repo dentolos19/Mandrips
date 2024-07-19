@@ -54,7 +54,8 @@ main {
 
 .details {
   padding: 1rem;
-  border: 1px solid #ccc;
+  border: var(--border);
+  box-shadow: var(--high-shadow);
 }
 
 .details .title {

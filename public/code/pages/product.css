@@ -17,6 +17,8 @@ main {
 
 .details {
   padding: 1rem 1.5rem;
+  border: var(--border);
+  box-shadow: var(--high-shadow);
 }
 
 .details .name {
