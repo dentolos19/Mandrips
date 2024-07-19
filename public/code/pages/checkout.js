@@ -1,18 +1,25 @@
-import { clearCart } from "../cart.js";
+import { clearCart, getCartTotal } from "../cart.js";
 
 const e_form = document.querySelector("form");
 
-function handleOrder(event) {
+async function handleOrder(event) {
 	event.preventDefault();
 
-	clearCart();
+	const cartTotal = await getCartTotal();
 
 	const data = new FormData(event.target);
 	const entries = Object.fromEntries(data.entries());
 	const firstName = entries.firstName;
 	const lastName = entries.lastName;
 
-	location.href = `/complete.html?firstName=${firstName}&lastName=${lastName}`;
+	const orderNumber = Math.floor(Math.random() * 10 ** 6);
+	const orderDate = new Date().toLocaleDateString("en-SG");
+	const paymentType = "Credit Card";
+	const paymentTotal = `$${cartTotal.toFixed(2)}`;
+
+	clearCart();
+
+	location.href = `/complete.html?firstName=${firstName}&lastName=${lastName}&orderNumber=${orderNumber}&orderDate=${orderDate}&paymentType=${paymentType}&paymentTotal=${paymentTotal}`;
 }
 
 function handleCancel(event) {

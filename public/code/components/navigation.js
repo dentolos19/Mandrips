@@ -10,7 +10,7 @@ const links = [
 	{
 		title: "Cart",
 		href: "/cart.html",
-	},
+	}
 ];
 
 export function build() {

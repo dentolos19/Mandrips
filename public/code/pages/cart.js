@@ -1,4 +1,4 @@
-import { clearCart, getCart, popCart, setCart } from "../cart.js";
+import { clearCart, getCart, getCartTotal, popCart, setCart } from "../cart.js";
 import { getProductColors } from "../database.js";
 
 // Initialize variables and fetch elements
@@ -10,11 +10,8 @@ const e_total = document.querySelector("#total");
 const e_checkoutButton = document.querySelector("#checkoutButton");
 const e_clearButton = document.querySelector("#clearButton");
 
-let cartTotal = 0;
-
 function loadCart() {
 	const cart = getCart();
-	cartTotal = 0;
 	if (cart) {
 		e_items.innerHTML = "";
 	}
@@ -27,9 +24,6 @@ function loadCart() {
 			const itemTotal = productColor.price * item.quantity;
 			const getItemLabel = () =>
 				`${productColor.colorName} • ${item.size} • Quantity: ${item.quantity}`;
-
-			cartTotal += itemTotal;
-			updateTotal();
 
 			const e_item = document.createElement("div");
 			e_item.className = "item";
@@ -62,6 +56,7 @@ function loadCart() {
 				item.quantity++;
 				setCart(cart);
 				e_info_subtitle.textContent = getItemLabel();
+				updateTotal();
 			});
 
 			const e_info_actions_decrement = document.createElement("button");
@@ -85,6 +80,7 @@ function loadCart() {
 					setCart(cart);
 					e_info_subtitle.textContent = getItemLabel();
 				}
+				updateTotal();
 			});
 
 			const e_info_actions_remove = document.createElement("button");
@@ -98,6 +94,7 @@ function loadCart() {
 				if (!confirmation) return;
 				popCart(item);
 				e_item.remove();
+				updateTotal();
 			});
 
 			e_info_actions.appendChild(e_info_actions_increment);
@@ -121,17 +118,18 @@ function loadCart() {
 	}
 }
 
-function updateTotal() {
+async function updateTotal() {
+	const cartTotal = await getCartTotal();
 	const cartTax = cartTotal * 0.09;
 	const cartSubtotal = cartTotal - cartTax;
-
 	e_subtotal.textContent = `$${cartSubtotal.toFixed(2)}`;
 	e_estimatedTax.textContent = `$${cartTax.toFixed(2)}`;
 	e_total.textContent = `$${cartTotal.toFixed(2)}`;
 }
 
 function handleCheckout() {
-	if (cartTotal === 0) {
+	const cart = getCart();
+	if (cart.length <= 0) {
 		alert("Your cart is empty!");
 		return;
 	}
@@ -139,7 +137,8 @@ function handleCheckout() {
 }
 
 function handleClear() {
-	if (cartTotal === 0) {
+	const cart = getCart();
+	if (cart.length <= 0) {
 		alert("Your cart is already empty!");
 		return;
 	}

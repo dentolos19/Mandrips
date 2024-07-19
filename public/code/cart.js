@@ -1,3 +1,5 @@
+import { getProductsColors } from "./database.js";
+
 class Cart {
 	/**
 	 *
@@ -86,4 +88,18 @@ export function popCart(item) {
 		);
 	});
 	setCart(newCart);
+}
+
+export function getCartTotal() {
+	const cart = getCart();
+	let cartTotal = 0;
+	return getProductsColors().then((products) => {
+		for (const item of cart) {
+			const product = products.find(
+				(product) => product.id.toString() === item.id.toString(),
+			);
+			cartTotal += product.price * item.quantity;
+		}
+		return cartTotal;
+	});
 }
