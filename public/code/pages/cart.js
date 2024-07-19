@@ -23,7 +23,10 @@ function loadCart() {
 			const productColor = productColors.find(
 				(productColor) => productColor.colorName === item.color,
 			);
+
 			const itemTotal = productColor.price * item.quantity;
+			const getItemLabel = () =>
+				`${productColor.colorName} • ${item.size} • Quantity: ${item.quantity}`;
 
 			cartTotal += itemTotal;
 			updateTotal();
@@ -46,7 +49,7 @@ function loadCart() {
 
 			const e_info_subtitle = document.createElement("div");
 			e_info_subtitle.className = "subtitle";
-			e_info_subtitle.textContent = `${productColor.colorName} • ${item.size} • Quantity: ${item.quantity}`;
+			e_info_subtitle.textContent = getItemLabel();
 
 			const e_info_actions = document.createElement("div");
 			e_info_actions.className = "actions";
@@ -58,7 +61,7 @@ function loadCart() {
 			e_info_actions_increment.addEventListener("click", () => {
 				item.quantity++;
 				setCart(cart);
-				loadCart();
+				e_info_subtitle.textContent = getItemLabel();
 			});
 
 			const e_info_actions_decrement = document.createElement("button");
@@ -73,13 +76,15 @@ function loadCart() {
 					);
 					if (!confirmation) {
 						item.quantity = 1;
-						return;
+						e_info_subtitle.textContent = getItemLabel();
+					} else {
+						popCart(item);
+						e_item.remove();
 					}
-					popCart(item);
 				} else {
 					setCart(cart);
+					e_info_subtitle.textContent = getItemLabel();
 				}
-				loadCart();
 			});
 
 			const e_info_actions_remove = document.createElement("button");
@@ -92,7 +97,7 @@ function loadCart() {
 				);
 				if (!confirmation) return;
 				popCart(item);
-				loadCart();
+				e_item.remove();
 			});
 
 			e_info_actions.appendChild(e_info_actions_increment);
@@ -134,10 +139,10 @@ function handleCheckout() {
 }
 
 function handleClear() {
-  if (cartTotal === 0) {
-    alert("Your cart is already empty!");
-    return;
-  }
+	if (cartTotal === 0) {
+		alert("Your cart is already empty!");
+		return;
+	}
 	const confirmation = confirm("Are you sure you want to clear your cart?");
 	if (!confirmation) return;
 	clearCart();
