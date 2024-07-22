@@ -2,7 +2,6 @@ import { pushCart } from "../cart.js";
 import { getProductColors } from "../database.js";
 import { getSearchParams, setSearchParams } from "../utils.js";
 
-// const sizes = ["XS", "S", "M", "L", "XL", "XXL"];
 const sizes = [
 	{
 		id: "XS",
@@ -43,58 +42,57 @@ const e_description = document.querySelector(".description");
 const e_colors = document.querySelector(".colors");
 const e_sizes = document.querySelector(".sizes");
 
-function loadProducts() {
-	getProductColors(id).then((shirtColors) => {
-		// Load product description
-		const shirtColor = shirtColors[0];
-		e_name.textContent = shirtColor.name;
-		e_price.textContent = `$${shirtColor.price.toFixed(2)}`;
-		e_description.textContent = shirtColor.description;
+async function loadProducts() {
+  const shirtColors = await getProductColors(id);
 
-		// Add shirt previews and color options
-		for (const shirtColor of shirtColors) {
-			// Add shirt previews
-			const e_preview = document.createElement("img");
-			e_preview.src = shirtColor.colorUrl;
-			e_preview.alt = shirtColor.colorName;
-			e_previews.appendChild(e_preview);
+	// Load product description
+  const shirtColor = shirtColors[0];
+  e_name.textContent = shirtColor.name;
+  e_price.textContent = `$${shirtColor.price.toFixed(2)}`;
+  e_description.textContent = shirtColor.description;
 
-			// Add color options
-			const e_color = document.createElement("label");
-			e_color.className = "option";
+  for (const shirtColor of shirtColors) {
+    // Add shirt previews
+    const e_preview = document.createElement("img");
+    e_preview.src = shirtColor.colorUrl;
+    e_preview.alt = shirtColor.colorName;
+    e_previews.appendChild(e_preview);
 
-			const e_colorSelector = document.createElement("input");
-			e_colorSelector.type = "radio";
-			e_colorSelector.name = "color";
-			e_colorSelector.value = shirtColor.colorName;
-			e_colorSelector.addEventListener("change", () => {
-				document
-					.querySelector(`img[alt=${shirtColor.colorName}]`)
-					.scrollIntoView();
-				setSearchParams({
-					color: shirtColor.colorName,
-				});
-			});
+    // Add color options
+    const e_color = document.createElement("label");
+    e_color.className = "option";
 
-			const colorNameElement = document.createElement("span");
-			colorNameElement.textContent = shirtColor.colorName;
+    const e_colorSelector = document.createElement("input");
+    e_colorSelector.type = "radio";
+    e_colorSelector.name = "color";
+    e_colorSelector.value = shirtColor.colorName;
+    e_colorSelector.addEventListener("change", () => {
+      document
+        .querySelector(`img[alt=${shirtColor.colorName}]`)
+        .scrollIntoView();
+      setSearchParams({
+        color: shirtColor.colorName,
+      });
+    });
 
-			// TODO: check default if color is invalid
-			if (!color) {
-				e_colorSelector.checked =
-					shirtColor.colorName === shirtColors[0].colorName;
-			} else if (shirtColor.colorName === color) {
-				e_colorSelector.checked = true;
-			}
+    const e_colorName = document.createElement("span");
+    e_colorName.textContent = shirtColor.colorName;
 
-			e_color.appendChild(e_colorSelector);
-			e_color.appendChild(colorNameElement);
-			e_colors.appendChild(e_color);
-		}
+    // TODO: check default if color is invalid
+    if (!color) {
+      e_colorSelector.checked =
+        shirtColor.colorName === shirtColors[0].colorName;
+    } else if (shirtColor.colorName === color) {
+      e_colorSelector.checked = true;
+    }
 
-		// Scroll to param color
-		document.querySelector(`img[alt=${color}]`).scrollIntoView();
-	});
+    e_color.appendChild(e_colorSelector);
+    e_color.appendChild(e_colorName);
+    e_colors.appendChild(e_color);
+  }
+
+  // Scroll to param color
+  document.querySelector(`img[alt=${color}]`).scrollIntoView();
 
 	// Add size options
 	for (const shirtSize of sizes) {

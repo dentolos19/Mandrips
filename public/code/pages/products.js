@@ -1,5 +1,7 @@
 import { getProductsColors } from "../database.js";
 
+const e_products = document.querySelector(".products");
+const e_filters = document.querySelector(".filters")
 const e_toggleButton = document.querySelector("#toggleButton");
 const e_filterButton = document.querySelector("#filterButton");
 const e_closeButton = document.querySelector("#closeButton");
@@ -47,45 +49,43 @@ function filterProduct(product) {
 	);
 }
 
-function refreshProducts() {
-	getProductsColors().then((data) => {
-		const productsElement = document.querySelector(".products");
-		productsElement.innerHTML = "";
+async function loadProducts() {
+	const products = await getProductsColors();
+	e_products.innerHTML = "";
 
-		for (const product of data) {
-			if (filterProduct(product)) {
-				continue;
-			}
-
-			const image = document.createElement("img");
-			image.src = product.colorUrl;
-
-			const price = document.createElement("div");
-			price.className = "price";
-			price.textContent = `$${product.price.toFixed(2)}`;
-
-			const container = document.createElement("a");
-			container.className = "product";
-			container.href = `/product.html?id=${product.id}&color=${product.colorName}`;
-			container.appendChild(image);
-			container.appendChild(price);
-
-			productsElement.appendChild(container);
+	for (const product of products) {
+		if (filterProduct(product)) {
+			continue;
 		}
-	});
+
+		const e_image = document.createElement("img");
+		e_image.src = product.colorUrl;
+
+		const e_price = document.createElement("div");
+		e_price.className = "price";
+		e_price.textContent = `$${product.price.toFixed(2)}`;
+
+		const e_container = document.createElement("a");
+		e_container.className = "product";
+		e_container.href = `/product.html?id=${product.id}&color=${product.colorName}`;
+		e_container.appendChild(e_image);
+		e_container.appendChild(e_price);
+
+		e_products.appendChild(e_container);
+	}
 }
 
-function toggleFilters() {
-	document.querySelector(".filters").classList.toggle("hidden");
+function handleToggle() {
+	e_filters.classList.toggle("hidden");
 }
 
 function handleFilter(event) {
 	event.preventDefault();
-	refreshProducts();
+	loadProducts();
 }
 
-e_toggleButton.addEventListener("click", toggleFilters);
+e_toggleButton.addEventListener("click", handleToggle);
 e_filterButton.addEventListener("click", handleFilter);
-e_closeButton.addEventListener("click", toggleFilters);
+e_closeButton.addEventListener("click", handleToggle);
 
-refreshProducts();
+loadProducts();
