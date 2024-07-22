@@ -10,6 +10,11 @@ main {
   gap: 0.5rem;
 }
 
+.items .empty {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
 .item {
   height: 150px;
   display: grid;

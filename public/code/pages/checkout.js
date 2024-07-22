@@ -9,17 +9,31 @@ async function handleOrder(event) {
 
 	const data = new FormData(event.target);
 	const entries = Object.fromEntries(data.entries());
+
+	let href = "/complete.html?";
+
 	const firstName = entries.firstName;
 	const lastName = entries.lastName;
-
+	const email = entries.email;
+	const city = entries.cityName;
 	const orderNumber = Math.floor(Math.random() * 10 ** 6);
 	const orderDate = new Date().toLocaleDateString("en-SG");
 	const paymentType = "Credit Card";
 	const paymentTotal = `$${cartTotal.toFixed(2)}`;
 
+	href += `firstName=${firstName}`;
+	href += `&lastName=${lastName}`;
+	href += `&email=${email}`;
+	href += `&city=${city}`;
+	href += `&orderNumber=${orderNumber}`;
+	href += `&orderDate=${orderDate}`;
+	href += `&paymentType=${paymentType}`;
+	href += `&paymentTotal=${paymentTotal}`;
+
 	clearCart();
 
-	location.href = `/complete.html?firstName=${firstName}&lastName=${lastName}&orderNumber=${orderNumber}&orderDate=${orderDate}&paymentType=${paymentType}&paymentTotal=${paymentTotal}`;
+	location.href = href;
+	// /complete.html?firstName=Dennise&lastName=Catolos&email=dentolos19@gmail.com&city=Singapore&orderDate=21/21/21&orderNumber=123456&paymentType=Credit%20Card&paymentTotal=S$100
 }
 
 function handleCancel(event) {

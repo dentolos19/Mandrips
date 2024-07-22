@@ -10,7 +10,7 @@ const links = [
 	{
 		title: "Cart",
 		href: "/cart.html",
-	}
+	},
 ];
 
 export function build() {
@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	for (const link of linkElements) {
 		if (link.href === window.location.href) {
 			link.classList.add("active");
+			link.href = "#";
 		}
 	}
 });

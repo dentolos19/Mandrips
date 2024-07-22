@@ -36,25 +36,21 @@
           </label>
           <label class="address2">
             <div>Address Line 2</div>
-            <input type="text" name="addressLine2" />
+            <input type="text" name="addressLine2" placeholder="#12-345" />
           </label>
           <label class="city">
             <div>City</div>
             <input type="text" name="cityName" placeholder="Singapore" required />
           </label>
-          <label class="unit">
-            <div>Unit Number</div>
-            <input type="text" name="unitNumber" placeholder="#01-23" required />
-          </label>
           <label class="postal">
             <div>Postal Code</div>
-            <input type="text" name="postalCode" placeholder="123456" required />
+            <input type="number" name="postalCode" placeholder="123456" required />
           </label>
         </fieldset>
         <fieldset class="payment-info">
           <label class="card-number">
             <div>Card Number</div>
-            <input type="text" name="cardNumber" required />
+            <input type="number" name="cardNumber" placeholder="4385822056110982" required />
           </label>
             <label class="expiry">
             <div>Expiry</div>
@@ -63,7 +59,7 @@
           </label>
           <label class="cvv">
             <div>CVV</div>
-            <input type="text" name="cvv" required />
+            <input type="number" name="cvv" placeholder="123" required />
           </label>
         </fieldset>
         <fieldset class="actions">

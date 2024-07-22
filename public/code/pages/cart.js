@@ -13,16 +13,19 @@ const e_clearButton = document.querySelector("#clearButton");
 async function loadCart() {
 	const cart = getCart();
 
-	if (cart) {
-		e_items.innerHTML = "";
+	if (!(cart.length > 0)) {
+    e_items.innerHTML = "<p class='empty'>Your cart is empty! Let's get shopping!</p>";
+		return;
 	}
 
+	e_items.innerHTML = "";
 	for (const item of cart) {
 		const productColor = (await getProductColors(item.id)).find(
 			(productColor) => productColor.colorName === item.color,
 		);
 
-		const getItemPrice = () => `$${(productColor.price * item.quantity).toFixed(2)}`;
+		const getItemPrice = () =>
+			`$${(productColor.price * item.quantity).toFixed(2)}`;
 		const getItemLabel = () =>
 			`${productColor.colorName} • ${item.size} • Quantity: ${item.quantity}`;
 
@@ -57,7 +60,7 @@ async function loadCart() {
 			item.quantity++;
 			setCart(cart);
 			e_info_subtitle.textContent = getItemLabel();
-      e_price.textContent = getItemPrice();
+			e_price.textContent = getItemPrice();
 			updateTotal();
 		});
 
@@ -82,7 +85,7 @@ async function loadCart() {
 				setCart(cart);
 				e_info_subtitle.textContent = getItemLabel();
 			}
-      e_price.textContent = getItemPrice();
+			e_price.textContent = getItemPrice();
 			updateTotal();
 		});
 

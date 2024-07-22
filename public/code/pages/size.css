@@ -20,7 +20,15 @@ table {
 table th,
 table td {
   padding: 0.5rem;
-  border: var(--border);
+}
+
+table th {
+  color: white;
+  background-color: #333;
+}
+
+table td {
+  background-color: #ccc;
 }
 
 @media (max-width: 768px) {

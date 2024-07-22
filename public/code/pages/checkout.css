@@ -49,9 +49,9 @@ fieldset.personal-info .email {
 fieldset.shipping-info {
   display: grid;
   grid-template-areas:
-    "address1 address1 address1"
-    "address2 address2 address2"
-    "city unit postal";
+    "address1 address1"
+    "address2 address2"
+    "city postal";
   gap: 1rem;
 }
 
@@ -65,10 +65,6 @@ fieldset.shipping-info .address2 {
 
 fieldset.shipping-info .city {
   grid-area: city;
-}
-
-fieldset.shipping-info .unit {
-  grid-area: unit;
 }
 
 fieldset.shipping-info .postal {
@@ -124,7 +120,6 @@ fieldset.actions {
       "address1"
       "address2"
       "city"
-      "unit"
       "postal";
   }
 
