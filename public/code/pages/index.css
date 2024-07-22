@@ -40,3 +40,13 @@ section > .content {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   color: white;
 }
+
+@media (max-width: 768px) {
+  .intro .logo {
+    width: 200px;
+  }
+
+  .intro .tagline {
+    font-size: 2rem;
+  }
+}

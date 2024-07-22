@@ -10,6 +10,11 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  overflow: hidden;
 }
 
 body {
@@ -20,8 +25,13 @@ body {
   font-family: Inter, sans-serif;
 }
 
+nav {
+  z-index: 100;
+}
+
 main {
   overflow-y: auto;
+  animation: transition 500ms;
 }
 
 .disclaimer {
@@ -37,4 +47,13 @@ main {
   display: flex;
   justify-content: center;
   gap: 0.5rem;
+}
+
+@keyframes transition {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -91,7 +91,7 @@ main {
 @media (max-width: 768px) {
   main {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr auto;
   }
 
   .item {
@@ -108,5 +108,21 @@ main {
     justify-content: center;
     font-size: 1.2rem;
     font-weight: bold;
+  }
+
+  .item .title {
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .item .subtitle {
+    text-align: center;
+  }
+
+  .item .actions {
+    margin-top: 0.5rem;
+    justify-content: center;
   }
 }

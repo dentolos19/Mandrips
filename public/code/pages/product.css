@@ -1,12 +1,12 @@
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 1fr;
 }
 
 .preview {
+  aspect-ratio: 1 / 1;
   display: flex;
   overflow: hidden;
-  scroll-behavior: smooth;
 }
 .preview img {
   width: 100%;
@@ -51,14 +51,13 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #24292e;
-  background-color: #fafbfc;
-  border: 1px solid rgba(27, 31, 35, 0.15);
-  border-radius: 8px;
-  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0,
-    rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  color: black;
+  background-color: white;
+  border: var(--border);
+  border-radius: var(--component-radius);
+  box-shadow: var(--low-shadow);
   cursor: pointer;
-  transition: all 100ms;
+  transition: all 250ms;
 }
 
 .option:has(> input:checked) {
@@ -72,9 +71,9 @@ main {
   position: absolute;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   main {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-columns: auto;
+    grid-template-rows: max-content 1fr;
   }
 }
