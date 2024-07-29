@@ -12,8 +12,9 @@ A mock online clothing store made with vanilla HTML, CSS and JavaScript!
 
 ### Installation
 
-1. Navigate to folder `public` in this repository.
-2. Run the server: `py -m http.server`
+1. Navigate to the folder called `public`
+2. Run the server under that folder: `py -m http.server`
+3. Open the website in your browser: `http://localhost:8000`
 
 ## License
 
