@@ -3,30 +3,30 @@ import { getProductColors } from "../database.js";
 import { getSearchParams, setSearchParams } from "../utils.js";
 
 const sizes = [
-	{
-		id: "XS",
-		name: "Extra Small",
-	},
-	{
-		id: "S",
-		name: "Small",
-	},
-	{
-		id: "M",
-		name: "Medium",
-	},
-	{
-		id: "L",
-		name: "Large",
-	},
-	{
-		id: "XL",
-		name: "Extra Large",
-	},
-	{
-		id: "XXL",
-		name: "Extra Extra Large",
-	},
+  {
+    id: "XS",
+    name: "Extra Small",
+  },
+  {
+    id: "S",
+    name: "Small",
+  },
+  {
+    id: "M",
+    name: "Medium",
+  },
+  {
+    id: "L",
+    name: "Large",
+  },
+  {
+    id: "XL",
+    name: "Extra Large",
+  },
+  {
+    id: "XXL",
+    name: "Extra Extra Large",
+  },
 ];
 
 const searchParams = getSearchParams();
@@ -45,7 +45,7 @@ const e_sizes = document.querySelector(".sizes");
 async function loadProducts() {
   const shirtColors = await getProductColors(id);
 
-	// Load product description
+  // Load product description
   const shirtColor = shirtColors[0];
   e_name.textContent = shirtColor.name;
   e_price.textContent = `$${shirtColor.price.toFixed(2)}`;
@@ -67,9 +67,7 @@ async function loadProducts() {
     e_colorSelector.name = "color";
     e_colorSelector.value = shirtColor.colorName;
     e_colorSelector.addEventListener("change", () => {
-      document
-        .querySelector(`img[alt=${shirtColor.colorName}]`)
-        .scrollIntoView();
+      document.querySelector(`img[alt=${shirtColor.colorName}]`).scrollIntoView();
       setSearchParams({
         color: shirtColor.colorName,
       });
@@ -80,8 +78,7 @@ async function loadProducts() {
 
     // TODO: check default if color is invalid
     if (!color) {
-      e_colorSelector.checked =
-        shirtColor.colorName === shirtColors[0].colorName;
+      e_colorSelector.checked = shirtColor.colorName === shirtColors[0].colorName;
     } else if (shirtColor.colorName === color) {
       e_colorSelector.checked = true;
     }
@@ -94,52 +91,52 @@ async function loadProducts() {
   // Scroll to param color
   document.querySelector(`img[alt=${color}]`).scrollIntoView();
 
-	// Add size options
-	for (const shirtSize of sizes) {
-		const sizeElement = document.createElement("label");
-		sizeElement.className = "option";
+  // Add size options
+  for (const shirtSize of sizes) {
+    const sizeElement = document.createElement("label");
+    sizeElement.className = "option";
 
-		const sizeSelectorElement = document.createElement("input");
-		sizeSelectorElement.type = "radio";
-		sizeSelectorElement.name = "size";
-		sizeSelectorElement.value = shirtSize.name;
-		sizeSelectorElement.addEventListener("change", () => {
-			setSearchParams({
-				size: shirtSize.id,
-			});
-		});
+    const sizeSelectorElement = document.createElement("input");
+    sizeSelectorElement.type = "radio";
+    sizeSelectorElement.name = "size";
+    sizeSelectorElement.value = shirtSize.name;
+    sizeSelectorElement.addEventListener("change", () => {
+      setSearchParams({
+        size: shirtSize.id,
+      });
+    });
 
-		const sizeNameElement = document.createElement("span");
-		sizeNameElement.textContent = shirtSize.id;
-		sizeNameElement.title = shirtSize.name;
+    const sizeNameElement = document.createElement("span");
+    sizeNameElement.textContent = shirtSize.id;
+    sizeNameElement.title = shirtSize.name;
 
-		// TODO: check default if size is invalid
-		if (!size) {
-			sizeSelectorElement.checked = shirtSize.id === sizes[2].id;
-		} else if (shirtSize.id === size || shirtSize.name === size) {
-			sizeSelectorElement.checked = true;
-		}
+    // TODO: check default if size is invalid
+    if (!size) {
+      sizeSelectorElement.checked = shirtSize.id === sizes[2].id;
+    } else if (shirtSize.id === size || shirtSize.name === size) {
+      sizeSelectorElement.checked = true;
+    }
 
-		sizeElement.appendChild(sizeSelectorElement);
-		sizeElement.appendChild(sizeNameElement);
-		e_sizes.appendChild(sizeElement);
-	}
+    sizeElement.appendChild(sizeSelectorElement);
+    sizeElement.appendChild(sizeNameElement);
+    e_sizes.appendChild(sizeElement);
+  }
 }
 
 function handleAdd(event) {
-	event.preventDefault();
+  event.preventDefault();
 
-	const data = new FormData(event.target);
-	const entries = Object.fromEntries(data.entries());
+  const data = new FormData(event.target);
+  const entries = Object.fromEntries(data.entries());
 
-	pushCart({
-		id,
-		color: entries.color,
-		size: entries.size,
-		quantity: entries.quantity,
-	});
+  pushCart({
+    id,
+    color: entries.color,
+    size: entries.size,
+    quantity: entries.quantity,
+  });
 
-	alert("Added to cart!");
+  alert("Added to cart!");
 }
 
 e_form.addEventListener("submit", handleAdd);

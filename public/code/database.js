@@ -1,55 +1,55 @@
 class Product {
-	/**
-	 *
-	 * @param {number} id
-	 * @param {string} type
-	 * @param {string} name
-	 * @param {number} price
-	 * @param {string} description
-	 * @param {ProductColor} colors
-	 */
-	constructor(id, type, name, price, description, colors) {
-		this.id = id;
-		this.type = type;
-		this.name = name;
-		this.price = price;
-		this.description = description;
-		this.colors = colors;
-	}
+  /**
+   *
+   * @param {number} id
+   * @param {string} type
+   * @param {string} name
+   * @param {number} price
+   * @param {string} description
+   * @param {ProductColor} colors
+   */
+  constructor(id, type, name, price, description, colors) {
+    this.id = id;
+    this.type = type;
+    this.name = name;
+    this.price = price;
+    this.description = description;
+    this.colors = colors;
+  }
 }
 
 class ProductColor {
-	/**
-	 *
-	 * @param {string} name
-	 * @param {string} url
-	 */
-	constructor(name, url) {
-		this.name = name;
-		this.url = url;
-	}
+  /**
+   *
+   * @param {string} name
+   * @param {string} url
+   */
+  constructor(name, url) {
+    this.name = name;
+    this.url = url;
+  }
 }
 
 class ColoredProduct {
-	/**
-	 *
-	 * @param {number} id
-	 * @param {string} type
-	 * @param {string} name
-	 * @param {number} price
-	 * @param {string} description
-	 * @param {string} colorName
-	 * @param {string} colorUrl
-	 */
-	constructor(id, type, name, price, description, colorName, colorUrl) {
-		this.id = id;
-		this.type = type;
-		this.name = name;
-		this.price = price;
-		this.description = description;
-		this.colorName = colorName;
-		this.colorUrl = colorUrl;
-	}
+  /**
+   *
+   * @param {number} id
+   * @param {string} type
+   * @param {string} name
+   * @param {number} price
+   * @param {string} description
+   * @param {string} colorName
+   * @param {string} colorUrl
+   */
+  constructor(id, type, name, price, description, colorName, colorUrl) {
+    this.id = id;
+    this.type = type;
+    this.name = name;
+    this.price = price;
+    this.description = description;
+    this.colorName = colorName;
+    this.colorUrl = colorUrl;
+  }
 }
 
 /**
@@ -57,7 +57,7 @@ class ColoredProduct {
  * @returns {Promise<Product[]>}
  */
 export function getProducts() {
-	return fetch("/database/products.json").then((response) => response.json());
+  return fetch("/database/products.json").then((response) => response.json());
 }
 
 /**
@@ -65,21 +65,21 @@ export function getProducts() {
  * @returns {Promise<ColoredProduct[]>}
  */
 export function getProductsColors() {
-	return getProducts().then((products) =>
-		products.flatMap((product) =>
-			product.colors.map((color) => {
-				return {
-					id: product.id,
-					type: product.type,
-					name: product.name,
-					price: product.price,
-					description: product.description,
-					colorName: color.name,
-					colorUrl: color.url,
-				};
-			}),
-		),
-	);
+  return getProducts().then((products) =>
+    products.flatMap((product) =>
+      product.colors.map((color) => {
+        return {
+          id: product.id,
+          type: product.type,
+          name: product.name,
+          price: product.price,
+          description: product.description,
+          colorName: color.name,
+          colorUrl: color.url,
+        };
+      })
+    )
+  );
 }
 
 /**
@@ -88,9 +88,7 @@ export function getProductsColors() {
  * @returns {Promise<Product>}
  */
 export function getProduct(id) {
-	return getProducts().then((data) =>
-		data.find((product) => product.id.toString() === id),
-	);
+  return getProducts().then((data) => data.find((product) => product.id.toString() === id));
 }
 
 /**
@@ -99,17 +97,17 @@ export function getProduct(id) {
  * @returns {Promise<ColoredProduct[]>}
  */
 export function getProductColors(id) {
-	return getProduct(id).then((product) =>
-		product.colors.map((color) => {
-			return {
-				id: product.id,
-				type: product.type,
-				name: product.name,
-				price: product.price,
-				description: product.description,
-				colorName: color.name,
-				colorUrl: color.url,
-			};
-		}),
-	);
+  return getProduct(id).then((product) =>
+    product.colors.map((color) => {
+      return {
+        id: product.id,
+        type: product.type,
+        name: product.name,
+        price: product.price,
+        description: product.description,
+        colorName: color.name,
+        colorUrl: color.url,
+      };
+    })
+  );
 }

@@ -31,13 +31,13 @@ e_paymentType.textContent = paymentType;
 e_paymentTotal.textContent = paymentTotal;
 
 e_continueButton.addEventListener("click", () => {
-	location.href = "/products.html";
+  location.href = "/products.html";
 });
 
 e_receiptButton.addEventListener("click", () => {
-	print();
+  print();
 });
 
 e_backButton.addEventListener("click", () => {
-	location.href = "/";
+  location.href = "/";
 });
