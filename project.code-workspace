@@ -4,6 +4,17 @@
       "path": "src"
     }
   ],
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Start",
+        "type": "PowerShell",
+        "request": "launch",
+        "script": "${workspaceFolder}/../start.ps1"
+      }
+    ]
+  },
   "extensions": {
     "recommendations": ["ritwickdey.liveserver"]
   },
